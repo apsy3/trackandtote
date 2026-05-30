@@ -5,147 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Track & Tote helps travelers, shoppers, and teams track totes, parcels, and bags from pickup to handoff."
+      content="Track & Tote is a personal data blog for exploring public datasets, cross-dataset questions, charts, maps, and visual stories."
     >
-    <title>Track & Tote</title>
-    <link rel="preload" as="image" href="assets/trackandtote-hero.png">
+    <title>Track & Tote | Public Data Notes</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Track & Tote home">
-        <span class="brand-mark">T</span>
+        <span class="brand-mark">T&T</span>
         <span>Track & Tote</span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#how">How it works</a>
-        <a href="#features">Features</a>
+        <a href="#notes">Notes</a>
+        <a href="#datasets">Datasets</a>
+        <a href="#maps">Maps</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="header-action" href="#contact">Start tracking</a>
+      <a class="header-action" href="https://github.com/apsy3/trackandtote">GitHub</a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="assets/trackandtote-hero.png" alt="Tracked totes, luggage, and parcels in a modern logistics workspace">
-        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="eyebrow">Smart bag and parcel visibility</p>
+          <p class="eyebrow">Public data, plotted carefully</p>
           <h1 id="hero-title">Track & Tote</h1>
           <p class="hero-copy">
-            Keep every tote, parcel, and travel bag visible from pickup to handoff with simple scans,
-            clear status updates, and delivery-ready records.
+            A personal notebook for collecting public datasets, crossing them with context,
+            and turning the findings into interactive plots, maps, and readable notes.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#contact">Get started</a>
-            <a class="button secondary" href="#how">See workflow</a>
+            <a class="button primary" href="#notes">Read the direction</a>
+            <a class="button secondary" href="#datasets">View dataset lanes</a>
           </div>
         </div>
+
+        <aside class="data-visual" aria-label="Animated data visualization preview">
+          <div class="visual-header">
+            <span>Cross-dataset sketch</span>
+            <span class="pulse">Live draft</span>
+          </div>
+          <canvas id="heroPlot" width="760" height="520"></canvas>
+          <div class="visual-footer">
+            <span>Population</span>
+            <span>Climate</span>
+            <span>Mobility</span>
+            <span>Budgets</span>
+          </div>
+        </aside>
       </section>
 
-      <section class="status-band" aria-label="Live tracking summary">
+      <section class="status-band" aria-label="Site focus">
         <div>
-          <strong>2,480+</strong>
-          <span>bags tracked</span>
+          <strong>Notes</strong>
+          <span>short analysis and blog posts</span>
         </div>
         <div>
-          <strong>99.2%</strong>
-          <span>handoff accuracy</span>
+          <strong>Plots</strong>
+          <span>dynamic charts and comparisons</span>
         </div>
         <div>
-          <strong>24/7</strong>
-          <span>status visibility</span>
+          <strong>Maps</strong>
+          <span>spatial patterns and public layers</span>
         </div>
       </section>
 
-      <section class="section split" id="how">
+      <section class="section split" id="notes">
         <div class="section-copy">
-          <p class="eyebrow">Workflow</p>
-          <h2>Scan once. Follow every move.</h2>
+          <p class="eyebrow">What this becomes</p>
+          <h2>A growing public-data journal.</h2>
           <p>
-            Track & Tote gives each item a simple digital trail so teams can confirm pickup,
-            movement, storage, and final delivery without messy spreadsheets or scattered messages.
+            Track & Tote will evolve as questions become clearer. The first version is a calm home base:
+            a place to publish dataset notes, compare sources, and build interactive views one topic at a time.
           </p>
         </div>
-        <ol class="timeline" aria-label="Tracking workflow">
+        <ol class="timeline" aria-label="Publishing workflow">
           <li>
             <span>01</span>
             <div>
-              <h3>Tag the item</h3>
-              <p>Add a QR or barcode label to the tote, bag, or parcel.</p>
+              <h3>Track a public signal</h3>
+              <p>Find useful datasets from portals, reports, APIs, and open repositories.</p>
             </div>
           </li>
           <li>
             <span>02</span>
             <div>
-              <h3>Scan at each handoff</h3>
-              <p>Capture location, handler, and timestamp at every step.</p>
+              <h3>Tote it into context</h3>
+              <p>Clean, join, compare, and document what each source can and cannot say.</p>
             </div>
           </li>
           <li>
             <span>03</span>
             <div>
-              <h3>Share live status</h3>
-              <p>Give customers and operators a single view of what is moving and what needs attention.</p>
+              <h3>Publish the view</h3>
+              <p>Share charts, maps, and short notes that make the question easier to inspect.</p>
             </div>
           </li>
         </ol>
       </section>
 
-      <section class="section" id="features">
+      <section class="section" id="datasets">
         <div class="section-heading">
-          <p class="eyebrow">Built for daily operations</p>
-          <h2>Useful tracking without the overhead</h2>
+          <p class="eyebrow">Dataset lanes</p>
+          <h2>Flexible enough for the questions we discover.</h2>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>Item history</h3>
-            <p>See every scan, handler, note, and exception in one clean record.</p>
+            <span class="card-kicker">01</span>
+            <h3>City & civic data</h3>
+            <p>Budgets, services, transport, infrastructure, and public dashboards.</p>
           </article>
           <article class="feature-card">
-            <h3>Customer updates</h3>
-            <p>Share status links that reduce calls and keep handoffs transparent.</p>
+            <span class="card-kicker">02</span>
+            <h3>Maps & boundaries</h3>
+            <p>Administrative regions, places, routes, and spatial layers worth comparing.</p>
           </article>
           <article class="feature-card">
-            <h3>Exception alerts</h3>
-            <p>Spot delayed, misplaced, or unscanned items before they become bigger issues.</p>
+            <span class="card-kicker">03</span>
+            <h3>Climate & environment</h3>
+            <p>Weather, air, water, land use, and long-running public observations.</p>
           </article>
           <article class="feature-card">
-            <h3>Team dashboard</h3>
-            <p>Monitor today’s movement, pending pickups, and completed deliveries at a glance.</p>
+            <span class="card-kicker">04</span>
+            <h3>Society & economy</h3>
+            <p>Census-style tables, prices, jobs, health, education, and public indicators.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section map-section" id="maps">
+        <div class="section-copy">
+          <p class="eyebrow">Visual experiments</p>
+          <h2>Charts and maps will be the working surface.</h2>
+          <p>
+            The site can start simple and later grow into searchable posts, embedded notebooks,
+            dataset pages, map layers, filters, and cross-source comparison tools.
+          </p>
+        </div>
+        <div class="map-preview" aria-label="Map and chart preview">
+          <div class="map-grid">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="map-node node-one"></div>
+          <div class="map-node node-two"></div>
+          <div class="map-node node-three"></div>
+          <svg class="route-lines" viewBox="0 0 520 320" role="img" aria-label="Example route lines between mapped data points">
+            <path d="M78 210 C150 95 250 90 316 142 S430 210 472 78"></path>
+            <path d="M118 248 C220 188 272 232 374 168"></path>
+          </svg>
+          <div class="map-stat">
+            <strong>Next</strong>
+            <span>choose first public dataset</span>
+          </div>
         </div>
       </section>
 
       <section class="contact-section" id="contact">
         <div>
-          <p class="eyebrow">Ready to move</p>
-          <h2>Bring Track & Tote to your workflow.</h2>
+          <p class="eyebrow">Open notebook</p>
+          <h2>We can shape this one dataset at a time.</h2>
           <p>
-            Tell us what you need to track and where handoffs happen. We’ll help shape a setup that fits.
+            The site is intentionally broad for now. As the first topics become clear, the homepage can
+            shift from a concept page into a real archive of posts, maps, and interactive tools.
           </p>
         </div>
-        <form class="contact-form" action="mailto:hello@trackandtote.com" method="post" enctype="text/plain">
-          <label>
-            Name
-            <input name="name" autocomplete="name" required>
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-          <label>
-            What are you tracking?
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button class="button primary" type="submit">Send request</button>
-        </form>
+        <div class="contact-panel">
+          <h3>Good first decisions</h3>
+          <ul>
+            <li>Pick the first dataset or theme.</li>
+            <li>Decide whether posts should be Markdown, HTML, or notebook-driven.</li>
+            <li>Add a lightweight charting or mapping library when the first visualization needs it.</li>
+          </ul>
+          <a class="button primary" href="https://github.com/apsy3/trackandtote">Open repo</a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>Track & Tote</span>
-      <span>Smart visibility for bags, totes, and parcels.</span>
+      <span>Personal public-data notes, plots, maps, and experiments.</span>
     </footer>
 
     <script src="script.js"></script>

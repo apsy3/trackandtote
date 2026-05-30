@@ -1,13 +1,16 @@
-# Track & Tote Website
+# Track & Tote
 
-Static website for Track & Tote, ready to deploy on Cloudflare Pages.
+Personal public-data blog and visualization site for exploring datasets, cross-dataset questions, dynamic plots, maps, and short notes.
+
+## Current Version
+
+This is a static Cloudflare-friendly first version. It sets the direction without locking the project into a final content model yet.
 
 ## Files
 
 - `index.html` - main site markup
 - `styles.css` - responsive styling
-- `script.js` - small header scroll interaction
-- `assets/trackandtote-hero.png` - generated hero image asset
+- `script.js` - header behavior and animated hero plot
 
 ## Cloudflare Pages
 
@@ -17,11 +20,8 @@ Use these settings for a static deployment:
 - Build output directory: `/`
 - Root directory: `/`
 
-## GitHub
+## Next Decisions
 
-This local repo currently needs a GitHub remote before it can be pushed:
-
-```bash
-git remote add origin <github-repo-url>
-git push -u origin main
-```
+- First dataset or topic area
+- Blog format: Markdown, HTML, or notebook-driven posts
+- Visualization stack: lightweight charts, maps, or notebook embeds
