@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Track & Tote helps travelers, shoppers, and teams track totes, parcels, and bags from pickup to handoff."
+    >
+    <title>Track & Tote</title>
+    <link rel="preload" as="image" href="assets/trackandtote-hero.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Track & Tote home">
+        <span class="brand-mark">T</span>
+        <span>Track & Tote</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-action" href="#contact">Start tracking</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/trackandtote-hero.png" alt="Tracked totes, luggage, and parcels in a modern logistics workspace">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Smart bag and parcel visibility</p>
+          <h1 id="hero-title">Track & Tote</h1>
+          <p class="hero-copy">
+            Keep every tote, parcel, and travel bag visible from pickup to handoff with simple scans,
+            clear status updates, and delivery-ready records.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#contact">Get started</a>
+            <a class="button secondary" href="#how">See workflow</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="status-band" aria-label="Live tracking summary">
+        <div>
+          <strong>2,480+</strong>
+          <span>bags tracked</span>
+        </div>
+        <div>
+          <strong>99.2%</strong>
+          <span>handoff accuracy</span>
+        </div>
+        <div>
+          <strong>24/7</strong>
+          <span>status visibility</span>
+        </div>
+      </section>
+
+      <section class="section split" id="how">
+        <div class="section-copy">
+          <p class="eyebrow">Workflow</p>
+          <h2>Scan once. Follow every move.</h2>
+          <p>
+            Track & Tote gives each item a simple digital trail so teams can confirm pickup,
+            movement, storage, and final delivery without messy spreadsheets or scattered messages.
+          </p>
+        </div>
+        <ol class="timeline" aria-label="Tracking workflow">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Tag the item</h3>
+              <p>Add a QR or barcode label to the tote, bag, or parcel.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Scan at each handoff</h3>
+              <p>Capture location, handler, and timestamp at every step.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Share live status</h3>
+              <p>Give customers and operators a single view of what is moving and what needs attention.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Built for daily operations</p>
+          <h2>Useful tracking without the overhead</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Item history</h3>
+            <p>See every scan, handler, note, and exception in one clean record.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Customer updates</h3>
+            <p>Share status links that reduce calls and keep handoffs transparent.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Exception alerts</h3>
+            <p>Spot delayed, misplaced, or unscanned items before they become bigger issues.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Team dashboard</h3>
+            <p>Monitor today’s movement, pending pickups, and completed deliveries at a glance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Ready to move</p>
+          <h2>Bring Track & Tote to your workflow.</h2>
+          <p>
+            Tell us what you need to track and where handoffs happen. We’ll help shape a setup that fits.
+          </p>
+        </div>
+        <form class="contact-form" action="mailto:hello@trackandtote.com" method="post" enctype="text/plain">
+          <label>
+            Name
+            <input name="name" autocomplete="name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>
+            What are you tracking?
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="button primary" type="submit">Send request</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Track & Tote</span>
+      <span>Smart visibility for bags, totes, and parcels.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
