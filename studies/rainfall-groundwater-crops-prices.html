@@ -8,7 +8,7 @@
       content="A Track &amp; Tote public-data field note asking whether water stress can help explain onion price shocks in Maharashtra."
     >
     <title>Can Water Stress Explain Onion Price Shocks? | Track &amp; Tote</title>
-    <link rel="stylesheet" href="../styles.css?v=20260531-editorial">
+    <link rel="stylesheet" href="../styles.css?v=20260531-data-essay">
   </head>
   <body class="study-article-page">
     <header class="site-header article-header">
@@ -18,8 +18,9 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#story">Story</a>
+        <a href="#first-signal">Signal</a>
         <a href="#parameters">Parameters</a>
-        <a href="#figures">Figures</a>
+        <a href="#timing">Timing</a>
         <a href="#method">Method</a>
         <a href="#sources">Sources</a>
       </nav>
@@ -40,6 +41,89 @@
           <span>Case: Maharashtra onion</span>
           <span>First market sample: 31 May 2026</span>
         </div>
+      </section>
+
+      <section class="essay-card signal-feature" id="first-signal" aria-labelledby="signal-title">
+        <div class="essay-card-intro">
+          <p class="article-kicker">First data pull</p>
+          <h2 id="signal-title">Onion prices did not look the same across mandis.</h2>
+          <p>
+            The first public API sample is small, but it gives the article a real starting point:
+            on 31 May 2026, exact onion rows from Maharashtra mandis showed a visible spread in
+            modal prices. This does not explain the price; it tells us where to ask the next question.
+          </p>
+        </div>
+
+        <div class="signal-layout">
+          <div class="big-number">
+            <span>Modal price range</span>
+            <strong>Rs 800 -> Rs 1,250</strong>
+            <small>8 exact onion market rows from data.gov.in</small>
+          </div>
+
+          <div class="market-chart-card">
+            <div class="price-scale" aria-hidden="true">
+              <span>Rs 0</span>
+              <span>Rs 950</span>
+              <span>Rs 1,900</span>
+            </div>
+            <div class="market-sample-bars" role="table" aria-label="Maharashtra onion mandi min, max, and modal prices on 31 May 2026">
+              <div class="price-row" role="row" style="--min: 42.1%; --range: 10.5%; --modal: 47.4%;">
+                <span role="cell">Pune(Moshi)</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 900</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 10.5%; --range: 68.4%; --modal: 42.1%;">
+                <span role="cell">Akluj</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 800</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 26.3%; --range: 73.7%; --modal: 63.2%;">
+                <span role="cell">Satara</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 1,200</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 55.3%;">
+                <span role="cell">Pune(Pimpri)</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 1,050</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 31.6%; --range: 26.3%; --modal: 44.7%;">
+                <span role="cell">Pune(Khadiki)</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 850</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 63.2%;">
+                <span role="cell">Vai</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 1,200</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 15.8%; --range: 52.6%; --modal: 42.1%;">
+                <span role="cell">Ch. Sambhajinagar</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 800</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 63.2%; --range: 21%; --modal: 65.8%;">
+                <span role="cell">Mangal Wedha</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">Rs 1,250</strong>
+              </div>
+            </div>
+          </div>
+
+          <aside class="signal-sidefacts" aria-label="Market sample side facts">
+            <div><strong>Highest modal</strong><span>Mangal Wedha, Rs 1,250</span></div>
+            <div><strong>Lowest modal</strong><span>Akluj and Ch. Sambhajinagar, Rs 800</span></div>
+            <div><strong>Average modal</strong><span>About Rs 1,006 per quintal</span></div>
+            <div><strong>Missing field</strong><span>Arrivals were not returned by this endpoint</span></div>
+          </aside>
+        </div>
+
+        <p class="figure-note">
+          Source: data.gov.in, Current Daily Price of Various Commodities from Various Markets
+          (Mandi). This figure uses min, max, and modal price fields only. It does not yet include
+          arrivals, rainfall, groundwater, or multi-month history.
+        </p>
       </section>
 
       <figure class="lead-figure" aria-labelledby="lead-figure-title">
@@ -166,76 +250,13 @@
         </div>
       </section>
 
-      <section class="article-section figures-section" id="figures" aria-labelledby="figures-title">
-        <p class="article-kicker">First figures</p>
-        <h2 id="figures-title">One real sample, several planned views.</h2>
+      <section class="article-section figures-section" id="timing" aria-labelledby="figures-title">
+        <p class="article-kicker">Timing</p>
+        <h2 id="figures-title">A price signal only matters when the timing makes sense.</h2>
         <p class="section-intro">
-          The market figure below uses a tiny public sample from data.gov.in. The rainfall,
-          groundwater, and lag views are still planned until those sources are joined.
+          The next visual layer is about sequence: rainfall conditions, groundwater recovery,
+          crop response, and market prices may not move in the same month.
         </p>
-
-        <figure class="data-figure wide-data-figure">
-          <div class="figure-heading">
-            <span>Figure 1</span>
-            <h3>Onion mandi prices in Maharashtra, 31 May 2026</h3>
-          </div>
-          <div class="market-summary" aria-label="Summary of Maharashtra onion price sample">
-            <div><strong>8</strong><span>exact onion market rows</span></div>
-            <div><strong>Rs 1,006</strong><span>average modal price / quintal</span></div>
-            <div><strong>Rs 800-1,250</strong><span>modal price range</span></div>
-          </div>
-          <div class="price-scale" aria-hidden="true">
-            <span>Rs 0</span>
-            <span>Rs 950</span>
-            <span>Rs 1,900</span>
-          </div>
-          <div class="market-sample-bars" role="table" aria-label="Maharashtra onion mandi min, max, and modal prices on 31 May 2026">
-            <div class="price-row" role="row" style="--min: 42.1%; --range: 10.5%; --modal: 47.4%;">
-              <span role="cell">Pune(Moshi)</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 900</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 10.5%; --range: 68.4%; --modal: 42.1%;">
-              <span role="cell">Akluj</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 800</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 26.3%; --range: 73.7%; --modal: 63.2%;">
-              <span role="cell">Satara</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 1,200</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 55.3%;">
-              <span role="cell">Pune(Pimpri)</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 1,050</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 31.6%; --range: 26.3%; --modal: 44.7%;">
-              <span role="cell">Pune(Khadiki)</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 850</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 63.2%;">
-              <span role="cell">Vai</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 1,200</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 15.8%; --range: 52.6%; --modal: 42.1%;">
-              <span role="cell">Ch. Sambhajinagar</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 800</strong>
-            </div>
-            <div class="price-row" role="row" style="--min: 63.2%; --range: 21%; --modal: 65.8%;">
-              <span role="cell">Mangal Wedha</span>
-              <div class="price-track" role="cell"><i></i><b></b></div>
-              <strong role="cell">Rs 1,250</strong>
-            </div>
-          </div>
-          <figcaption>
-            Source: data.gov.in, Current Daily Price of Various Commodities from Various Markets
-            (Mandi). This endpoint returned min, max, and modal prices, but not arrivals.
-          </figcaption>
-        </figure>
 
         <div class="figure-pair">
           <figure class="data-figure">
@@ -328,6 +349,6 @@
       <span>Study 01: water stress, onion prices, and careful public data.</span>
     </footer>
 
-    <script src="../script.js?v=20260531-editorial"></script>
+    <script src="../script.js?v=20260531-data-essay"></script>
   </body>
 </html>
