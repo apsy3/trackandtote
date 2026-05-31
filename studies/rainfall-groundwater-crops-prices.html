@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A Track & Tote research blueprint for studying rainfall, groundwater, crop production, mandi arrivals, and prices using public data."
+    >
+    <title>Rainfall, Groundwater, Crops & Prices | Track & Tote</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="Track & Tote home">
+        <span class="brand-mark">T&T</span>
+        <span>Track & Tote</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../index.html#notes">Notes</a>
+        <a href="#method">Method</a>
+        <a href="#parameters">Parameters</a>
+        <a href="#sources">Sources</a>
+      </nav>
+      <a class="header-action" href="../index.html">Home</a>
+    </header>
+
+    <main id="top">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy">
+          <p class="eyebrow">Research blueprint 01</p>
+          <h1 id="study-title">Rainfall, groundwater, crops, and prices.</h1>
+          <p>
+            A careful first study for asking whether water stress appears later in crop
+            output, mandi arrivals, and price behavior. The aim is evidence with limits,
+            not a quick causal story.
+          </p>
+        </div>
+        <div class="signal-board" aria-label="Evidence chain from rainfall to prices">
+          <div class="signal-node">
+            <span>01</span>
+            <strong>Rainfall anomaly</strong>
+            <small>actual vs normal, dry spells, extreme days</small>
+          </div>
+          <div class="signal-node">
+            <span>02</span>
+            <strong>Water buffer</strong>
+            <small>groundwater depth, recharge, seasonal recovery</small>
+          </div>
+          <div class="signal-node">
+            <span>03</span>
+            <strong>Crop response</strong>
+            <small>area, production, yield, crop calendar</small>
+          </div>
+          <div class="signal-node">
+            <span>04</span>
+            <strong>Market signal</strong>
+            <small>arrivals, modal price, volatility, spikes</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="study-section question-band" aria-labelledby="question-title">
+        <p class="eyebrow">Core question</p>
+        <h2 id="question-title">
+          When rainfall shifts and groundwater is stressed, what later changes can we observe
+          in crop yield, mandi arrivals, and prices?
+        </h2>
+        <p>
+          The working unit is district by month by crop. This lets daily rainfall and mandi data
+          be summarized without losing the agricultural season, and it gives groundwater and crop
+          statistics a common comparison level.
+        </p>
+      </section>
+
+      <section class="study-section" id="method" aria-labelledby="method-title">
+        <div class="section-heading">
+          <p class="eyebrow">Scientific method</p>
+          <h2 id="method-title">Move from hypothesis to evidence.</h2>
+        </div>
+        <ol class="method-list">
+          <li>
+            <span>Hypothesis</span>
+            <p>Write expected relationships before plotting: rainfall deficit during sensitive crop months may reduce yield or arrivals later.</p>
+          </li>
+          <li>
+            <span>Source audit</span>
+            <p>Record provider, license, update date, geography level, frequency, missing fields, and collection method.</p>
+          </li>
+          <li>
+            <span>Harmonize</span>
+            <p>Normalize district names, crop names, dates, units, and market identifiers before joining datasets.</p>
+          </li>
+          <li>
+            <span>Explore</span>
+            <p>Use anomaly maps, time series, seasonal windows, scatter plots, and lag correlation checks.</p>
+          </li>
+          <li>
+            <span>Test</span>
+            <p>Start with lagged correlations, then consider panel regression with district and month controls once the data is stable.</p>
+          </li>
+          <li>
+            <span>Conclude carefully</span>
+            <p>Separate observed association from causation, and publish the limitations beside the chart.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="study-section parameter-section" id="parameters" aria-labelledby="parameters-title">
+        <div class="section-heading">
+          <p class="eyebrow">Parameters</p>
+          <h2 id="parameters-title">What each dataset should contribute.</h2>
+        </div>
+        <div class="parameter-grid">
+          <article class="parameter-card">
+            <h3>Rainfall</h3>
+            <p>Actual rainfall, normal rainfall, departure %, dry spell length, rainy days, heavy rainfall days, monsoon window.</p>
+            <strong>Derived signals</strong>
+            <p>Monthly anomaly, crop-stage rainfall, rolling deficit, extreme rainfall flag.</p>
+          </article>
+          <article class="parameter-card">
+            <h3>Groundwater</h3>
+            <p>Depth below ground level, pre-monsoon level, post-monsoon recovery, year-on-year change, stress category where available.</p>
+            <strong>Derived signals</strong>
+            <p>Seasonal recharge, long-term decline, drought buffer index.</p>
+          </article>
+          <article class="parameter-card">
+            <h3>Crop</h3>
+            <p>Crop, season, district, sown area, production, yield, irrigation share, crop calendar, major producing districts.</p>
+            <strong>Derived signals</strong>
+            <p>Yield anomaly, area response, sensitive growth-stage window.</p>
+          </article>
+          <article class="parameter-card">
+            <h3>Market</h3>
+            <p>Mandi, arrivals, modal price, min/max price, monthly average, price spread, volatility, price spike events.</p>
+            <strong>Derived signals</strong>
+            <p>Arrival shock, price spike flag, lag from crop stress to market movement.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="study-section pilot-section" aria-labelledby="pilot-title">
+        <div>
+          <p class="eyebrow">Pilot choice</p>
+          <h2 id="pilot-title">Start narrow: Maharashtra and onion.</h2>
+          <p>
+            Onion is a useful first crop because prices are visible to the public, Maharashtra
+            is a major producing state, and water stress can be investigated through rainfall,
+            groundwater, production, arrivals, and price movement.
+          </p>
+        </div>
+        <div class="pilot-panel">
+          <h3>First dashboard views</h3>
+          <ul>
+            <li>District rainfall anomaly map</li>
+            <li>Groundwater depth and seasonal recovery chart</li>
+            <li>Onion arrivals vs modal price chart</li>
+            <li>Yield and production trend by district</li>
+            <li>Lag check between rainfall windows, arrivals, and price spikes</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="study-section evidence-section" aria-labelledby="guardrails-title">
+        <div class="section-heading">
+          <p class="eyebrow">Guardrails</p>
+          <h2 id="guardrails-title">What not to claim too early.</h2>
+        </div>
+        <div class="evidence-grid">
+          <div>
+            <strong>Do say</strong>
+            <p>Rainfall deficit was followed by lower arrivals in these markets during this window.</p>
+          </div>
+          <div>
+            <strong>Do not say yet</strong>
+            <p>Rainfall deficit caused the price increase.</p>
+          </div>
+          <div>
+            <strong>Do control for</strong>
+            <p>Storage, transport, exports, imports, MSP, inflation, nearby-state production, and policy events.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="study-section sources-section" id="sources" aria-labelledby="sources-title">
+        <div class="section-heading">
+          <p class="eyebrow">Public sources</p>
+          <h2 id="sources-title">Start with open, attributable datasets.</h2>
+        </div>
+        <div class="source-list">
+          <a href="https://www.data.gov.in/" target="_blank" rel="noreferrer">
+            <span>Open Government Data Platform India</span>
+            <small>Published datasets are listed under Government Open Data License - India unless a dataset says otherwise.</small>
+          </a>
+          <a href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
+            <span>Rainfall catalog</span>
+            <small>Station, gridded, and district-level rainfall resources from public water and weather sources.</small>
+          </a>
+          <a href="https://delhi.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">
+            <span>AGMARKNET mandi prices via data.gov.in</span>
+            <small>Daily wholesale min, max, and modal prices for commodities across markets.</small>
+          </a>
+          <a href="https://www.cgwb.gov.in/ground-water-level-monitoring" target="_blank" rel="noreferrer">
+            <span>CGWB groundwater monitoring</span>
+            <small>Groundwater level monitoring, seasonal measurements, and links to India-WRIS dissemination.</small>
+          </a>
+          <a href="https://www.upag.gov.in/" target="_blank" rel="noreferrer">
+            <span>UPAg agriculture statistics</span>
+            <small>Unified Portal for Agricultural Statistics from the Directorate of Economics and Statistics.</small>
+          </a>
+          <a href="https://desagri.gov.in/en/document-report-category/agriculture-statistics-at-a-glance/" target="_blank" rel="noreferrer">
+            <span>Agricultural Statistics at a Glance</span>
+            <small>Official agriculture reports for crop production, yield, irrigation, and related indicators.</small>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Track & Tote</span>
+      <span>Research blueprint 01: water stress, crops, and prices.</span>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

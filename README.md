@@ -4,11 +4,12 @@ Personal public-data blog and visualization site for exploring datasets, cross-d
 
 ## Current Version
 
-This is a static Cloudflare-friendly first version. It sets the direction without locking the project into a final content model yet.
+This is a static Cloudflare-friendly first version. It sets the direction and includes the first research blueprint for a public-data study on rainfall, groundwater, crops, and prices.
 
 ## Files
 
 - `index.html` - main site markup
+- `studies/rainfall-groundwater-crops-prices.html` - first research blueprint
 - `styles.css` - responsive styling
 - `script.js` - header behavior and animated hero plot
 
@@ -20,8 +21,10 @@ Use these settings for a static deployment:
 - Build output directory: `/`
 - Root directory: `/`
 
-## Next Decisions
+## Next Research Decisions
 
-- First dataset or topic area
+- Confirm the first crop and geography
+- Pull public source samples and document quality issues
+- Build a district-by-month analysis table
 - Blog format: Markdown, HTML, or notebook-driven posts
 - Visualization stack: lightweight charts, maps, or notebook embeds

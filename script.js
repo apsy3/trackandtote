@@ -1,12 +1,16 @@
 const header = document.querySelector(".site-header");
 const canvas = document.querySelector("#heroPlot");
-const ctx = canvas.getContext("2d");
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 function syncHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
 }
 
 function resizeCanvas() {
+  if (!canvas || !ctx) {
+    return;
+  }
+
   const rect = canvas.getBoundingClientRect();
   const scale = window.devicePixelRatio || 1;
   canvas.width = Math.round(rect.width * scale);
@@ -15,6 +19,10 @@ function resizeCanvas() {
 }
 
 function drawHeroPlot(time = 0) {
+  if (!canvas || !ctx) {
+    return;
+  }
+
   const width = canvas.clientWidth;
   const height = canvas.clientHeight;
   const pad = Math.max(28, width * 0.06);
@@ -95,8 +103,10 @@ function drawHeroPlot(time = 0) {
 }
 
 syncHeader();
-resizeCanvas();
-drawHeroPlot();
+if (canvas) {
+  resizeCanvas();
+  drawHeroPlot();
+}
 
 window.addEventListener("scroll", syncHeader, { passive: true });
 window.addEventListener("resize", resizeCanvas);
