@@ -18,6 +18,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#story">Story</a>
+        <a href="#parameters">Parameters</a>
         <a href="#views">Views</a>
         <a href="#method">Method</a>
         <a href="#sources">Sources</a>
@@ -101,13 +102,88 @@
         </div>
       </section>
 
+      <section class="study-section parameter-workbench" id="parameters" aria-labelledby="parameter-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Parameter logic</p>
+          <h2 id="parameter-title">Parameters are more useful when each one has a job.</h2>
+          <p>
+            Instead of listing variables like a spreadsheet, we sort them by research role:
+            exposure, buffer, response, market signal, and controls. This helps general readers
+            see the story while keeping the analysis disciplined.
+          </p>
+        </div>
+
+        <div class="parameter-roles" aria-label="Parameter roles for the study">
+          <article>
+            <span>Exposure</span>
+            <h3>Rainfall</h3>
+            <p>Actual rainfall, normal rainfall, departure %, rainy days, dry spells, heavy rainfall days.</p>
+            <dl>
+              <div><dt>Signal</dt><dd>crop-stage rainfall anomaly</dd></div>
+              <div><dt>Window</dt><dd>sowing to harvest months</dd></div>
+              <div><dt>Use</dt><dd>possible stress trigger</dd></div>
+            </dl>
+          </article>
+          <article>
+            <span>Buffer</span>
+            <h3>Groundwater</h3>
+            <p>Depth below ground level, pre-monsoon level, post-monsoon recovery, long-term decline.</p>
+            <dl>
+              <div><dt>Signal</dt><dd>seasonal recharge gap</dd></div>
+              <div><dt>Window</dt><dd>pre/post monsoon</dd></div>
+              <div><dt>Use</dt><dd>resilience or vulnerability</dd></div>
+            </dl>
+          </article>
+          <article>
+            <span>Response</span>
+            <h3>Crop output</h3>
+            <p>Onion area, production, yield, season, district, crop calendar, irrigation context.</p>
+            <dl>
+              <div><dt>Signal</dt><dd>yield or production anomaly</dd></div>
+              <div><dt>Window</dt><dd>season and year</dd></div>
+              <div><dt>Use</dt><dd>farm-side response</dd></div>
+            </dl>
+          </article>
+          <article>
+            <span>Market</span>
+            <h3>Prices and arrivals</h3>
+            <p>Mandi modal price, min/max price, market location, arrivals where a public source provides them.</p>
+            <dl>
+              <div><dt>Signal</dt><dd>price spread and modal price shift</dd></div>
+              <div><dt>Window</dt><dd>daily to monthly</dd></div>
+              <div><dt>Use</dt><dd>consumer-visible outcome</dd></div>
+            </dl>
+          </article>
+          <article>
+            <span>Controls</span>
+            <h3>Other explanations</h3>
+            <p>Storage, transport cost, exports/imports, MSP/procurement, inflation, nearby-state supply.</p>
+            <dl>
+              <div><dt>Signal</dt><dd>event and pressure flags</dd></div>
+              <div><dt>Window</dt><dd>weekly to seasonal</dd></div>
+              <div><dt>Use</dt><dd>avoid false certainty</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
       <section class="study-section visual-lab" id="views" aria-labelledby="views-title">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Planned visual views</p>
+          <p class="eyebrow">Visual views</p>
           <h2 id="views-title">A page people can read, scan, and question.</h2>
           <p>
-            These are representational placeholders. They show the intended experience before we
-            connect live public data.
+            The market panel now uses a tiny real sample from data.gov.in. The map,
+            groundwater, and lag panels remain planned views until those sources are joined.
+          </p>
+        </div>
+
+        <div class="sample-note" aria-label="First data pull note">
+          <strong>First API pull: 31 May 2026</strong>
+          <p>
+            The public mandi endpoint returned Maharashtra onion price fields: min, max, and modal
+            price. It did not include arrivals in this response, so arrivals stay marked as a separate
+            data need rather than being filled with invented numbers.
+            <a href="https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">Source page</a>.
           </p>
         </div>
 
@@ -157,41 +233,64 @@
 
           <article class="chart-panel wide-panel">
             <div class="panel-label">
-              <span>Market</span>
-              <strong>Arrivals and modal price</strong>
+              <span>Real sample</span>
+              <strong>Onion mandi prices, Maharashtra</strong>
             </div>
-            <svg class="market-chart" viewBox="0 0 860 250" role="img" aria-label="Planned mandi arrivals and price chart">
-              <g class="chart-grid-lines">
-                <path d="M54 40 H820"></path>
-                <path d="M54 90 H820"></path>
-                <path d="M54 140 H820"></path>
-                <path d="M54 190 H820"></path>
-              </g>
-              <path class="axis" d="M54 28 V210 H826"></path>
-              <g class="arrival-bars">
-                <rect x="82" y="130" width="18" height="80"></rect>
-                <rect x="128" y="112" width="18" height="98"></rect>
-                <rect x="174" y="96" width="18" height="114"></rect>
-                <rect x="220" y="142" width="18" height="68"></rect>
-                <rect x="266" y="158" width="18" height="52"></rect>
-                <rect x="312" y="170" width="18" height="40"></rect>
-                <rect x="358" y="128" width="18" height="82"></rect>
-                <rect x="404" y="116" width="18" height="94"></rect>
-                <rect x="450" y="146" width="18" height="64"></rect>
-                <rect x="496" y="166" width="18" height="44"></rect>
-                <rect x="542" y="172" width="18" height="38"></rect>
-                <rect x="588" y="148" width="18" height="62"></rect>
-                <rect x="634" y="124" width="18" height="86"></rect>
-                <rect x="680" y="104" width="18" height="106"></rect>
-                <rect x="726" y="118" width="18" height="92"></rect>
-              </g>
-              <path class="line-main" d="M90 150 C138 146 168 140 220 150 S292 188 334 176 404 130 452 120 532 70 590 84 690 130 746 100"></path>
-              <text x="60" y="232">arrivals</text>
-              <text x="712" y="232">modal price</text>
-            </svg>
+            <div class="market-snapshot" aria-label="Summary of Maharashtra onion price sample">
+              <div><span>8</span><small>exact onion market rows</small></div>
+              <div><span>₹1,006</span><small>average modal price / quintal</small></div>
+              <div><span>₹800-₹1,250</span><small>modal price range</small></div>
+            </div>
+            <div class="price-scale" aria-hidden="true">
+              <span>₹0</span>
+              <span>₹950</span>
+              <span>₹1,900</span>
+            </div>
+            <div class="market-sample-bars" role="table" aria-label="Maharashtra onion mandi min, max, and modal prices on 31 May 2026">
+              <div class="price-row" role="row" style="--min: 42.1%; --range: 10.5%; --modal: 47.4%;">
+                <span role="cell">Pune(Moshi)</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹900</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 10.5%; --range: 68.4%; --modal: 42.1%;">
+                <span role="cell">Akluj</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹800</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 26.3%; --range: 73.7%; --modal: 63.2%;">
+                <span role="cell">Satara</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹1,200</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 55.3%;">
+                <span role="cell">Pune(Pimpri)</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹1,050</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 31.6%; --range: 26.3%; --modal: 44.7%;">
+                <span role="cell">Pune(Khadiki)</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹850</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 63.2%;">
+                <span role="cell">Vai</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹1,200</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 15.8%; --range: 52.6%; --modal: 42.1%;">
+                <span role="cell">Ch. Sambhajinagar</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹800</strong>
+              </div>
+              <div class="price-row" role="row" style="--min: 63.2%; --range: 21%; --modal: 65.8%;">
+                <span role="cell">Mangal Wedha</span>
+                <div class="price-track" role="cell"><i></i><b></b></div>
+                <strong role="cell">₹1,250</strong>
+              </div>
+            </div>
             <div class="chart-reading two-column">
-              <p><strong>May show:</strong> whether lower arrivals line up with higher prices after a delay.</p>
-              <p><strong>Cannot prove:</strong> supply shortage without checking storage, trade, and policy context.</p>
+              <p><strong>Now shows:</strong> real min-max spread and modal price by mandi for one API pull.</p>
+              <p><strong>Still missing:</strong> arrivals, rainfall context, and multi-month history.</p>
             </div>
           </article>
 
@@ -270,8 +369,8 @@
           <a role="row" href="https://delhi.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">
             <span role="cell">Market</span>
             <span role="cell">AGMARKNET mandi prices via data.gov.in</span>
-            <span role="cell">arrivals, modal price, min/max price, market location</span>
-            <span role="cell">noisy daily data, units, inactive markets, outliers</span>
+            <span role="cell">modal price, min/max price, market location; arrivals need a separate source</span>
+            <span role="cell">noisy daily data, units, inactive markets, outliers, broad commodity matching</span>
           </a>
         </div>
       </section>
