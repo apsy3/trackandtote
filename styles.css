@@ -1951,6 +1951,151 @@ a {
   font-size: 0.78rem;
 }
 
+.research-frame {
+  width: 100%;
+  padding-inline: clamp(20px, 5vw, 72px);
+  background: #f0ede4;
+}
+
+.research-frame > .research-head,
+.research-frame > .mechanism-strip,
+.research-frame > .research-grid,
+.research-frame > .context-rules {
+  width: min(1120px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.research-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.62fr);
+  gap: clamp(28px, 6vw, 82px);
+  align-items: end;
+}
+
+.research-head h2 {
+  margin-bottom: 0;
+}
+
+.research-head > p {
+  margin: 0;
+  color: var(--article-muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 760;
+  line-height: 1.6;
+}
+
+.mechanism-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 34px;
+  border-top: 2px solid var(--article-ink);
+  border-bottom: 1px solid var(--article-rule);
+}
+
+.mechanism-strip div {
+  min-height: 130px;
+  border-right: 1px solid var(--article-rule);
+  padding: 18px 16px 18px 0;
+}
+
+.mechanism-strip div + div {
+  padding-left: 16px;
+}
+
+.mechanism-strip div:last-child {
+  border-right: 0;
+}
+
+.mechanism-strip span,
+.research-card > span {
+  color: var(--article-accent);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.mechanism-strip strong {
+  display: block;
+  margin-top: 34px;
+  color: var(--article-ink);
+  font-size: 1.08rem;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.research-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  border: 1px solid var(--article-rule);
+  padding: 22px;
+  background: #fffdf8;
+}
+
+.research-card h3 {
+  margin: 0;
+  color: var(--article-ink);
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.research-card p {
+  margin: 0;
+  color: var(--article-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.research-card a {
+  margin-top: 6px;
+  color: #2d5143;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.context-rules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 22px;
+  background: var(--article-rule);
+}
+
+.context-rules div {
+  min-height: 112px;
+  padding: 18px;
+  background: #fffdf8;
+}
+
+.context-rules strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--article-ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.98rem;
+}
+
+.context-rules span {
+  color: var(--article-muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 760;
+  line-height: 1.45;
+}
+
 .lead-figure {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 0.32fr);
@@ -2363,6 +2508,8 @@ a {
 }
 
 @media (max-width: 980px) {
+  .research-head,
+  .research-grid,
   .explorer-head,
   .explorer-grid,
   .explorer-interpretation,
@@ -2380,6 +2527,8 @@ a {
   }
 
   .chain-line,
+  .mechanism-strip,
+  .context-rules,
   .source-note-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2428,21 +2577,30 @@ a {
 
   .chain-line,
   .market-summary,
+  .mechanism-strip,
+  .context-rules,
   .pipeline-list,
   .source-note-list {
     grid-template-columns: 1fr;
   }
 
   .chain-line div,
-  .chain-line div + div {
+  .chain-line div + div,
+  .mechanism-strip div,
+  .mechanism-strip div + div {
     min-height: auto;
     border-right: 0;
     border-bottom: 1px solid var(--article-rule);
     padding: 18px 0;
   }
 
-  .chain-line div:last-child {
+  .chain-line div:last-child,
+  .mechanism-strip div:last-child {
     border-bottom: 0;
+  }
+
+  .mechanism-strip strong {
+    margin-top: 12px;
   }
 
   .parameter-ledger > div,

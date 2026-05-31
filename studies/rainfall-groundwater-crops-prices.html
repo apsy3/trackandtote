@@ -8,7 +8,7 @@
       content="A Track &amp; Tote public-data field note asking whether water stress can help explain onion price shocks in Maharashtra."
     >
     <title>Can Water Stress Explain Onion Price Shocks? | Track &amp; Tote</title>
-    <link rel="stylesheet" href="../styles.css?v=20260531-evidence-scroll">
+    <link rel="stylesheet" href="../styles.css?v=20260531-research-frame">
   </head>
   <body class="study-article-page">
     <header class="site-header article-header">
@@ -20,6 +20,7 @@
         <a href="#story">Story</a>
         <a href="#first-signal">Signal</a>
         <a href="#timeframe">Timeframe</a>
+        <a href="#research">Research</a>
         <a href="#parameters">Parameters</a>
         <a href="#method">Method</a>
         <a href="#sources">Sources</a>
@@ -289,6 +290,68 @@
         </div>
       </section>
 
+      <section class="article-section research-frame" id="research" aria-labelledby="research-title">
+        <div class="research-head">
+          <div>
+            <p class="article-kicker">Research frame</p>
+            <h2 id="research-title">Use studies to shape the test, not to decide the answer.</h2>
+          </div>
+          <p>
+            Prior work makes one thing clear: onion prices should not be explained from rainfall
+            alone. The article should test a chain of arrivals, prices, weather anomalies, crop
+            timing, and policy events, then say where the evidence is still weak.
+          </p>
+        </div>
+
+        <div class="mechanism-strip" aria-label="Working mechanism from water stress to price">
+          <div><span>Weather shock</span><strong>Rainfall anomaly</strong></div>
+          <div><span>Water buffer</span><strong>Groundwater recovery</strong></div>
+          <div><span>Farm response</span><strong>Output and arrivals</strong></div>
+          <div><span>Market outcome</span><strong>Modal price and spread</strong></div>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card">
+            <span>Scientific method</span>
+            <h3>Model arrivals, prices, and rainfall together.</h3>
+            <p>
+              A 2024 onion supply-chain study uses monthly arrivals, retail and wholesale prices,
+              and rainfall anomalies, then tests price dynamics with VAR-X and impulse-response
+              analysis. That supports our lag-first approach.
+            </p>
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4794311" target="_blank" rel="noreferrer">Research paper</a>
+          </article>
+
+          <article class="research-card">
+            <span>Public data</span>
+            <h3>Live sources still need alignment before charts.</h3>
+            <p>
+              The rainfall catalog includes gridded IMD and NRSC data plus daily normal rainfall up
+              to district level. The mandi source gives daily public price rows. They become useful
+              only after district and month are made comparable.
+            </p>
+            <a href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">Rainfall catalog</a>
+          </article>
+
+          <article class="research-card">
+            <span>Policy controls</span>
+            <h3>Some shocks are decisions, not weather.</h3>
+            <p>
+              Official releases record export restrictions, minimum export prices, buffer
+              procurement, and releases. These events should become flags in the timeline so we do
+              not mistake policy effects for rainfall effects.
+            </p>
+            <a href="https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1985229" target="_blank" rel="noreferrer">Policy reference</a>
+          </article>
+        </div>
+
+        <div class="context-rules" aria-label="How Track and Tote uses references">
+          <div><strong>Anecdotes</strong><span>Good for asking better questions, not for proving the pattern.</span></div>
+          <div><strong>Studies</strong><span>Good for choosing variables, lag windows, and caveat language.</span></div>
+          <div><strong>Public data</strong><span>Good for charts only after unit, date, and geography are aligned.</span></div>
+        </div>
+      </section>
+
       <section class="article-section" id="parameters" aria-labelledby="parameter-title">
         <p class="article-kicker">Parameter logic</p>
         <h2 id="parameter-title">Each parameter gets a job.</h2>
@@ -415,7 +478,7 @@
       </section>
 
       <section class="article-section source-notes" id="sources" aria-labelledby="sources-title">
-        <p class="article-kicker">Public sources</p>
+        <p class="article-kicker">Public sources and references</p>
         <h2 id="sources-title">The source note is part of the article.</h2>
         <div class="source-note-list">
           <a href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
@@ -434,6 +497,14 @@
             <strong>Market</strong>
             <span>data.gov.in mandi prices. Current sample includes min, max, and modal prices, not arrivals.</span>
           </a>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4794311" target="_blank" rel="noreferrer">
+            <strong>Research</strong>
+            <span>Onion supply-chain study using monthly arrivals, prices, rainfall anomalies, and lag-aware modeling.</span>
+          </a>
+          <a href="https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1985229" target="_blank" rel="noreferrer">
+            <strong>Policy events</strong>
+            <span>PIB release on onion export prohibition and procurement. Useful for event flags and controls.</span>
+          </a>
         </div>
       </section>
     </main>
@@ -443,6 +514,6 @@
       <span>Study 01: water stress, onion prices, and careful public data.</span>
     </footer>
 
-    <script src="../script.js?v=20260531-evidence-scroll"></script>
+    <script src="../script.js?v=20260531-research-frame"></script>
   </body>
 </html>
