@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="A Track &amp; Tote public-data study asking whether water stress can help explain onion price shocks in Maharashtra."
+      content="A Track &amp; Tote public-data field note asking whether water stress can help explain onion price shocks in Maharashtra."
     >
     <title>Can Water Stress Explain Onion Price Shocks? | Track &amp; Tote</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css?v=20260531-editorial">
   </head>
-  <body>
-    <header class="site-header">
+  <body class="study-article-page">
+    <header class="site-header article-header">
       <a class="brand" href="../index.html#top" aria-label="Track &amp; Tote home">
         <span class="brand-mark">T&amp;T</span>
         <span>Track &amp; Tote</span>
@@ -19,389 +19,315 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#story">Story</a>
         <a href="#parameters">Parameters</a>
-        <a href="#views">Views</a>
+        <a href="#figures">Figures</a>
         <a href="#method">Method</a>
         <a href="#sources">Sources</a>
       </nav>
       <a class="header-action" href="../index.html">Home</a>
     </header>
 
-    <main id="top">
-      <section class="study-story-hero" aria-labelledby="study-title">
-        <article class="study-lede" id="story">
-          <p class="eyebrow">Study 01 | Maharashtra onion markets</p>
-          <h1 id="study-title">Can water stress help explain onion price shocks?</h1>
-          <p class="lede-text">
-            Onion prices rise in ways people feel before they read a report. This study asks a
-            careful public-data question: when rainfall is weak and groundwater is already stressed,
-            do we later see changes in onion production, mandi arrivals, and modal prices?
+    <main id="top" class="article-page">
+      <section class="article-hero" id="story" aria-labelledby="study-title">
+        <p class="article-kicker">Study 01 | Maharashtra onion markets</p>
+        <h1 id="study-title">Can water stress help explain onion price shocks?</h1>
+        <p class="article-deck">
+          Onion prices are not just a market chart. They are a public signal people notice at home.
+          This field note begins with a careful question: when rainfall is weak and groundwater is
+          stressed, what later changes can we observe in onion output and mandi prices?
+        </p>
+        <div class="article-meta" aria-label="Study metadata">
+          <span>Track &amp; Tote field note</span>
+          <span>Case: Maharashtra onion</span>
+          <span>First market sample: 31 May 2026</span>
+        </div>
+      </section>
+
+      <figure class="lead-figure" aria-labelledby="lead-figure-title">
+        <div class="lead-map">
+          <svg viewBox="0 0 760 430" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">Representational rainfall and market map</title>
+            <desc id="map-desc">A planned map showing district rainfall departures and market points. Shapes are placeholders, not real boundaries.</desc>
+            <rect x="0" y="0" width="760" height="430" rx="0" fill="#f7f3ea"></rect>
+            <path d="M214 62 338 44 392 128 335 210 210 192 151 117Z" fill="#df8d7f" stroke="#fffdf8" stroke-width="9"></path>
+            <path d="M393 128 520 105 596 182 532 287 401 270 335 210Z" fill="#dbc27e" stroke="#fffdf8" stroke-width="9"></path>
+            <path d="M210 193 335 210 401 270 364 377 224 388 145 292Z" fill="#7da0c8" stroke="#fffdf8" stroke-width="9"></path>
+            <path d="M401 270 532 287 617 361 532 420 364 377Z" fill="#dc755f" stroke="#fffdf8" stroke-width="9"></path>
+            <path d="M145 292 224 388 160 420 62 358 70 281Z" fill="#dce1da" stroke="#fffdf8" stroke-width="9"></path>
+            <path d="M246 358 C296 284 348 253 450 265" fill="none" stroke="#596965" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 18"></path>
+            <circle cx="254" cy="358" r="10" fill="#17201d"></circle>
+            <circle cx="382" cy="234" r="10" fill="#17201d"></circle>
+            <circle cx="490" cy="278" r="10" fill="#17201d"></circle>
+          </svg>
+        </div>
+        <figcaption>
+          <strong id="lead-figure-title">A working picture, not a conclusion.</strong>
+          The map is still representational. It shows the shape of the investigation:
+          rainfall departures, groundwater context, crop response, and mandi prices need to be
+          aligned before we make stronger claims.
+        </figcaption>
+      </figure>
+
+      <section class="article-grid" aria-label="Opening story">
+        <article class="article-body">
+          <p class="dropcap">
+            Onion prices rise in ways people feel before they read a report. A shortage at a mandi,
+            a sudden price jump, or a bad rainfall season can all become part of the same public
+            conversation. The difficult part is knowing which signals actually belong together.
           </p>
           <p>
-            The answer may be partial. Prices also move because of storage, transport, exports,
-            imports, policy decisions, demand, and production in nearby regions. So Track &amp; Tote will
-            look for signals, test lags, and keep the uncertainty visible.
+            This study treats water stress as one possible explanation, not the whole story. Prices
+            also move because of storage, transport, exports, imports, policy decisions, demand, and
+            production in nearby regions. The goal is to show the evidence chain plainly enough for
+            general readers, while keeping the method disciplined enough for data work.
           </p>
-          <div class="study-status" aria-label="Study status">
-            <span>Status: planning</span>
-            <span>Unit: district x month x crop</span>
-            <span>Claim level: pattern, not proof</span>
-          </div>
+          <h2>What we are testing</h2>
+          <p>
+            If rains are weak during crop-sensitive months, farmers may depend more on groundwater.
+            If groundwater is already deep or slow to recover, crop output can become more fragile.
+            Later, markets may receive less supply, and prices may react. That is the hypothesis.
+            It is not yet proof.
+          </p>
         </article>
 
-        <aside class="overview-board" aria-label="Planned study overview">
-          <div class="overview-topline">
-            <span>First picture</span>
-            <strong>Water stress -> market signal</strong>
-          </div>
-          <div class="overview-map" aria-label="Representational district rainfall map">
-            <svg viewBox="0 0 360 260" role="img" aria-labelledby="map-title map-desc">
-              <title id="map-title">Representational rainfall anomaly map</title>
-              <desc id="map-desc">A planned map view for district rainfall departures. Shapes are placeholders, not real boundaries.</desc>
-              <rect x="0" y="0" width="360" height="260" rx="8"></rect>
-              <path class="map-cell dry" d="M98 30 157 20 184 65 154 110 99 101 72 65Z"></path>
-              <path class="map-cell mild" d="M184 65 238 55 271 94 243 145 185 137 154 110Z"></path>
-              <path class="map-cell wet" d="M99 101 154 110 185 137 171 194 110 203 76 155Z"></path>
-              <path class="map-cell dry-strong" d="M185 137 243 145 281 184 242 230 171 194Z"></path>
-              <path class="map-cell neutral" d="M76 155 110 203 82 238 40 204 38 151Z"></path>
-              <circle cx="140" cy="118" r="5"></circle>
-              <circle cx="218" cy="150" r="5"></circle>
-              <circle cx="116" cy="190" r="5"></circle>
-              <path class="map-route" d="M116 190 C145 152 174 134 218 150"></path>
-            </svg>
-            <div class="map-legend" aria-label="Map legend">
-              <span><i class="legend-dry"></i>Deficit</span>
-              <span><i class="legend-mid"></i>Near normal</span>
-              <span><i class="legend-wet"></i>Surplus</span>
-            </div>
-          </div>
-          <div class="overview-note">
-            Planned view: real district geometry and public rainfall data will replace this sketch.
-          </div>
+        <aside class="article-aside" aria-label="Study frame">
+          <h2>Study frame</h2>
+          <dl>
+            <div><dt>Status</dt><dd>Planning with first market sample</dd></div>
+            <div><dt>Unit</dt><dd>District x month x crop</dd></div>
+            <div><dt>Claim level</dt><dd>Pattern, not proof</dd></div>
+            <div><dt>First gap</dt><dd>Arrivals are not in the current price endpoint</dd></div>
+          </dl>
         </aside>
       </section>
 
-      <section class="study-section story-band" aria-labelledby="plain-title">
-        <div class="story-copy">
-          <p class="eyebrow">In plain words</p>
-          <h2 id="plain-title">We are testing a chain, not telling a shortcut story.</h2>
-          <p>
-            If rains are weak during crop-sensitive months, farmers may rely more on groundwater.
-            If groundwater is already deep or slow to recover, crop output can become more fragile.
-            Later, markets may receive fewer onions, and prices may react.
-          </p>
-          <p>
-            But a market price is never just one thing. The study will show what lines up in the data
-            and what still needs another explanation.
-          </p>
-        </div>
-        <div class="chain-strip" aria-label="Evidence chain">
-          <div><span>01</span><strong>Rainfall gap</strong><small>when and where rain departs from normal</small></div>
-          <div><span>02</span><strong>Groundwater buffer</strong><small>whether the district has water cushion</small></div>
-          <div><span>03</span><strong>Crop response</strong><small>area, yield, and production movement</small></div>
-          <div><span>04</span><strong>Mandi signal</strong><small>arrivals, modal price, and volatility</small></div>
+      <section class="article-section evidence-chain" aria-labelledby="chain-title">
+        <p class="article-kicker">Evidence chain</p>
+        <h2 id="chain-title">A simple story, tested in parts.</h2>
+        <div class="chain-line" aria-label="Evidence chain from rainfall to price">
+          <div><span>01</span><strong>Rainfall gap</strong><small>actual vs normal rainfall</small></div>
+          <div><span>02</span><strong>Groundwater buffer</strong><small>depth and seasonal recovery</small></div>
+          <div><span>03</span><strong>Crop response</strong><small>area, production, yield</small></div>
+          <div><span>04</span><strong>Mandi price</strong><small>modal price and spread</small></div>
         </div>
       </section>
 
-      <section class="study-section parameter-workbench" id="parameters" aria-labelledby="parameter-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Parameter logic</p>
-          <h2 id="parameter-title">Parameters are more useful when each one has a job.</h2>
-          <p>
-            Instead of listing variables like a spreadsheet, we sort them by research role:
-            exposure, buffer, response, market signal, and controls. This helps general readers
-            see the story while keeping the analysis disciplined.
-          </p>
-        </div>
+      <section class="article-section" id="parameters" aria-labelledby="parameter-title">
+        <p class="article-kicker">Parameter logic</p>
+        <h2 id="parameter-title">Each parameter gets a job.</h2>
+        <p class="section-intro">
+          A public reader should not have to decode a spreadsheet. This ledger says what each
+          variable contributes to the story, how it will be transformed, and what uncertainty it
+          introduces.
+        </p>
 
-        <div class="parameter-roles" aria-label="Parameter roles for the study">
-          <article>
-            <span>Exposure</span>
-            <h3>Rainfall</h3>
-            <p>Actual rainfall, normal rainfall, departure %, rainy days, dry spells, heavy rainfall days.</p>
-            <dl>
-              <div><dt>Signal</dt><dd>crop-stage rainfall anomaly</dd></div>
-              <div><dt>Window</dt><dd>sowing to harvest months</dd></div>
-              <div><dt>Use</dt><dd>possible stress trigger</dd></div>
-            </dl>
-          </article>
-          <article>
-            <span>Buffer</span>
-            <h3>Groundwater</h3>
-            <p>Depth below ground level, pre-monsoon level, post-monsoon recovery, long-term decline.</p>
-            <dl>
-              <div><dt>Signal</dt><dd>seasonal recharge gap</dd></div>
-              <div><dt>Window</dt><dd>pre/post monsoon</dd></div>
-              <div><dt>Use</dt><dd>resilience or vulnerability</dd></div>
-            </dl>
-          </article>
-          <article>
-            <span>Response</span>
-            <h3>Crop output</h3>
-            <p>Onion area, production, yield, season, district, crop calendar, irrigation context.</p>
-            <dl>
-              <div><dt>Signal</dt><dd>yield or production anomaly</dd></div>
-              <div><dt>Window</dt><dd>season and year</dd></div>
-              <div><dt>Use</dt><dd>farm-side response</dd></div>
-            </dl>
-          </article>
-          <article>
-            <span>Market</span>
-            <h3>Prices and arrivals</h3>
-            <p>Mandi modal price, min/max price, market location, arrivals where a public source provides them.</p>
-            <dl>
-              <div><dt>Signal</dt><dd>price spread and modal price shift</dd></div>
-              <div><dt>Window</dt><dd>daily to monthly</dd></div>
-              <div><dt>Use</dt><dd>consumer-visible outcome</dd></div>
-            </dl>
-          </article>
-          <article>
-            <span>Controls</span>
-            <h3>Other explanations</h3>
-            <p>Storage, transport cost, exports/imports, MSP/procurement, inflation, nearby-state supply.</p>
-            <dl>
-              <div><dt>Signal</dt><dd>event and pressure flags</dd></div>
-              <div><dt>Window</dt><dd>weekly to seasonal</dd></div>
-              <div><dt>Use</dt><dd>avoid false certainty</dd></div>
-            </dl>
-          </article>
+        <div class="parameter-ledger" role="table" aria-label="Parameter logic table">
+          <div class="ledger-head" role="row">
+            <span role="columnheader">Role</span>
+            <span role="columnheader">Parameter</span>
+            <span role="columnheader">Signal we derive</span>
+            <span role="columnheader">Why it matters</span>
+            <span role="columnheader">Main caution</span>
+          </div>
+          <div role="row">
+            <span role="cell">Exposure</span>
+            <span role="cell">Rainfall</span>
+            <span role="cell">Crop-stage anomaly, dry spells, heavy-rain flags</span>
+            <span role="cell">Shows possible water stress during sensitive months</span>
+            <span role="cell">District summaries can hide local variation</span>
+          </div>
+          <div role="row">
+            <span role="cell">Buffer</span>
+            <span role="cell">Groundwater</span>
+            <span role="cell">Pre/post-monsoon recovery and long-term decline</span>
+            <span role="cell">Shows whether rainfall stress had a cushion</span>
+            <span role="cell">Stations must be matched carefully to districts</span>
+          </div>
+          <div role="row">
+            <span role="cell">Response</span>
+            <span role="cell">Crop output</span>
+            <span role="cell">Yield or production anomaly</span>
+            <span role="cell">Connects water conditions to farm-side movement</span>
+            <span role="cell">Annual crop data can be too coarse for short shocks</span>
+          </div>
+          <div role="row">
+            <span role="cell">Market</span>
+            <span role="cell">Mandi prices</span>
+            <span role="cell">Modal price shift and min-max spread</span>
+            <span role="cell">Shows the consumer-visible market signal</span>
+            <span role="cell">Price alone does not prove supply shortage</span>
+          </div>
+          <div role="row">
+            <span role="cell">Controls</span>
+            <span role="cell">Other explanations</span>
+            <span role="cell">Policy, transport, storage, trade, inflation flags</span>
+            <span role="cell">Keeps the result from becoming a simple story too soon</span>
+            <span role="cell">Some context may be event-based rather than numeric</span>
+          </div>
         </div>
       </section>
 
-      <section class="study-section visual-lab" id="views" aria-labelledby="views-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Visual views</p>
-          <h2 id="views-title">A page people can read, scan, and question.</h2>
-          <p>
-            The market panel now uses a tiny real sample from data.gov.in. The map,
-            groundwater, and lag panels remain planned views until those sources are joined.
-          </p>
-        </div>
+      <section class="article-section figures-section" id="figures" aria-labelledby="figures-title">
+        <p class="article-kicker">First figures</p>
+        <h2 id="figures-title">One real sample, several planned views.</h2>
+        <p class="section-intro">
+          The market figure below uses a tiny public sample from data.gov.in. The rainfall,
+          groundwater, and lag views are still planned until those sources are joined.
+        </p>
 
-        <div class="sample-note" aria-label="First data pull note">
-          <strong>First API pull: 31 May 2026</strong>
-          <p>
-            The public mandi endpoint returned Maharashtra onion price fields: min, max, and modal
-            price. It did not include arrivals in this response, so arrivals stay marked as a separate
-            data need rather than being filled with invented numbers.
-            <a href="https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">Source page</a>.
-          </p>
-        </div>
-
-        <div class="chart-grid">
-          <article class="chart-panel map-panel">
-            <div class="panel-label">
-              <span>Map</span>
-              <strong>District rainfall anomaly</strong>
+        <figure class="data-figure wide-data-figure">
+          <div class="figure-heading">
+            <span>Figure 1</span>
+            <h3>Onion mandi prices in Maharashtra, 31 May 2026</h3>
+          </div>
+          <div class="market-summary" aria-label="Summary of Maharashtra onion price sample">
+            <div><strong>8</strong><span>exact onion market rows</span></div>
+            <div><strong>Rs 1,006</strong><span>average modal price / quintal</span></div>
+            <div><strong>Rs 800-1,250</strong><span>modal price range</span></div>
+          </div>
+          <div class="price-scale" aria-hidden="true">
+            <span>Rs 0</span>
+            <span>Rs 950</span>
+            <span>Rs 1,900</span>
+          </div>
+          <div class="market-sample-bars" role="table" aria-label="Maharashtra onion mandi min, max, and modal prices on 31 May 2026">
+            <div class="price-row" role="row" style="--min: 42.1%; --range: 10.5%; --modal: 47.4%;">
+              <span role="cell">Pune(Moshi)</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 900</strong>
             </div>
-            <svg viewBox="0 0 420 250" role="img" aria-label="Planned rainfall anomaly map">
-              <rect x="0" y="0" width="420" height="250" rx="8"></rect>
-              <path class="map-cell dry-strong" d="M103 31 171 19 206 69 173 121 107 111 73 67Z"></path>
-              <path class="map-cell dry" d="M206 69 274 58 315 103 281 160 209 151 173 121Z"></path>
-              <path class="map-cell mild" d="M107 111 173 121 209 151 190 214 119 221 78 167Z"></path>
-              <path class="map-cell wet" d="M209 151 281 160 326 202 284 238 190 214Z"></path>
-              <path class="map-cell neutral" d="M78 167 119 221 87 241 37 206 40 151Z"></path>
+            <div class="price-row" role="row" style="--min: 10.5%; --range: 68.4%; --modal: 42.1%;">
+              <span role="cell">Akluj</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 800</strong>
+            </div>
+            <div class="price-row" role="row" style="--min: 26.3%; --range: 73.7%; --modal: 63.2%;">
+              <span role="cell">Satara</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 1,200</strong>
+            </div>
+            <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 55.3%;">
+              <span role="cell">Pune(Pimpri)</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 1,050</strong>
+            </div>
+            <div class="price-row" role="row" style="--min: 31.6%; --range: 26.3%; --modal: 44.7%;">
+              <span role="cell">Pune(Khadiki)</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 850</strong>
+            </div>
+            <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 63.2%;">
+              <span role="cell">Vai</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 1,200</strong>
+            </div>
+            <div class="price-row" role="row" style="--min: 15.8%; --range: 52.6%; --modal: 42.1%;">
+              <span role="cell">Ch. Sambhajinagar</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 800</strong>
+            </div>
+            <div class="price-row" role="row" style="--min: 63.2%; --range: 21%; --modal: 65.8%;">
+              <span role="cell">Mangal Wedha</span>
+              <div class="price-track" role="cell"><i></i><b></b></div>
+              <strong role="cell">Rs 1,250</strong>
+            </div>
+          </div>
+          <figcaption>
+            Source: data.gov.in, Current Daily Price of Various Commodities from Various Markets
+            (Mandi). This endpoint returned min, max, and modal prices, but not arrivals.
+          </figcaption>
+        </figure>
+
+        <div class="figure-pair">
+          <figure class="data-figure">
+            <div class="figure-heading">
+              <span>Planned figure</span>
+              <h3>Groundwater buffer</h3>
+            </div>
+            <svg class="editorial-line-chart" viewBox="0 0 520 260" role="img" aria-label="Planned groundwater trend chart">
+              <rect x="0" y="0" width="520" height="260" fill="#fffdf8"></rect>
+              <path d="M54 46 H476 M54 96 H476 M54 146 H476 M54 196 H476" fill="none" stroke="#e1ded4" stroke-width="1"></path>
+              <path d="M54 32 V214 H480" fill="none" stroke="#17201d" stroke-width="2"></path>
+              <path d="M58 91 C115 111 132 139 184 130 S274 73 322 129 395 196 470 174" fill="none" stroke="#b74f3e" stroke-width="5" stroke-linecap="round"></path>
+              <path d="M58 154 C137 138 201 158 258 146 S354 121 470 132" fill="none" stroke="#3266a8" stroke-width="4" stroke-linecap="round"></path>
+              <text x="60" y="240" fill="#60706a" font-size="15">pre-monsoon</text>
+              <text x="348" y="240" fill="#60706a" font-size="15">post-monsoon</text>
             </svg>
-            <div class="chart-reading">
-              <p><strong>May show:</strong> clusters of deficit or surplus districts.</p>
-              <p><strong>Cannot prove:</strong> that rain alone moved prices.</p>
-            </div>
-          </article>
+            <figcaption>
+              Planned view. Groundwater depth can show whether a rainfall deficit had a buffer.
+            </figcaption>
+          </figure>
 
-          <article class="chart-panel">
-            <div class="panel-label">
-              <span>Trend</span>
-              <strong>Groundwater depth</strong>
+          <figure class="data-figure">
+            <div class="figure-heading">
+              <span>Planned figure</span>
+              <h3>Lag check</h3>
             </div>
-            <svg class="line-chart" viewBox="0 0 420 250" role="img" aria-label="Planned groundwater trend chart">
-              <g class="chart-grid-lines">
-                <path d="M42 42 H386"></path>
-                <path d="M42 92 H386"></path>
-                <path d="M42 142 H386"></path>
-                <path d="M42 192 H386"></path>
-              </g>
-              <path class="axis" d="M42 32 V210 H390"></path>
-              <path class="line-main" d="M44 86 C88 102 104 125 146 118 S214 80 250 118 310 178 382 164"></path>
-              <path class="line-soft" d="M44 144 C108 130 158 148 204 138 S280 116 382 128"></path>
-              <text x="46" y="231">pre-monsoon</text>
-              <text x="286" y="231">post-monsoon</text>
-            </svg>
-            <div class="chart-reading">
-              <p><strong>May show:</strong> whether the water buffer is weakening.</p>
-              <p><strong>Cannot prove:</strong> farm-level irrigation access.</p>
-            </div>
-          </article>
-
-          <article class="chart-panel wide-panel">
-            <div class="panel-label">
-              <span>Real sample</span>
-              <strong>Onion mandi prices, Maharashtra</strong>
-            </div>
-            <div class="market-snapshot" aria-label="Summary of Maharashtra onion price sample">
-              <div><span>8</span><small>exact onion market rows</small></div>
-              <div><span>₹1,006</span><small>average modal price / quintal</small></div>
-              <div><span>₹800-₹1,250</span><small>modal price range</small></div>
-            </div>
-            <div class="price-scale" aria-hidden="true">
-              <span>₹0</span>
-              <span>₹950</span>
-              <span>₹1,900</span>
-            </div>
-            <div class="market-sample-bars" role="table" aria-label="Maharashtra onion mandi min, max, and modal prices on 31 May 2026">
-              <div class="price-row" role="row" style="--min: 42.1%; --range: 10.5%; --modal: 47.4%;">
-                <span role="cell">Pune(Moshi)</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹900</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 10.5%; --range: 68.4%; --modal: 42.1%;">
-                <span role="cell">Akluj</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹800</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 26.3%; --range: 73.7%; --modal: 63.2%;">
-                <span role="cell">Satara</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹1,200</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 55.3%;">
-                <span role="cell">Pune(Pimpri)</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹1,050</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 31.6%; --range: 26.3%; --modal: 44.7%;">
-                <span role="cell">Pune(Khadiki)</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹850</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 36.8%; --range: 36.9%; --modal: 63.2%;">
-                <span role="cell">Vai</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹1,200</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 15.8%; --range: 52.6%; --modal: 42.1%;">
-                <span role="cell">Ch. Sambhajinagar</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹800</strong>
-              </div>
-              <div class="price-row" role="row" style="--min: 63.2%; --range: 21%; --modal: 65.8%;">
-                <span role="cell">Mangal Wedha</span>
-                <div class="price-track" role="cell"><i></i><b></b></div>
-                <strong role="cell">₹1,250</strong>
-              </div>
-            </div>
-            <div class="chart-reading two-column">
-              <p><strong>Now shows:</strong> real min-max spread and modal price by mandi for one API pull.</p>
-              <p><strong>Still missing:</strong> arrivals, rainfall context, and multi-month history.</p>
-            </div>
-          </article>
-
-          <article class="chart-panel">
-            <div class="panel-label">
-              <span>Lag check</span>
-              <strong>When does the signal appear?</strong>
-            </div>
-            <div class="lag-matrix" aria-label="Planned lag comparison matrix">
+            <div class="editorial-lag-grid" aria-label="Planned lag comparison matrix">
               <span></span><b>1m</b><b>3m</b><b>6m</b>
               <b>Rainfall</b><i class="heat-mid"></i><i class="heat-strong"></i><i class="heat-low"></i>
               <b>Groundwater</b><i class="heat-low"></i><i class="heat-mid"></i><i class="heat-strong"></i>
-              <b>Arrivals</b><i class="heat-strong"></i><i class="heat-mid"></i><i class="heat-low"></i>
+              <b>Prices</b><i class="heat-strong"></i><i class="heat-mid"></i><i class="heat-low"></i>
             </div>
-            <div class="chart-reading">
-              <p><strong>May show:</strong> whether the market reacts immediately or later.</p>
-              <p><strong>Cannot prove:</strong> causation without stronger controls.</p>
-            </div>
-          </article>
+            <figcaption>
+              Planned view. A lag check helps avoid forcing a same-month explanation.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="study-section method-story" id="method" aria-labelledby="method-title">
-        <div class="story-copy">
-          <p class="eyebrow">How we keep it scientific</p>
-          <h2 id="method-title">Readable for everyone, disciplined enough for data work.</h2>
+      <section class="article-grid method-grid" id="method" aria-label="Method and conclusion language">
+        <article class="article-body">
+          <p class="article-kicker">Method</p>
+          <h2>Readable, but not loose.</h2>
           <p>
             The method starts simple: define the question, collect public sources, align them to the
-            same geography and time unit, then check whether the signal survives basic tests.
+            same geography and time unit, then test whether the signal survives basic checks.
           </p>
-        </div>
-        <ol class="method-steps">
-          <li><strong>Ask first.</strong><span>Write the hypothesis before looking for a chart.</span></li>
-          <li><strong>Audit sources.</strong><span>Provider, license, update date, missing values, and limitations.</span></li>
-          <li><strong>Build one table.</strong><span>District x month x crop, with raw and derived variables kept separate.</span></li>
-          <li><strong>Check lags.</strong><span>Compare 1-month, 3-month, and 6-month relationships before claiming a pattern.</span></li>
-          <li><strong>Publish caveats.</strong><span>Every chart gets a note on what it may show and what it cannot prove.</span></li>
-        </ol>
+          <ol class="article-steps">
+            <li><strong>Ask first.</strong> Write the hypothesis before looking for a chart.</li>
+            <li><strong>Audit sources.</strong> Record provider, license, update date, missing values, and limits.</li>
+            <li><strong>Build one table.</strong> Keep raw and derived variables separate.</li>
+            <li><strong>Check lags.</strong> Compare one-month, three-month, and six-month relationships.</li>
+            <li><strong>Publish caveats.</strong> Put uncertainty beside the figure, not in a footnote no one sees.</li>
+          </ol>
+        </article>
+        <aside class="article-aside conclusion-aside">
+          <h2>Result language</h2>
+          <p><strong>Can say early:</strong> these signals appear together in these districts and months.</p>
+          <p><strong>Needs testing:</strong> the relationship survives seasonality, nearby supply, and policy context.</p>
+          <p><strong>Do not say yet:</strong> water stress caused the price increase.</p>
+        </aside>
       </section>
 
-      <section class="study-section source-section" id="sources" aria-labelledby="sources-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Public data plan</p>
-          <h2 id="sources-title">The source table is part of the story.</h2>
-          <p>
-            Good public-data work should let readers see where the numbers came from and where they
-            may be weak.
-          </p>
-        </div>
-
-        <div class="source-table" role="table" aria-label="Planned data sources">
-          <div role="row" class="source-head">
-            <span role="columnheader">Layer</span>
-            <span role="columnheader">Public source</span>
-            <span role="columnheader">What we need</span>
-            <span role="columnheader">Watch-outs</span>
-          </div>
-          <a role="row" href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
-            <span role="cell">Rainfall</span>
-            <span role="cell">data.gov.in rainfall catalog</span>
-            <span role="cell">actual, normal, departure %, dry spells, heavy rain days</span>
-            <span role="cell">district alignment and missing daily observations</span>
+      <section class="article-section source-notes" id="sources" aria-labelledby="sources-title">
+        <p class="article-kicker">Public sources</p>
+        <h2 id="sources-title">The source note is part of the article.</h2>
+        <div class="source-note-list">
+          <a href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
+            <strong>Rainfall</strong>
+            <span>data.gov.in rainfall catalog. Needed for actual, normal, departure %, dry spells, and heavy rain days.</span>
           </a>
-          <a role="row" href="https://www.cgwb.gov.in/ground-water-level-monitoring" target="_blank" rel="noreferrer">
-            <span role="cell">Groundwater</span>
-            <span role="cell">CGWB groundwater monitoring</span>
-            <span role="cell">depth below ground level, seasonal recovery, long-term trend</span>
-            <span role="cell">station-to-district matching and seasonal frequency</span>
+          <a href="https://www.cgwb.gov.in/ground-water-level-monitoring" target="_blank" rel="noreferrer">
+            <strong>Groundwater</strong>
+            <span>CGWB groundwater monitoring. Needed for depth, seasonal recovery, and long-term trend.</span>
           </a>
-          <a role="row" href="https://www.upag.gov.in/" target="_blank" rel="noreferrer">
-            <span role="cell">Crop</span>
-            <span role="cell">UPAg and DES agriculture statistics</span>
-            <span role="cell">area, production, yield, season, crop calendar</span>
-            <span role="cell">annual data, crop-name harmonization, reporting lag</span>
+          <a href="https://www.upag.gov.in/" target="_blank" rel="noreferrer">
+            <strong>Crop</strong>
+            <span>UPAg and DES agriculture statistics. Needed for area, production, yield, and season.</span>
           </a>
-          <a role="row" href="https://delhi.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">
-            <span role="cell">Market</span>
-            <span role="cell">AGMARKNET mandi prices via data.gov.in</span>
-            <span role="cell">modal price, min/max price, market location; arrivals need a separate source</span>
-            <span role="cell">noisy daily data, units, inactive markets, outliers, broad commodity matching</span>
+          <a href="https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">
+            <strong>Market</strong>
+            <span>data.gov.in mandi prices. Current sample includes min, max, and modal prices, not arrivals.</span>
           </a>
-        </div>
-      </section>
-
-      <section class="study-section guardrail-section" aria-labelledby="guardrail-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Result language</p>
-          <h2 id="guardrail-title">The conclusion has to match the evidence.</h2>
-        </div>
-        <div class="guardrail-grid">
-          <article>
-            <strong>What we can say early</strong>
-            <p>Rainfall deficit and lower arrivals appear together in these districts and months.</p>
-          </article>
-          <article>
-            <strong>What needs more testing</strong>
-            <p>The relationship remains after checking groundwater, seasonality, nearby supply, and policy context.</p>
-          </article>
-          <article>
-            <strong>What we should not say yet</strong>
-            <p>Water stress caused the onion price increase.</p>
-          </article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>Track &amp; Tote</span>
-      <span>Study 01: water stress, onion arrivals, and prices.</span>
+      <span>Study 01: water stress, onion prices, and careful public data.</span>
     </footer>
 
-    <script src="../script.js"></script>
+    <script src="../script.js?v=20260531-editorial"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@ Personal public-data blog and visualization site for exploring datasets, cross-d
 
 ## Current Version
 
-This is a static Cloudflare-friendly first version. It sets the direction and includes the first blog-style public-data study on water stress, onion arrivals, and prices. The study page now includes a small real Maharashtra onion mandi price sample from data.gov.in.
+This is a static Cloudflare-friendly first version. It sets the direction and includes the first editorial public-data field note on water stress, onion prices, and careful evidence. The study page includes a small real Maharashtra onion mandi price sample from data.gov.in.
 
 ## Files
 
