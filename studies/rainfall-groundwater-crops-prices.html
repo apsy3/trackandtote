@@ -8,7 +8,7 @@
       content="A Track &amp; Tote public-data field note asking whether water stress can help explain onion price shocks in Maharashtra."
     >
     <title>Can Water Stress Explain Onion Price Shocks? | Track &amp; Tote</title>
-    <link rel="stylesheet" href="../styles.css?v=20260531-data-essay">
+    <link rel="stylesheet" href="../styles.css?v=20260531-evidence-scroll">
   </head>
   <body class="study-article-page">
     <header class="site-header article-header">
@@ -19,8 +19,8 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#story">Story</a>
         <a href="#first-signal">Signal</a>
+        <a href="#timeframe">Timeframe</a>
         <a href="#parameters">Parameters</a>
-        <a href="#timing">Timing</a>
         <a href="#method">Method</a>
         <a href="#sources">Sources</a>
       </nav>
@@ -126,30 +126,124 @@
         </p>
       </section>
 
-      <figure class="lead-figure" aria-labelledby="lead-figure-title">
-        <div class="lead-map">
-          <svg viewBox="0 0 760 430" role="img" aria-labelledby="map-title map-desc">
-            <title id="map-title">Representational rainfall and market map</title>
-            <desc id="map-desc">A planned map showing district rainfall departures and market points. Shapes are placeholders, not real boundaries.</desc>
-            <rect x="0" y="0" width="760" height="430" rx="0" fill="#f7f3ea"></rect>
-            <path d="M214 62 338 44 392 128 335 210 210 192 151 117Z" fill="#df8d7f" stroke="#fffdf8" stroke-width="9"></path>
-            <path d="M393 128 520 105 596 182 532 287 401 270 335 210Z" fill="#dbc27e" stroke="#fffdf8" stroke-width="9"></path>
-            <path d="M210 193 335 210 401 270 364 377 224 388 145 292Z" fill="#7da0c8" stroke="#fffdf8" stroke-width="9"></path>
-            <path d="M401 270 532 287 617 361 532 420 364 377Z" fill="#dc755f" stroke="#fffdf8" stroke-width="9"></path>
-            <path d="M145 292 224 388 160 420 62 358 70 281Z" fill="#dce1da" stroke="#fffdf8" stroke-width="9"></path>
-            <path d="M246 358 C296 284 348 253 450 265" fill="none" stroke="#596965" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 18"></path>
-            <circle cx="254" cy="358" r="10" fill="#17201d"></circle>
-            <circle cx="382" cy="234" r="10" fill="#17201d"></circle>
-            <circle cx="490" cy="278" r="10" fill="#17201d"></circle>
-          </svg>
+      <section class="article-section time-explorer" id="timeframe" aria-labelledby="timeframe-title" data-evidence-explorer>
+        <div class="explorer-head">
+          <div>
+            <p class="article-kicker">Longitudinal frame</p>
+            <h2 id="timeframe-title">Scroll time, but only compare aligned evidence.</h2>
+          </div>
+          <p>
+            A time scroller is useful only after each source is translated to the same geography and
+            time unit. This first explorer shows the analysis frame honestly: the market layer has
+            one verified public sample, while rainfall, groundwater, crop output, and arrivals still
+            need historical joins before the article can make an outcome claim.
+          </p>
         </div>
-        <figcaption>
-          <strong id="lead-figure-title">A working picture, not a conclusion.</strong>
-          The map is still representational. It shows the shape of the investigation:
-          rainfall departures, groundwater context, crop response, and mandi prices need to be
-          aligned before we make stronger claims.
-        </figcaption>
-      </figure>
+
+        <div class="time-control">
+          <div class="time-control-top">
+            <label for="evidenceMonth">Evidence month</label>
+            <div class="time-readout">
+              <strong data-frame-label>May 2026</strong>
+              <span data-frame-status>Partial evidence</span>
+            </div>
+          </div>
+          <input id="evidenceMonth" type="range" min="0" max="5" value="5" step="1" data-time-slider>
+          <div class="time-ticks" aria-hidden="true">
+            <span>2021</span>
+            <span>2022</span>
+            <span>2023</span>
+            <span>2024</span>
+            <span>2025</span>
+            <span>2026</span>
+          </div>
+        </div>
+
+        <div class="explorer-grid">
+          <article class="evidence-panel" aria-labelledby="frame-title">
+            <div class="panel-heading">
+              <span>Selected frame</span>
+              <h3 id="frame-title" data-frame-title>May 2026: one verified market signal</h3>
+            </div>
+            <div class="coverage-meter" data-coverage-meter style="--coverage: 25%;">
+              <span>Layer coverage</span>
+              <b data-coverage-label>1 of 5 evidence layers joined</b>
+              <i aria-hidden="true"></i>
+            </div>
+            <div class="layer-stack" data-layer-stack aria-live="polite">
+              <div class="layer-row is-pending">
+                <div><strong>Rainfall</strong><span>district-month</span></div>
+                <span class="layer-state">source needed</span>
+                <p>Need actual rainfall, normal rainfall, departure %, dry-spell days, and heavy-rain flags before this layer can explain stress.</p>
+              </div>
+              <div class="layer-row is-seasonal">
+                <div><strong>Groundwater</strong><span>seasonal buffer</span></div>
+                <span class="layer-state">coarser time</span>
+                <p>Likely pre/post-monsoon rather than daily. It can describe water cushion, but must be joined carefully to month and district.</p>
+              </div>
+              <div class="layer-row is-pending">
+                <div><strong>Crop output</strong><span>district-season</span></div>
+                <span class="layer-state">source needed</span>
+                <p>Need onion area, production, yield, and season. Monthly market movement should be interpreted against the crop calendar.</p>
+              </div>
+              <div class="layer-row is-missing">
+                <div><strong>Arrivals</strong><span>mandi-month</span></div>
+                <span class="layer-state">not in sample</span>
+                <p>The first mandi endpoint returned prices, but not arrivals. Without arrivals, price movement cannot be read as supply movement.</p>
+              </div>
+              <div class="layer-row is-verified">
+                <div><strong>Mandi price</strong><span>8 exact onion rows</span></div>
+                <span class="layer-state">verified</span>
+                <p>31 May 2026 Maharashtra onion rows show modal prices from Rs 800 to Rs 1,250 per quintal. This is a market signal, not a causal explanation.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="evidence-panel" aria-labelledby="lag-readiness-title">
+            <div class="panel-heading">
+              <span>Lag readiness</span>
+              <h3 id="lag-readiness-title">What can be tested at this point?</h3>
+            </div>
+            <div class="lag-readiness" data-lag-bars aria-live="polite">
+              <div class="lag-bar" style="--lag-fill: 22%;">
+                <span>Same month</span>
+                <i aria-hidden="true"></i>
+                <small>Market price sample exists, but drivers are not joined.</small>
+              </div>
+              <div class="lag-bar" style="--lag-fill: 8%;">
+                <span>1 month</span>
+                <i aria-hidden="true"></i>
+                <small>Needs rainfall history before testing.</small>
+              </div>
+              <div class="lag-bar" style="--lag-fill: 8%;">
+                <span>3 months</span>
+                <i aria-hidden="true"></i>
+                <small>Needs crop-stage and arrivals history.</small>
+              </div>
+              <div class="lag-bar" style="--lag-fill: 8%;">
+                <span>6 months</span>
+                <i aria-hidden="true"></i>
+                <small>Needs groundwater, storage, and season controls.</small>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="explorer-interpretation">
+          <div>
+            <strong data-reading-title>What this frame can say</strong>
+            <p data-reading-copy>
+              The page can show a market spread, but not yet a water-stress explanation.
+            </p>
+          </div>
+          <div class="pipeline-list" aria-label="Live data method">
+            <span><b>1</b> Pull live or historical source rows</span>
+            <span><b>2</b> Normalize to district-month-crop</span>
+            <span><b>3</b> Cache the aligned result for charts</span>
+            <span><b>4</b> Publish claims only from joined evidence</span>
+          </div>
+        </div>
+      </section>
 
       <section class="article-grid" aria-label="Opening story">
         <article class="article-body">
@@ -349,6 +443,6 @@
       <span>Study 01: water stress, onion prices, and careful public data.</span>
     </footer>
 
-    <script src="../script.js?v=20260531-data-essay"></script>
+    <script src="../script.js?v=20260531-evidence-scroll"></script>
   </body>
 </html>

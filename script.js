@@ -1,8 +1,13 @@
 const header = document.querySelector(".site-header");
 const canvas = document.querySelector("#heroPlot");
 const ctx = canvas ? canvas.getContext("2d") : null;
+const evidenceExplorer = document.querySelector("[data-evidence-explorer]");
 
 function syncHeader() {
+  if (!header) {
+    return;
+  }
+
   header.classList.toggle("is-scrolled", window.scrollY > 24);
 }
 
@@ -102,7 +107,185 @@ function drawHeroPlot(time = 0) {
   requestAnimationFrame(drawHeroPlot);
 }
 
+function buildEvidenceLayers(marketLayer) {
+  return [
+    {
+      name: "Rainfall",
+      unit: "district-month",
+      state: "pending",
+      badge: "source needed",
+      reading: "Need actual rainfall, normal rainfall, departure %, dry-spell days, and heavy-rain flags before this layer can explain stress."
+    },
+    {
+      name: "Groundwater",
+      unit: "seasonal buffer",
+      state: "seasonal",
+      badge: "coarser time",
+      reading: "Likely pre/post-monsoon rather than daily. It can describe water cushion, but must be joined carefully to month and district."
+    },
+    {
+      name: "Crop output",
+      unit: "district-season",
+      state: "pending",
+      badge: "source needed",
+      reading: "Need onion area, production, yield, and season. Monthly market movement should be interpreted against the crop calendar."
+    },
+    {
+      name: "Arrivals",
+      unit: "mandi-month",
+      state: "missing",
+      badge: "not in sample",
+      reading: "The first mandi endpoint returned prices, but not arrivals. Without arrivals, price movement cannot be read as supply movement."
+    },
+    marketLayer
+  ];
+}
+
+function buildPendingFrame(label, status, title) {
+  return {
+    label,
+    status,
+    title,
+    coverage: 0,
+    coverageLabel: "0 of 5 evidence layers joined",
+    layers: buildEvidenceLayers({
+      name: "Mandi price",
+      unit: "market-day to month",
+      state: "pending",
+      badge: "pull needed",
+      reading: "Need historical min, max, modal price rows for selected mandis, then monthly aggregation and outlier checks."
+    }),
+    lags: [
+      { label: "Same month", fill: 6, note: "No joined layers yet for this frame." },
+      { label: "1 month", fill: 6, note: "Waiting for rainfall and market history." },
+      { label: "3 months", fill: 6, note: "Waiting for crop-stage alignment." },
+      { label: "6 months", fill: 6, note: "Waiting for season and storage context." }
+    ],
+    readingTitle: "What this frame can say",
+    readingCopy: "Nothing interpretive yet. This is a time slot where source rows must be fetched, normalized, and checked before the article says anything about outcome."
+  };
+}
+
+const evidenceFrames = [
+  buildPendingFrame("Jun 2021", "Baseline to fetch", "Jun 2021: baseline frame"),
+  buildPendingFrame("Jun 2022", "Historical pull needed", "Jun 2022: comparison frame"),
+  buildPendingFrame("Jun 2023", "Historical pull needed", "Jun 2023: stress-test frame"),
+  buildPendingFrame("Jun 2024", "Historical pull needed", "Jun 2024: seasonality frame"),
+  buildPendingFrame("Jun 2025", "Historical pull needed", "Jun 2025: recent comparison frame"),
+  {
+    label: "May 2026",
+    status: "Partial evidence",
+    title: "May 2026: one verified market signal",
+    coverage: 20,
+    coverageLabel: "1 of 5 evidence layers joined",
+    layers: buildEvidenceLayers({
+      name: "Mandi price",
+      unit: "8 exact onion rows",
+      state: "verified",
+      badge: "verified",
+      reading: "31 May 2026 Maharashtra onion rows show modal prices from Rs 800 to Rs 1,250 per quintal. This is a market signal, not a causal explanation."
+    }),
+    lags: [
+      { label: "Same month", fill: 22, note: "Market price sample exists, but drivers are not joined." },
+      { label: "1 month", fill: 8, note: "Needs rainfall history before testing." },
+      { label: "3 months", fill: 8, note: "Needs crop-stage and arrivals history." },
+      { label: "6 months", fill: 8, note: "Needs groundwater, storage, and season controls." }
+    ],
+    readingTitle: "What this frame can say",
+    readingCopy: "We can say the selected market sample has a visible price spread. We cannot yet say rainfall, groundwater, or crop output explains it."
+  }
+];
+
+function setExplorerText(selector, text) {
+  const element = evidenceExplorer.querySelector(selector);
+  if (element) {
+    element.textContent = text;
+  }
+}
+
+function renderEvidenceFrame(index) {
+  if (!evidenceExplorer) {
+    return;
+  }
+
+  const frame = evidenceFrames[index] || evidenceFrames[evidenceFrames.length - 1];
+  const coverageMeter = evidenceExplorer.querySelector("[data-coverage-meter]");
+  const layerStack = evidenceExplorer.querySelector("[data-layer-stack]");
+  const lagBars = evidenceExplorer.querySelector("[data-lag-bars]");
+
+  setExplorerText("[data-frame-label]", frame.label);
+  setExplorerText("[data-frame-status]", frame.status);
+  setExplorerText("[data-frame-title]", frame.title);
+  setExplorerText("[data-coverage-label]", frame.coverageLabel);
+  setExplorerText("[data-reading-title]", frame.readingTitle);
+  setExplorerText("[data-reading-copy]", frame.readingCopy);
+
+  if (coverageMeter) {
+    coverageMeter.style.setProperty("--coverage", `${frame.coverage}%`);
+  }
+
+  if (layerStack) {
+    layerStack.replaceChildren();
+    frame.layers.forEach((layer) => {
+      const row = document.createElement("div");
+      row.className = `layer-row is-${layer.state}`;
+
+      const identity = document.createElement("div");
+      const title = document.createElement("strong");
+      const unit = document.createElement("span");
+      title.textContent = layer.name;
+      unit.textContent = layer.unit;
+      identity.append(title, unit);
+
+      const badge = document.createElement("span");
+      badge.className = "layer-state";
+      badge.textContent = layer.badge;
+
+      const reading = document.createElement("p");
+      reading.textContent = layer.reading;
+
+      row.append(identity, badge, reading);
+      layerStack.append(row);
+    });
+  }
+
+  if (lagBars) {
+    lagBars.replaceChildren();
+    frame.lags.forEach((lag) => {
+      const row = document.createElement("div");
+      row.className = "lag-bar";
+      row.style.setProperty("--lag-fill", `${lag.fill}%`);
+
+      const label = document.createElement("span");
+      const bar = document.createElement("i");
+      const note = document.createElement("small");
+      label.textContent = lag.label;
+      note.textContent = lag.note;
+
+      row.append(label, bar, note);
+      lagBars.append(row);
+    });
+  }
+}
+
+function initEvidenceExplorer() {
+  if (!evidenceExplorer) {
+    return;
+  }
+
+  const slider = evidenceExplorer.querySelector("[data-time-slider]");
+  if (!slider) {
+    return;
+  }
+
+  slider.max = evidenceFrames.length - 1;
+  slider.value = evidenceFrames.length - 1;
+  renderEvidenceFrame(Number(slider.value));
+  slider.addEventListener("input", () => renderEvidenceFrame(Number(slider.value)));
+}
+
 syncHeader();
+initEvidenceExplorer();
 if (canvas) {
   resizeCanvas();
   drawHeroPlot();
