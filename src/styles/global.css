@@ -58,7 +58,7 @@ p {
   top: 0;
   z-index: 30;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 1rem;
   min-height: 72px;
@@ -101,13 +101,6 @@ p {
 
 .site-header nav a.is-active {
   color: var(--ink);
-}
-
-.rss-link {
-  border: 1px solid rgba(20, 32, 30, 0.2);
-  border-radius: 8px;
-  padding: 0.5rem 0.8rem;
-  font-weight: 700;
 }
 
 .hero {
@@ -485,7 +478,7 @@ p {
 
 @media (max-width: 760px) {
   .site-header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     row-gap: 0.5rem;
   }
 
