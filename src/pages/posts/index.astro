@@ -1,0 +1,79 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PostCard from "@/components/PostCard.astro";
+import { readingMinutes } from "@/lib/readingTime";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const allTags = [...new Set(posts.flatMap((post) => post.data.tags))].sort((a, b) =>
+  a.localeCompare(b, "en", { sensitivity: "base" })
+);
+---
+
+<BaseLayout
+  title="Posts"
+  description="Browse short essays, blogs, and notes from Track & Tote with tag and keyword filtering."
+>
+  <section class="page-intro">
+    <p class="kicker">Archive</p>
+    <h1>Posts</h1>
+    <p>Filter by keyword or tag. Every entry is markdown-native and update-friendly.</p>
+  </section>
+
+  <section class="post-controls" aria-label="Post filters">
+    <label>
+      <span>Search</span>
+      <input id="postSearch" type="search" placeholder="Find topic, phrase, or keyword" />
+    </label>
+    <label>
+      <span>Tag</span>
+      <select id="tagFilter">
+        <option value="">All tags</option>
+        {allTags.map((tag) => <option value={tag.toLowerCase()}>{tag}</option>)}
+      </select>
+    </label>
+  </section>
+
+  <p class="result-count" id="resultCount">{posts.length} posts</p>
+
+  <section class="post-grid" id="postGrid">
+    {posts.map((post) => <PostCard post={post} minutes={readingMinutes(post.body)} />)}
+  </section>
+
+  <script>
+    const searchInput = document.querySelector<HTMLInputElement>("#postSearch");
+    const tagSelect = document.querySelector<HTMLSelectElement>("#tagFilter");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(".post-card"));
+    const count = document.querySelector<HTMLElement>("#resultCount");
+
+    const update = () => {
+      const query = searchInput?.value.trim().toLowerCase() || "";
+      const tag = tagSelect?.value || "";
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const title = card.getAttribute("data-title") || "";
+        const excerpt = card.getAttribute("data-excerpt") || "";
+        const tags = card.getAttribute("data-tags") || "";
+
+        const matchQuery = !query || `${title} ${excerpt} ${tags}`.includes(query);
+        const matchTag = !tag || tags.includes(tag);
+        const show = matchQuery && matchTag;
+
+        card.toggleAttribute("hidden", !show);
+        if (show) {
+          visible += 1;
+        }
+      });
+
+      if (count) {
+        count.textContent = `${visible} post${visible === 1 ? "" : "s"}`;
+      }
+    };
+
+    searchInput?.addEventListener("input", update);
+    tagSelect?.addEventListener("change", update);
+  </script>
+</BaseLayout>

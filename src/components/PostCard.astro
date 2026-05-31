@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+  minutes: number;
+}
+
+const { post, minutes } = Astro.props;
+---
+
+<article
+  class="post-card"
+  data-title={post.data.title.toLowerCase()}
+  data-excerpt={post.data.excerpt.toLowerCase()}
+  data-tags={post.data.tags.join(" ").toLowerCase()}
+>
+  <p class="post-meta">
+    <time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString("en-GB", { dateStyle: "long" })}</time>
+    <span>{minutes} min read</span>
+  </p>
+  <h3><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h3>
+  <p>{post.data.excerpt}</p>
+  <ul class="tag-list" aria-label="Post tags">
+    {post.data.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+</article>

@@ -1,0 +1,67 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { readingMinutes } from "@/lib/readingTime";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const minutes = readingMinutes(post.body);
+
+const related = (await getCollection("posts", ({ data }) => !data.draft))
+  .filter((entry) => entry.slug !== post.slug)
+  .filter((entry) => entry.data.tags.some((tag) => post.data.tags.includes(tag)))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt}>
+  <article class="post-article">
+    <header>
+      <p class="kicker">Essay</p>
+      <h1>{post.data.title}</h1>
+      <p class="article-excerpt">{post.data.excerpt}</p>
+      <div class="article-meta">
+        <time datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString("en-GB", { dateStyle: "long" })}
+        </time>
+        <span>{minutes} min read</span>
+      </div>
+      <ul class="tag-list" aria-label="Post tags">
+        {post.data.tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <p class="kicker">Continue reading</p>
+        <h2>Related posts</h2>
+      </div>
+      <div class="related-list">
+        {related.map((entry) => (
+          <a href={`/posts/${entry.slug}/`} class="related-item">
+            <strong>{entry.data.title}</strong>
+            <span>{entry.data.excerpt}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,0 +1,69 @@
+<section class="hero-signal" aria-label="Live signal sketch">
+  <canvas id="signalCanvas" width="960" height="420"></canvas>
+  <div class="signal-caption">
+    <p>Signal sketch updates each load. Claim comes only after evidence and attribution.</p>
+  </div>
+</section>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>("#signalCanvas");
+  const ctx = canvas?.getContext("2d");
+
+  if (canvas && ctx) {
+    const draw = (t = 0) => {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "#f2ede1";
+      ctx.fillRect(0, 0, w, h);
+
+      const pad = 28;
+      const chartW = w - pad * 2;
+      const chartH = h - pad * 2;
+
+      ctx.strokeStyle = "rgba(21, 31, 30, 0.12)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 6; i += 1) {
+        const y = pad + (chartH / 6) * i;
+        ctx.beginPath();
+        ctx.moveTo(pad, y);
+        ctx.lineTo(w - pad, y);
+        ctx.stroke();
+      }
+
+      const lines = [
+        { color: "#1f6d66", phase: 0 },
+        { color: "#b95c2f", phase: 1.8 },
+        { color: "#3f6f4c", phase: 3.4 }
+      ];
+
+      lines.forEach((line) => {
+        ctx.beginPath();
+        ctx.strokeStyle = line.color;
+        ctx.lineWidth = 2.4;
+        for (let i = 0; i <= 140; i += 1) {
+          const p = i / 140;
+          const x = pad + chartW * p;
+          const wave = Math.sin(p * 8 + line.phase + t * 0.0013) * 0.18;
+          const drift = Math.cos(p * 2.8 + line.phase) * 0.06;
+          const y = pad + chartH * (0.52 + wave + drift);
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.stroke();
+      });
+
+      requestAnimationFrame(draw);
+    };
+
+    requestAnimationFrame(draw);
+  }
+</script>

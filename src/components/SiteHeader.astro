@@ -1,0 +1,19 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <span class="brand-mark">T&amp;T</span>
+    <span>Track &amp; Tote</span>
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a class={pathname === "/" ? "is-active" : ""} href="/">Home</a>
+    <a class={pathname.startsWith("/posts") ? "is-active" : ""} href="/posts">Posts</a>
+    <a class={pathname === "/about" ? "is-active" : ""} href="/about">About</a>
+    <a class={pathname === "/method" ? "is-active" : ""} href="/method">Method</a>
+  </nav>
+
+  <a class="rss-link" href="/rss.xml" aria-label="RSS feed">RSS</a>
+</header>

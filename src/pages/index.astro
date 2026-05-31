@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PostCard from "@/components/PostCard.astro";
+import HeroSignal from "@/components/HeroSignal.astro";
+import { readingMinutes } from "@/lib/readingTime";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Home"
+  description="Track & Tote publishes short essays, blogs, and field notes backed by public data and transparent method."
+>
+  <section class="hero">
+    <img
+      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2200&q=80"
+      alt="Notebook, charts, and analytics dashboard on a desk"
+      loading="eager"
+    />
+    <div class="hero-copy">
+      <p class="kicker">Personal public writing</p>
+      <h1>Track &amp; Tote</h1>
+      <p>
+        Small essays and policy notes in plain language, grounded in public data where needed.
+        The tone stays readable. The method stays disciplined.
+      </p>
+      <div class="hero-actions">
+        <a href="/posts" class="button solid">Read Posts</a>
+        <a href="/method" class="button ghost">Method</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div>
+      <p class="band-label">Writing style</p>
+      <strong>Short and clear</strong>
+    </div>
+    <div>
+      <p class="band-label">Evidence style</p>
+      <strong>Traceable sources</strong>
+    </div>
+    <div>
+      <p class="band-label">Publishing flow</p>
+      <strong>Markdown in repo</strong>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Live visual note</p>
+      <h2>Editorial voice with dynamic texture</h2>
+    </div>
+    <HeroSignal />
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Recent posts</p>
+      <h2>Latest writing</h2>
+    </div>
+    <div class="post-grid">
+      {posts.map((post) => <PostCard post={post} minutes={readingMinutes(post.body)} />)}
+    </div>
+  </section>
+</BaseLayout>
