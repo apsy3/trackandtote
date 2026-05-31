@@ -4,14 +4,17 @@ Personal public-data blog and visualization site for exploring datasets, cross-d
 
 ## Current Version
 
-This is a static Cloudflare-friendly first version. It sets the direction and includes the first editorial public-data field note on water stress, onion prices, and careful evidence. The study page includes a small real Maharashtra onion mandi price sample from data.gov.in.
+This is a static Cloudflare-friendly first version. It now has one working surface:
+
+1. A reusable public-data inventory page generated from the workbook reference.
 
 ## Files
 
 - `index.html` - main site markup
-- `studies/rainfall-groundwater-crops-prices.html` - first blog-study page
+- `inventory/public-data-inventory.html` - searchable inventory UI
+- `data/public-data-inventory.json` - workbook-derived inventory rows
 - `styles.css` - responsive styling
-- `script.js` - header behavior and animated hero plot
+- `script.js` - header behavior, hero plot, and inventory filters
 
 ## Cloudflare Pages
 
@@ -21,10 +24,10 @@ Use these settings for a static deployment:
 - Build output directory: `/`
 - Root directory: `/`
 
-## Next Research Decisions
+## Next Build Decisions
 
-- Confirm the first crop and geography
-- Pull public source samples and document quality issues
-- Build a district-by-month analysis table
+- Define the first article question from license-cleared data
+- Build legal + attribution templates for every chart
+- Add live source pulls with reproducibility metadata
 - Blog format: Markdown, HTML, or notebook-driven posts
 - Visualization stack: lightweight charts, maps, or notebook embeds

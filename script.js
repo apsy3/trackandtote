@@ -1,7 +1,7 @@
 const header = document.querySelector(".site-header");
 const canvas = document.querySelector("#heroPlot");
 const ctx = canvas ? canvas.getContext("2d") : null;
-const evidenceExplorer = document.querySelector("[data-evidence-explorer]");
+const inventoryApp = document.querySelector("[data-inventory-app]");
 
 function syncHeader() {
   if (!header) {
@@ -107,185 +107,258 @@ function drawHeroPlot(time = 0) {
   requestAnimationFrame(drawHeroPlot);
 }
 
-function buildEvidenceLayers(marketLayer) {
-  return [
-    {
-      name: "Rainfall",
-      unit: "district-month",
-      state: "pending",
-      badge: "source needed",
-      reading: "Need actual rainfall, normal rainfall, departure %, dry-spell days, and heavy-rain flags before this layer can explain stress."
-    },
-    {
-      name: "Groundwater",
-      unit: "seasonal buffer",
-      state: "seasonal",
-      badge: "coarser time",
-      reading: "Likely pre/post-monsoon rather than daily. It can describe water cushion, but must be joined carefully to month and district."
-    },
-    {
-      name: "Crop output",
-      unit: "district-season",
-      state: "pending",
-      badge: "source needed",
-      reading: "Need onion area, production, yield, and season. Monthly market movement should be interpreted against the crop calendar."
-    },
-    {
-      name: "Arrivals",
-      unit: "mandi-month",
-      state: "missing",
-      badge: "not in sample",
-      reading: "The first mandi endpoint returned prices, but not arrivals. Without arrivals, price movement cannot be read as supply movement."
-    },
-    marketLayer
-  ];
+function createOption(value) {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = value;
+  return option;
 }
 
-function buildPendingFrame(label, status, title) {
-  return {
-    label,
-    status,
-    title,
-    coverage: 0,
-    coverageLabel: "0 of 5 evidence layers joined",
-    layers: buildEvidenceLayers({
-      name: "Mandi price",
-      unit: "market-day to month",
-      state: "pending",
-      badge: "pull needed",
-      reading: "Need historical min, max, modal price rows for selected mandis, then monthly aggregation and outlier checks."
-    }),
-    lags: [
-      { label: "Same month", fill: 6, note: "No joined layers yet for this frame." },
-      { label: "1 month", fill: 6, note: "Waiting for rainfall and market history." },
-      { label: "3 months", fill: 6, note: "Waiting for crop-stage alignment." },
-      { label: "6 months", fill: 6, note: "Waiting for season and storage context." }
-    ],
-    readingTitle: "What this frame can say",
-    readingCopy: "Nothing interpretive yet. This is a time slot where source rows must be fetched, normalized, and checked before the article says anything about outcome."
-  };
+function textOrFallback(value, fallback = "Not listed") {
+  return value && value.trim() ? value.trim() : fallback;
 }
 
-const evidenceFrames = [
-  buildPendingFrame("Jun 2021", "Baseline to fetch", "Jun 2021: baseline frame"),
-  buildPendingFrame("Jun 2022", "Historical pull needed", "Jun 2022: comparison frame"),
-  buildPendingFrame("Jun 2023", "Historical pull needed", "Jun 2023: stress-test frame"),
-  buildPendingFrame("Jun 2024", "Historical pull needed", "Jun 2024: seasonality frame"),
-  buildPendingFrame("Jun 2025", "Historical pull needed", "Jun 2025: recent comparison frame"),
-  {
-    label: "May 2026",
-    status: "Partial evidence",
-    title: "May 2026: one verified market signal",
-    coverage: 20,
-    coverageLabel: "1 of 5 evidence layers joined",
-    layers: buildEvidenceLayers({
-      name: "Mandi price",
-      unit: "8 exact onion rows",
-      state: "verified",
-      badge: "verified",
-      reading: "31 May 2026 Maharashtra onion rows show modal prices from Rs 800 to Rs 1,250 per quintal. This is a market signal, not a causal explanation."
-    }),
-    lags: [
-      { label: "Same month", fill: 22, note: "Market price sample exists, but drivers are not joined." },
-      { label: "1 month", fill: 8, note: "Needs rainfall history before testing." },
-      { label: "3 months", fill: 8, note: "Needs crop-stage and arrivals history." },
-      { label: "6 months", fill: 8, note: "Needs groundwater, storage, and season controls." }
-    ],
-    readingTitle: "What this frame can say",
-    readingCopy: "We can say the selected market sample has a visible price spread. We cannot yet say rainfall, groundwater, or crop output explains it."
+function startsWithBucket(bucket, code) {
+  return bucket.trim().startsWith(code);
+}
+
+function normalizeSearch(value) {
+  return value.trim().toLowerCase();
+}
+
+function createRow(field, value) {
+  const row = document.createElement("div");
+  const label = document.createElement("dt");
+  const content = document.createElement("dd");
+  label.textContent = field;
+  content.textContent = textOrFallback(value);
+  row.append(label, content);
+  return row;
+}
+
+function renderInventoryCard(item) {
+  const card = document.createElement("article");
+  card.className = "inventory-card";
+
+  const bucketCode = item.bucket ? item.bucket.slice(0, 1).toLowerCase() : "u";
+  card.classList.add(`bucket-${bucketCode}`);
+
+  const top = document.createElement("div");
+  top.className = "inventory-card-top";
+
+  const id = document.createElement("span");
+  id.className = "inventory-id";
+  id.textContent = `ID ${textOrFallback(item.id, "?")}`;
+
+  const badges = document.createElement("div");
+  badges.className = "inventory-badges";
+
+  const bucket = document.createElement("span");
+  bucket.className = "inventory-badge";
+  bucket.textContent = textOrFallback(item.bucket);
+
+  const risk = document.createElement("span");
+  risk.className = "inventory-badge risk";
+  risk.textContent = textOrFallback(item.risk);
+
+  badges.append(bucket, risk);
+  top.append(id, badges);
+
+  const title = document.createElement("h3");
+  title.textContent = textOrFallback(item.metric);
+
+  const taxonomy = document.createElement("p");
+  taxonomy.className = "inventory-taxonomy";
+  taxonomy.textContent = `${textOrFallback(item.category)} | ${textOrFallback(item.subcategory)}`;
+
+  const recommendation = document.createElement("p");
+  recommendation.className = "inventory-recommendation";
+  recommendation.textContent = textOrFallback(item.recommendation);
+
+  const chips = document.createElement("div");
+  chips.className = "inventory-chips";
+  [
+    `Coverage: ${textOrFallback(item.coverage)}`,
+    `Granularity: ${textOrFallback(item.granularity)}`,
+    `Cadence: ${textOrFallback(item.cadence)}`,
+    `Formats: ${textOrFallback(item.formats)}`
+  ].forEach((label) => {
+    const chip = document.createElement("span");
+    chip.textContent = label;
+    chips.append(chip);
+  });
+
+  const details = document.createElement("details");
+  details.className = "inventory-details";
+
+  const summary = document.createElement("summary");
+  summary.textContent = "Checks, licence, and quality notes";
+
+  const grid = document.createElement("dl");
+  grid.append(
+    createRow("Agencies", item.agencies),
+    createRow("Republish raw data?", item.republish_raw),
+    createRow("Attribution need", item.attribution_need),
+    createRow("Required checks", item.required_checks),
+    createRow("Suitable website uses", item.suitable_uses),
+    createRow("License / public-use notes", item.license_notes),
+    createRow("Commercial / AI-use caution", item.commercial_caution),
+    createRow("Critical quality notes", item.quality_notes)
+  );
+  details.append(summary, grid);
+
+  const footer = document.createElement("footer");
+  footer.className = "inventory-card-footer";
+
+  const source = document.createElement("span");
+  source.textContent = textOrFallback(item.agencies);
+
+  const link = document.createElement("a");
+  link.href = item.url || "#";
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.textContent = item.url ? "Open source" : "No source URL";
+  if (!item.url) {
+    link.classList.add("disabled");
+    link.setAttribute("aria-disabled", "true");
+    link.tabIndex = -1;
   }
-];
 
-function setExplorerText(selector, text) {
-  const element = evidenceExplorer.querySelector(selector);
-  if (element) {
-    element.textContent = text;
-  }
+  footer.append(source, link);
+  card.append(top, title, taxonomy, recommendation, chips, details, footer);
+  return card;
 }
 
-function renderEvidenceFrame(index) {
-  if (!evidenceExplorer) {
+function initInventory() {
+  if (!inventoryApp) {
     return;
   }
 
-  const frame = evidenceFrames[index] || evidenceFrames[evidenceFrames.length - 1];
-  const coverageMeter = evidenceExplorer.querySelector("[data-coverage-meter]");
-  const layerStack = evidenceExplorer.querySelector("[data-layer-stack]");
-  const lagBars = evidenceExplorer.querySelector("[data-lag-bars]");
+  const sourcePath = inventoryApp.dataset.inventorySrc;
+  const resultsList = inventoryApp.querySelector("[data-results-list]");
+  const summary = inventoryApp.querySelector("[data-results-summary]");
+  const generated = inventoryApp.querySelector("[data-generated-on]");
+  const emptyState = inventoryApp.querySelector("[data-empty-state]");
+  const searchInput = inventoryApp.querySelector("[data-filter-search]");
+  const bucketSelect = inventoryApp.querySelector("[data-filter-bucket]");
+  const categorySelect = inventoryApp.querySelector("[data-filter-category]");
+  const riskSelect = inventoryApp.querySelector("[data-filter-risk]");
+  const totalCount = inventoryApp.querySelector("[data-total-count]");
+  const openCount = inventoryApp.querySelector("[data-open-count]");
+  const checkCount = inventoryApp.querySelector("[data-check-count]");
+  const restrictedCount = inventoryApp.querySelector("[data-restricted-count]");
 
-  setExplorerText("[data-frame-label]", frame.label);
-  setExplorerText("[data-frame-status]", frame.status);
-  setExplorerText("[data-frame-title]", frame.title);
-  setExplorerText("[data-coverage-label]", frame.coverageLabel);
-  setExplorerText("[data-reading-title]", frame.readingTitle);
-  setExplorerText("[data-reading-copy]", frame.readingCopy);
-
-  if (coverageMeter) {
-    coverageMeter.style.setProperty("--coverage", `${frame.coverage}%`);
+  if (!sourcePath || !resultsList || !summary) {
+    return;
   }
 
-  if (layerStack) {
-    layerStack.replaceChildren();
-    frame.layers.forEach((layer) => {
-      const row = document.createElement("div");
-      row.className = `layer-row is-${layer.state}`;
+  const sortableCompare = (a, b) => a.localeCompare(b, "en", { sensitivity: "base" });
 
-      const identity = document.createElement("div");
-      const title = document.createElement("strong");
-      const unit = document.createElement("span");
-      title.textContent = layer.name;
-      unit.textContent = layer.unit;
-      identity.append(title, unit);
+  fetch(sourcePath)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load inventory (${response.status})`);
+      }
+      return response.json();
+    })
+    .then((payload) => {
+      const items = Array.isArray(payload.items) ? payload.items : [];
+      const buckets = [...new Set(items.map((item) => item.bucket).filter(Boolean))].sort(sortableCompare);
+      const categories = [...new Set(items.map((item) => item.category).filter(Boolean))].sort(sortableCompare);
+      const risks = [...new Set(items.map((item) => item.risk).filter(Boolean))].sort(sortableCompare);
 
-      const badge = document.createElement("span");
-      badge.className = "layer-state";
-      badge.textContent = layer.badge;
+      buckets.forEach((bucket) => bucketSelect && bucketSelect.append(createOption(bucket)));
+      categories.forEach((category) => categorySelect && categorySelect.append(createOption(category)));
+      risks.forEach((risk) => riskSelect && riskSelect.append(createOption(risk)));
 
-      const reading = document.createElement("p");
-      reading.textContent = layer.reading;
+      if (totalCount) {
+        totalCount.textContent = String(items.length);
+      }
+      if (openCount) {
+        openCount.textContent = String(items.filter((item) => startsWithBucket(item.bucket || "", "A")).length);
+      }
+      if (checkCount) {
+        checkCount.textContent = String(items.filter((item) => startsWithBucket(item.bucket || "", "B")).length);
+      }
+      if (restrictedCount) {
+        restrictedCount.textContent = String(items.filter((item) => startsWithBucket(item.bucket || "", "D")).length);
+      }
+      if (generated) {
+        generated.textContent = `Generated from workbook: ${textOrFallback(payload.source_workbook)} | Snapshot date: ${textOrFallback(payload.generated_on)}`;
+      }
 
-      row.append(identity, badge, reading);
-      layerStack.append(row);
+      const searchFields = [
+        "id",
+        "bucket",
+        "risk",
+        "category",
+        "subcategory",
+        "metric",
+        "agencies",
+        "coverage",
+        "granularity",
+        "formats",
+        "cadence",
+        "recommendation",
+        "required_checks",
+        "suitable_uses",
+        "quality_notes",
+        "license_notes"
+      ];
+
+      function render() {
+        const query = normalizeSearch(searchInput ? searchInput.value : "");
+        const selectedBucket = bucketSelect ? bucketSelect.value : "";
+        const selectedCategory = categorySelect ? categorySelect.value : "";
+        const selectedRisk = riskSelect ? riskSelect.value : "";
+
+        const filtered = items.filter((item) => {
+          if (selectedBucket && item.bucket !== selectedBucket) {
+            return false;
+          }
+          if (selectedCategory && item.category !== selectedCategory) {
+            return false;
+          }
+          if (selectedRisk && item.risk !== selectedRisk) {
+            return false;
+          }
+          if (!query) {
+            return true;
+          }
+          const corpus = searchFields.map((field) => (item[field] || "").toLowerCase()).join(" ");
+          return corpus.includes(query);
+        });
+
+        resultsList.replaceChildren();
+        filtered.forEach((item) => resultsList.append(renderInventoryCard(item)));
+
+        const filters = [selectedBucket, selectedCategory, selectedRisk].filter(Boolean);
+        const filterText = filters.length ? ` with ${filters.join(" | ")}` : "";
+        summary.textContent = `${filtered.length} of ${items.length} rows shown${filterText}`;
+        if (emptyState) {
+          emptyState.hidden = filtered.length > 0;
+        }
+      }
+
+      [searchInput, bucketSelect, categorySelect, riskSelect].forEach((element) => {
+        if (element) {
+          element.addEventListener("input", render);
+          element.addEventListener("change", render);
+        }
+      });
+
+      render();
+    })
+    .catch((error) => {
+      summary.textContent = `Inventory load issue: ${error.message}`;
+      if (emptyState) {
+        emptyState.hidden = false;
+      }
     });
-  }
-
-  if (lagBars) {
-    lagBars.replaceChildren();
-    frame.lags.forEach((lag) => {
-      const row = document.createElement("div");
-      row.className = "lag-bar";
-      row.style.setProperty("--lag-fill", `${lag.fill}%`);
-
-      const label = document.createElement("span");
-      const bar = document.createElement("i");
-      const note = document.createElement("small");
-      label.textContent = lag.label;
-      note.textContent = lag.note;
-
-      row.append(label, bar, note);
-      lagBars.append(row);
-    });
-  }
-}
-
-function initEvidenceExplorer() {
-  if (!evidenceExplorer) {
-    return;
-  }
-
-  const slider = evidenceExplorer.querySelector("[data-time-slider]");
-  if (!slider) {
-    return;
-  }
-
-  slider.max = evidenceFrames.length - 1;
-  slider.value = evidenceFrames.length - 1;
-  renderEvidenceFrame(Number(slider.value));
-  slider.addEventListener("input", () => renderEvidenceFrame(Number(slider.value)));
 }
 
 syncHeader();
-initEvidenceExplorer();
+initInventory();
 if (canvas) {
   resizeCanvas();
   drawHeroPlot();

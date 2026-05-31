@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Track &amp; Tote public data inventory with website reuse risk, licence checks, and dataset quality notes."
+    >
+    <title>Data Inventory | Track &amp; Tote</title>
+    <link rel="stylesheet" href="../styles.css?v=20260531-data-inventory">
+  </head>
+  <body class="inventory-page">
+    <header class="site-header inventory-header">
+      <a class="brand" href="../index.html#top" aria-label="Track &amp; Tote home">
+        <span class="brand-mark">T&amp;T</span>
+        <span>Track &amp; Tote</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../index.html#notes">Notes</a>
+        <a href="./public-data-inventory.html">Data inventory</a>
+      </nav>
+      <a class="header-action" href="../index.html">Home</a>
+    </header>
+
+    <main class="inventory-main" data-inventory-app data-inventory-src="../data/public-data-inventory.json">
+      <section class="inventory-hero" aria-labelledby="inventory-title">
+        <p class="inventory-kicker">Reusable public data inventory</p>
+        <h1 id="inventory-title">Find what we can publish now, and what needs caution.</h1>
+        <p>
+          This page converts the working spreadsheet into a searchable public-data atlas.
+          Each entry includes reuse risk, licence posture, coverage, cadence, and quality warnings
+          so article ideas start from source reality, not from missing charts.
+        </p>
+      </section>
+
+      <section class="inventory-metrics" aria-label="Inventory summary">
+        <article>
+          <span>Total rows</span>
+          <strong data-total-count>0</strong>
+        </article>
+        <article>
+          <span>Website-ready</span>
+          <strong data-open-count>0</strong>
+        </article>
+        <article>
+          <span>Need licence check</span>
+          <strong data-check-count>0</strong>
+        </article>
+        <article>
+          <span>Restricted</span>
+          <strong data-restricted-count>0</strong>
+        </article>
+      </section>
+
+      <section class="inventory-controls" aria-label="Inventory filters">
+        <label class="control-field search-field">
+          <span>Search</span>
+          <input type="search" data-filter-search placeholder="Category, metric, agency, geography...">
+        </label>
+        <label class="control-field">
+          <span>Reuse bucket</span>
+          <select data-filter-bucket>
+            <option value="">All buckets</option>
+          </select>
+        </label>
+        <label class="control-field">
+          <span>Category</span>
+          <select data-filter-category>
+            <option value="">All categories</option>
+          </select>
+        </label>
+        <label class="control-field">
+          <span>Risk level</span>
+          <select data-filter-risk>
+            <option value="">All risk levels</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="inventory-statusline" aria-live="polite">
+        <p data-results-summary>Loading inventory...</p>
+        <p data-generated-on></p>
+      </section>
+
+      <section class="inventory-list" data-results-list aria-label="Inventory rows"></section>
+
+      <section class="inventory-empty" data-empty-state hidden>
+        <h2>No rows match this filter.</h2>
+        <p>Try clearing search or selecting a broader bucket/category.</p>
+      </section>
+
+      <section class="inventory-method-note" aria-label="How to use this inventory">
+        <div>
+          <h2>How this prevents weak articles</h2>
+          <p>
+            Start with rows marked website-ready or clearly licensed. Use high-risk and restricted
+            rows only for context unless permissions are explicit.
+          </p>
+        </div>
+        <ol>
+          <li><strong>Choose a question</strong> from categories with open sources and clear cadence.</li>
+          <li><strong>Align data</strong> by time and geography before plotting relationships.</li>
+          <li><strong>Publish caveats</strong> from quality notes and commercial/AI-use cautions.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Track &amp; Tote</span>
+      <span>Data inventory first. Publish only after legal and method checks.</span>
+    </footer>
+
+    <script src="../script.js?v=20260531-data-inventory"></script>
+  </body>
+</html>
