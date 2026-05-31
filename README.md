@@ -4,12 +4,12 @@ Personal public-data blog and visualization site for exploring datasets, cross-d
 
 ## Current Version
 
-This is a static Cloudflare-friendly first version. It sets the direction and includes the first research blueprint for a public-data study on rainfall, groundwater, crops, and prices.
+This is a static Cloudflare-friendly first version. It sets the direction and includes the first blog-style public-data study on water stress, onion arrivals, and prices.
 
 ## Files
 
 - `index.html` - main site markup
-- `studies/rainfall-groundwater-crops-prices.html` - first research blueprint
+- `studies/rainfall-groundwater-crops-prices.html` - first blog-study page
 - `styles.css` - responsive styling
 - `script.js` - header behavior and animated hero plot
 

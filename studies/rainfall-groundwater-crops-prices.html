@@ -5,220 +5,302 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="A Track & Tote research blueprint for studying rainfall, groundwater, crop production, mandi arrivals, and prices using public data."
+      content="A Track &amp; Tote public-data study asking whether water stress can help explain onion price shocks in Maharashtra."
     >
-    <title>Rainfall, Groundwater, Crops & Prices | Track & Tote</title>
+    <title>Can Water Stress Explain Onion Price Shocks? | Track &amp; Tote</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="../index.html#top" aria-label="Track & Tote home">
-        <span class="brand-mark">T&T</span>
-        <span>Track & Tote</span>
+      <a class="brand" href="../index.html#top" aria-label="Track &amp; Tote home">
+        <span class="brand-mark">T&amp;T</span>
+        <span>Track &amp; Tote</span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="../index.html#notes">Notes</a>
+        <a href="#story">Story</a>
+        <a href="#views">Views</a>
         <a href="#method">Method</a>
-        <a href="#parameters">Parameters</a>
         <a href="#sources">Sources</a>
       </nav>
       <a class="header-action" href="../index.html">Home</a>
     </header>
 
     <main id="top">
-      <section class="study-hero" aria-labelledby="study-title">
-        <div class="study-hero-copy">
-          <p class="eyebrow">Research blueprint 01</p>
-          <h1 id="study-title">Rainfall, groundwater, crops, and prices.</h1>
+      <section class="study-story-hero" aria-labelledby="study-title">
+        <article class="study-lede" id="story">
+          <p class="eyebrow">Study 01 | Maharashtra onion markets</p>
+          <h1 id="study-title">Can water stress help explain onion price shocks?</h1>
+          <p class="lede-text">
+            Onion prices rise in ways people feel before they read a report. This study asks a
+            careful public-data question: when rainfall is weak and groundwater is already stressed,
+            do we later see changes in onion production, mandi arrivals, and modal prices?
+          </p>
           <p>
-            A careful first study for asking whether water stress appears later in crop
-            output, mandi arrivals, and price behavior. The aim is evidence with limits,
-            not a quick causal story.
+            The answer may be partial. Prices also move because of storage, transport, exports,
+            imports, policy decisions, demand, and production in nearby regions. So Track &amp; Tote will
+            look for signals, test lags, and keep the uncertainty visible.
+          </p>
+          <div class="study-status" aria-label="Study status">
+            <span>Status: planning</span>
+            <span>Unit: district x month x crop</span>
+            <span>Claim level: pattern, not proof</span>
+          </div>
+        </article>
+
+        <aside class="overview-board" aria-label="Planned study overview">
+          <div class="overview-topline">
+            <span>First picture</span>
+            <strong>Water stress -> market signal</strong>
+          </div>
+          <div class="overview-map" aria-label="Representational district rainfall map">
+            <svg viewBox="0 0 360 260" role="img" aria-labelledby="map-title map-desc">
+              <title id="map-title">Representational rainfall anomaly map</title>
+              <desc id="map-desc">A planned map view for district rainfall departures. Shapes are placeholders, not real boundaries.</desc>
+              <rect x="0" y="0" width="360" height="260" rx="8"></rect>
+              <path class="map-cell dry" d="M98 30 157 20 184 65 154 110 99 101 72 65Z"></path>
+              <path class="map-cell mild" d="M184 65 238 55 271 94 243 145 185 137 154 110Z"></path>
+              <path class="map-cell wet" d="M99 101 154 110 185 137 171 194 110 203 76 155Z"></path>
+              <path class="map-cell dry-strong" d="M185 137 243 145 281 184 242 230 171 194Z"></path>
+              <path class="map-cell neutral" d="M76 155 110 203 82 238 40 204 38 151Z"></path>
+              <circle cx="140" cy="118" r="5"></circle>
+              <circle cx="218" cy="150" r="5"></circle>
+              <circle cx="116" cy="190" r="5"></circle>
+              <path class="map-route" d="M116 190 C145 152 174 134 218 150"></path>
+            </svg>
+            <div class="map-legend" aria-label="Map legend">
+              <span><i class="legend-dry"></i>Deficit</span>
+              <span><i class="legend-mid"></i>Near normal</span>
+              <span><i class="legend-wet"></i>Surplus</span>
+            </div>
+          </div>
+          <div class="overview-note">
+            Planned view: real district geometry and public rainfall data will replace this sketch.
+          </div>
+        </aside>
+      </section>
+
+      <section class="study-section story-band" aria-labelledby="plain-title">
+        <div class="story-copy">
+          <p class="eyebrow">In plain words</p>
+          <h2 id="plain-title">We are testing a chain, not telling a shortcut story.</h2>
+          <p>
+            If rains are weak during crop-sensitive months, farmers may rely more on groundwater.
+            If groundwater is already deep or slow to recover, crop output can become more fragile.
+            Later, markets may receive fewer onions, and prices may react.
+          </p>
+          <p>
+            But a market price is never just one thing. The study will show what lines up in the data
+            and what still needs another explanation.
           </p>
         </div>
-        <div class="signal-board" aria-label="Evidence chain from rainfall to prices">
-          <div class="signal-node">
-            <span>01</span>
-            <strong>Rainfall anomaly</strong>
-            <small>actual vs normal, dry spells, extreme days</small>
-          </div>
-          <div class="signal-node">
-            <span>02</span>
-            <strong>Water buffer</strong>
-            <small>groundwater depth, recharge, seasonal recovery</small>
-          </div>
-          <div class="signal-node">
-            <span>03</span>
-            <strong>Crop response</strong>
-            <small>area, production, yield, crop calendar</small>
-          </div>
-          <div class="signal-node">
-            <span>04</span>
-            <strong>Market signal</strong>
-            <small>arrivals, modal price, volatility, spikes</small>
-          </div>
+        <div class="chain-strip" aria-label="Evidence chain">
+          <div><span>01</span><strong>Rainfall gap</strong><small>when and where rain departs from normal</small></div>
+          <div><span>02</span><strong>Groundwater buffer</strong><small>whether the district has water cushion</small></div>
+          <div><span>03</span><strong>Crop response</strong><small>area, yield, and production movement</small></div>
+          <div><span>04</span><strong>Mandi signal</strong><small>arrivals, modal price, and volatility</small></div>
         </div>
       </section>
 
-      <section class="study-section question-band" aria-labelledby="question-title">
-        <p class="eyebrow">Core question</p>
-        <h2 id="question-title">
-          When rainfall shifts and groundwater is stressed, what later changes can we observe
-          in crop yield, mandi arrivals, and prices?
-        </h2>
-        <p>
-          The working unit is district by month by crop. This lets daily rainfall and mandi data
-          be summarized without losing the agricultural season, and it gives groundwater and crop
-          statistics a common comparison level.
-        </p>
+      <section class="study-section visual-lab" id="views" aria-labelledby="views-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Planned visual views</p>
+          <h2 id="views-title">A page people can read, scan, and question.</h2>
+          <p>
+            These are representational placeholders. They show the intended experience before we
+            connect live public data.
+          </p>
+        </div>
+
+        <div class="chart-grid">
+          <article class="chart-panel map-panel">
+            <div class="panel-label">
+              <span>Map</span>
+              <strong>District rainfall anomaly</strong>
+            </div>
+            <svg viewBox="0 0 420 250" role="img" aria-label="Planned rainfall anomaly map">
+              <rect x="0" y="0" width="420" height="250" rx="8"></rect>
+              <path class="map-cell dry-strong" d="M103 31 171 19 206 69 173 121 107 111 73 67Z"></path>
+              <path class="map-cell dry" d="M206 69 274 58 315 103 281 160 209 151 173 121Z"></path>
+              <path class="map-cell mild" d="M107 111 173 121 209 151 190 214 119 221 78 167Z"></path>
+              <path class="map-cell wet" d="M209 151 281 160 326 202 284 238 190 214Z"></path>
+              <path class="map-cell neutral" d="M78 167 119 221 87 241 37 206 40 151Z"></path>
+            </svg>
+            <div class="chart-reading">
+              <p><strong>May show:</strong> clusters of deficit or surplus districts.</p>
+              <p><strong>Cannot prove:</strong> that rain alone moved prices.</p>
+            </div>
+          </article>
+
+          <article class="chart-panel">
+            <div class="panel-label">
+              <span>Trend</span>
+              <strong>Groundwater depth</strong>
+            </div>
+            <svg class="line-chart" viewBox="0 0 420 250" role="img" aria-label="Planned groundwater trend chart">
+              <g class="chart-grid-lines">
+                <path d="M42 42 H386"></path>
+                <path d="M42 92 H386"></path>
+                <path d="M42 142 H386"></path>
+                <path d="M42 192 H386"></path>
+              </g>
+              <path class="axis" d="M42 32 V210 H390"></path>
+              <path class="line-main" d="M44 86 C88 102 104 125 146 118 S214 80 250 118 310 178 382 164"></path>
+              <path class="line-soft" d="M44 144 C108 130 158 148 204 138 S280 116 382 128"></path>
+              <text x="46" y="231">pre-monsoon</text>
+              <text x="286" y="231">post-monsoon</text>
+            </svg>
+            <div class="chart-reading">
+              <p><strong>May show:</strong> whether the water buffer is weakening.</p>
+              <p><strong>Cannot prove:</strong> farm-level irrigation access.</p>
+            </div>
+          </article>
+
+          <article class="chart-panel wide-panel">
+            <div class="panel-label">
+              <span>Market</span>
+              <strong>Arrivals and modal price</strong>
+            </div>
+            <svg class="market-chart" viewBox="0 0 860 250" role="img" aria-label="Planned mandi arrivals and price chart">
+              <g class="chart-grid-lines">
+                <path d="M54 40 H820"></path>
+                <path d="M54 90 H820"></path>
+                <path d="M54 140 H820"></path>
+                <path d="M54 190 H820"></path>
+              </g>
+              <path class="axis" d="M54 28 V210 H826"></path>
+              <g class="arrival-bars">
+                <rect x="82" y="130" width="18" height="80"></rect>
+                <rect x="128" y="112" width="18" height="98"></rect>
+                <rect x="174" y="96" width="18" height="114"></rect>
+                <rect x="220" y="142" width="18" height="68"></rect>
+                <rect x="266" y="158" width="18" height="52"></rect>
+                <rect x="312" y="170" width="18" height="40"></rect>
+                <rect x="358" y="128" width="18" height="82"></rect>
+                <rect x="404" y="116" width="18" height="94"></rect>
+                <rect x="450" y="146" width="18" height="64"></rect>
+                <rect x="496" y="166" width="18" height="44"></rect>
+                <rect x="542" y="172" width="18" height="38"></rect>
+                <rect x="588" y="148" width="18" height="62"></rect>
+                <rect x="634" y="124" width="18" height="86"></rect>
+                <rect x="680" y="104" width="18" height="106"></rect>
+                <rect x="726" y="118" width="18" height="92"></rect>
+              </g>
+              <path class="line-main" d="M90 150 C138 146 168 140 220 150 S292 188 334 176 404 130 452 120 532 70 590 84 690 130 746 100"></path>
+              <text x="60" y="232">arrivals</text>
+              <text x="712" y="232">modal price</text>
+            </svg>
+            <div class="chart-reading two-column">
+              <p><strong>May show:</strong> whether lower arrivals line up with higher prices after a delay.</p>
+              <p><strong>Cannot prove:</strong> supply shortage without checking storage, trade, and policy context.</p>
+            </div>
+          </article>
+
+          <article class="chart-panel">
+            <div class="panel-label">
+              <span>Lag check</span>
+              <strong>When does the signal appear?</strong>
+            </div>
+            <div class="lag-matrix" aria-label="Planned lag comparison matrix">
+              <span></span><b>1m</b><b>3m</b><b>6m</b>
+              <b>Rainfall</b><i class="heat-mid"></i><i class="heat-strong"></i><i class="heat-low"></i>
+              <b>Groundwater</b><i class="heat-low"></i><i class="heat-mid"></i><i class="heat-strong"></i>
+              <b>Arrivals</b><i class="heat-strong"></i><i class="heat-mid"></i><i class="heat-low"></i>
+            </div>
+            <div class="chart-reading">
+              <p><strong>May show:</strong> whether the market reacts immediately or later.</p>
+              <p><strong>Cannot prove:</strong> causation without stronger controls.</p>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section class="study-section" id="method" aria-labelledby="method-title">
-        <div class="section-heading">
-          <p class="eyebrow">Scientific method</p>
-          <h2 id="method-title">Move from hypothesis to evidence.</h2>
+      <section class="study-section method-story" id="method" aria-labelledby="method-title">
+        <div class="story-copy">
+          <p class="eyebrow">How we keep it scientific</p>
+          <h2 id="method-title">Readable for everyone, disciplined enough for data work.</h2>
+          <p>
+            The method starts simple: define the question, collect public sources, align them to the
+            same geography and time unit, then check whether the signal survives basic tests.
+          </p>
         </div>
-        <ol class="method-list">
-          <li>
-            <span>Hypothesis</span>
-            <p>Write expected relationships before plotting: rainfall deficit during sensitive crop months may reduce yield or arrivals later.</p>
-          </li>
-          <li>
-            <span>Source audit</span>
-            <p>Record provider, license, update date, geography level, frequency, missing fields, and collection method.</p>
-          </li>
-          <li>
-            <span>Harmonize</span>
-            <p>Normalize district names, crop names, dates, units, and market identifiers before joining datasets.</p>
-          </li>
-          <li>
-            <span>Explore</span>
-            <p>Use anomaly maps, time series, seasonal windows, scatter plots, and lag correlation checks.</p>
-          </li>
-          <li>
-            <span>Test</span>
-            <p>Start with lagged correlations, then consider panel regression with district and month controls once the data is stable.</p>
-          </li>
-          <li>
-            <span>Conclude carefully</span>
-            <p>Separate observed association from causation, and publish the limitations beside the chart.</p>
-          </li>
+        <ol class="method-steps">
+          <li><strong>Ask first.</strong><span>Write the hypothesis before looking for a chart.</span></li>
+          <li><strong>Audit sources.</strong><span>Provider, license, update date, missing values, and limitations.</span></li>
+          <li><strong>Build one table.</strong><span>District x month x crop, with raw and derived variables kept separate.</span></li>
+          <li><strong>Check lags.</strong><span>Compare 1-month, 3-month, and 6-month relationships before claiming a pattern.</span></li>
+          <li><strong>Publish caveats.</strong><span>Every chart gets a note on what it may show and what it cannot prove.</span></li>
         </ol>
       </section>
 
-      <section class="study-section parameter-section" id="parameters" aria-labelledby="parameters-title">
-        <div class="section-heading">
-          <p class="eyebrow">Parameters</p>
-          <h2 id="parameters-title">What each dataset should contribute.</h2>
-        </div>
-        <div class="parameter-grid">
-          <article class="parameter-card">
-            <h3>Rainfall</h3>
-            <p>Actual rainfall, normal rainfall, departure %, dry spell length, rainy days, heavy rainfall days, monsoon window.</p>
-            <strong>Derived signals</strong>
-            <p>Monthly anomaly, crop-stage rainfall, rolling deficit, extreme rainfall flag.</p>
-          </article>
-          <article class="parameter-card">
-            <h3>Groundwater</h3>
-            <p>Depth below ground level, pre-monsoon level, post-monsoon recovery, year-on-year change, stress category where available.</p>
-            <strong>Derived signals</strong>
-            <p>Seasonal recharge, long-term decline, drought buffer index.</p>
-          </article>
-          <article class="parameter-card">
-            <h3>Crop</h3>
-            <p>Crop, season, district, sown area, production, yield, irrigation share, crop calendar, major producing districts.</p>
-            <strong>Derived signals</strong>
-            <p>Yield anomaly, area response, sensitive growth-stage window.</p>
-          </article>
-          <article class="parameter-card">
-            <h3>Market</h3>
-            <p>Mandi, arrivals, modal price, min/max price, monthly average, price spread, volatility, price spike events.</p>
-            <strong>Derived signals</strong>
-            <p>Arrival shock, price spike flag, lag from crop stress to market movement.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="study-section pilot-section" aria-labelledby="pilot-title">
-        <div>
-          <p class="eyebrow">Pilot choice</p>
-          <h2 id="pilot-title">Start narrow: Maharashtra and onion.</h2>
+      <section class="study-section source-section" id="sources" aria-labelledby="sources-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Public data plan</p>
+          <h2 id="sources-title">The source table is part of the story.</h2>
           <p>
-            Onion is a useful first crop because prices are visible to the public, Maharashtra
-            is a major producing state, and water stress can be investigated through rainfall,
-            groundwater, production, arrivals, and price movement.
+            Good public-data work should let readers see where the numbers came from and where they
+            may be weak.
           </p>
         </div>
-        <div class="pilot-panel">
-          <h3>First dashboard views</h3>
-          <ul>
-            <li>District rainfall anomaly map</li>
-            <li>Groundwater depth and seasonal recovery chart</li>
-            <li>Onion arrivals vs modal price chart</li>
-            <li>Yield and production trend by district</li>
-            <li>Lag check between rainfall windows, arrivals, and price spikes</li>
-          </ul>
+
+        <div class="source-table" role="table" aria-label="Planned data sources">
+          <div role="row" class="source-head">
+            <span role="columnheader">Layer</span>
+            <span role="columnheader">Public source</span>
+            <span role="columnheader">What we need</span>
+            <span role="columnheader">Watch-outs</span>
+          </div>
+          <a role="row" href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
+            <span role="cell">Rainfall</span>
+            <span role="cell">data.gov.in rainfall catalog</span>
+            <span role="cell">actual, normal, departure %, dry spells, heavy rain days</span>
+            <span role="cell">district alignment and missing daily observations</span>
+          </a>
+          <a role="row" href="https://www.cgwb.gov.in/ground-water-level-monitoring" target="_blank" rel="noreferrer">
+            <span role="cell">Groundwater</span>
+            <span role="cell">CGWB groundwater monitoring</span>
+            <span role="cell">depth below ground level, seasonal recovery, long-term trend</span>
+            <span role="cell">station-to-district matching and seasonal frequency</span>
+          </a>
+          <a role="row" href="https://www.upag.gov.in/" target="_blank" rel="noreferrer">
+            <span role="cell">Crop</span>
+            <span role="cell">UPAg and DES agriculture statistics</span>
+            <span role="cell">area, production, yield, season, crop calendar</span>
+            <span role="cell">annual data, crop-name harmonization, reporting lag</span>
+          </a>
+          <a role="row" href="https://delhi.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">
+            <span role="cell">Market</span>
+            <span role="cell">AGMARKNET mandi prices via data.gov.in</span>
+            <span role="cell">arrivals, modal price, min/max price, market location</span>
+            <span role="cell">noisy daily data, units, inactive markets, outliers</span>
+          </a>
         </div>
       </section>
 
-      <section class="study-section evidence-section" aria-labelledby="guardrails-title">
-        <div class="section-heading">
-          <p class="eyebrow">Guardrails</p>
-          <h2 id="guardrails-title">What not to claim too early.</h2>
+      <section class="study-section guardrail-section" aria-labelledby="guardrail-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Result language</p>
+          <h2 id="guardrail-title">The conclusion has to match the evidence.</h2>
         </div>
-        <div class="evidence-grid">
-          <div>
-            <strong>Do say</strong>
-            <p>Rainfall deficit was followed by lower arrivals in these markets during this window.</p>
-          </div>
-          <div>
-            <strong>Do not say yet</strong>
-            <p>Rainfall deficit caused the price increase.</p>
-          </div>
-          <div>
-            <strong>Do control for</strong>
-            <p>Storage, transport, exports, imports, MSP, inflation, nearby-state production, and policy events.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="study-section sources-section" id="sources" aria-labelledby="sources-title">
-        <div class="section-heading">
-          <p class="eyebrow">Public sources</p>
-          <h2 id="sources-title">Start with open, attributable datasets.</h2>
-        </div>
-        <div class="source-list">
-          <a href="https://www.data.gov.in/" target="_blank" rel="noreferrer">
-            <span>Open Government Data Platform India</span>
-            <small>Published datasets are listed under Government Open Data License - India unless a dataset says otherwise.</small>
-          </a>
-          <a href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
-            <span>Rainfall catalog</span>
-            <small>Station, gridded, and district-level rainfall resources from public water and weather sources.</small>
-          </a>
-          <a href="https://delhi.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noreferrer">
-            <span>AGMARKNET mandi prices via data.gov.in</span>
-            <small>Daily wholesale min, max, and modal prices for commodities across markets.</small>
-          </a>
-          <a href="https://www.cgwb.gov.in/ground-water-level-monitoring" target="_blank" rel="noreferrer">
-            <span>CGWB groundwater monitoring</span>
-            <small>Groundwater level monitoring, seasonal measurements, and links to India-WRIS dissemination.</small>
-          </a>
-          <a href="https://www.upag.gov.in/" target="_blank" rel="noreferrer">
-            <span>UPAg agriculture statistics</span>
-            <small>Unified Portal for Agricultural Statistics from the Directorate of Economics and Statistics.</small>
-          </a>
-          <a href="https://desagri.gov.in/en/document-report-category/agriculture-statistics-at-a-glance/" target="_blank" rel="noreferrer">
-            <span>Agricultural Statistics at a Glance</span>
-            <small>Official agriculture reports for crop production, yield, irrigation, and related indicators.</small>
-          </a>
+        <div class="guardrail-grid">
+          <article>
+            <strong>What we can say early</strong>
+            <p>Rainfall deficit and lower arrivals appear together in these districts and months.</p>
+          </article>
+          <article>
+            <strong>What needs more testing</strong>
+            <p>The relationship remains after checking groundwater, seasonality, nearby supply, and policy context.</p>
+          </article>
+          <article>
+            <strong>What we should not say yet</strong>
+            <p>Water stress caused the onion price increase.</p>
+          </article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Track & Tote</span>
-      <span>Research blueprint 01: water stress, crops, and prices.</span>
+      <span>Track &amp; Tote</span>
+      <span>Study 01: water stress, onion arrivals, and prices.</span>
     </footer>
 
     <script src="../script.js"></script>
