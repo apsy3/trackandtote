@@ -8,7 +8,7 @@
       content="A Track &amp; Tote public-data field note asking whether water stress can help explain onion price shocks in Maharashtra."
     >
     <title>Can Water Stress Explain Onion Price Shocks? | Track &amp; Tote</title>
-    <link rel="stylesheet" href="../styles.css?v=20260531-research-frame">
+    <link rel="stylesheet" href="../styles.css?v=20260531-source-quality">
   </head>
   <body class="study-article-page">
     <header class="site-header article-header">
@@ -480,6 +480,64 @@
       <section class="article-section source-notes" id="sources" aria-labelledby="sources-title">
         <p class="article-kicker">Public sources and references</p>
         <h2 id="sources-title">The source note is part of the article.</h2>
+        <p class="section-intro">
+          Each source has a job, but not every source is ready for the same kind of claim. This
+          matrix shows which data can support a chart, which data needs aggregation, and which data
+          should stay as context or a control flag.
+        </p>
+
+        <div class="source-quality-table" role="table" aria-label="Source quality and use table">
+          <div class="source-quality-head" role="row">
+            <span role="columnheader">Layer</span>
+            <span role="columnheader">Frequency</span>
+            <span role="columnheader">Geography</span>
+            <span role="columnheader">Best use</span>
+            <span role="columnheader">Warning</span>
+          </div>
+          <div role="row">
+            <span role="cell"><strong>Rainfall</strong><small>IMD / data.gov.in catalog</small></span>
+            <span role="cell">Daily to monthly</span>
+            <span role="cell">Grid, district, state</span>
+            <span role="cell">Build rainfall anomaly, dry-spell, and crop-stage stress indicators.</span>
+            <span role="cell">District averages can hide local rainfall variation and station gaps.</span>
+          </div>
+          <div role="row">
+            <span role="cell"><strong>Groundwater</strong><small>CGWB monitoring</small></span>
+            <span role="cell">Seasonal / periodic</span>
+            <span role="cell">Station, block, district</span>
+            <span role="cell">Show whether rainfall stress had a water buffer or long-term weakness.</span>
+            <span role="cell">Not naturally monthly; station-to-district matching needs care.</span>
+          </div>
+          <div role="row">
+            <span role="cell"><strong>Crop output</strong><small>UPAg / DES / horticulture statistics</small></span>
+            <span role="cell">Seasonal / annual</span>
+            <span role="cell">District, state</span>
+            <span role="cell">Check whether water stress lines up with area, production, or yield change.</span>
+            <span role="cell">Annual totals may be too coarse for short market shocks.</span>
+          </div>
+          <div role="row">
+            <span role="cell"><strong>Mandi market</strong><small>AGMARKNET via data.gov.in</small></span>
+            <span role="cell">Daily</span>
+            <span role="cell">Market, district, state</span>
+            <span role="cell">Track modal price, min-max spread, volatility, and possibly arrivals.</span>
+            <span role="cell">The current public price response did not include arrivals, so supply cannot be inferred.</span>
+          </div>
+          <div role="row">
+            <span role="cell"><strong>Policy events</strong><small>PIB and official releases</small></span>
+            <span role="cell">Event-based</span>
+            <span role="cell">National, state, market</span>
+            <span role="cell">Mark export rules, buffer release, procurement, and other non-weather shocks.</span>
+            <span role="cell">Context flags explain timing but are not continuous measurements.</span>
+          </div>
+          <div role="row">
+            <span role="cell"><strong>Research studies</strong><small>Published methods and papers</small></span>
+            <span role="cell">Reference layer</span>
+            <span role="cell">Study-specific</span>
+            <span role="cell">Choose variables, lag windows, and caution language before modeling.</span>
+            <span role="cell">A paper guides the test; it does not prove this article's local result.</span>
+          </div>
+        </div>
+
         <div class="source-note-list">
           <a href="https://www.data.gov.in/catalog/rainfall" target="_blank" rel="noreferrer">
             <strong>Rainfall</strong>
@@ -514,6 +572,6 @@
       <span>Study 01: water stress, onion prices, and careful public data.</span>
     </footer>
 
-    <script src="../script.js?v=20260531-research-frame"></script>
+    <script src="../script.js?v=20260531-source-quality"></script>
   </body>
 </html>
