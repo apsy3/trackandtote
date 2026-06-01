@@ -1,0 +1,38 @@
+---
+title: Why India ESG/GHG/OHSE public data needs time-series context
+description: A Step 1 note on why source metadata and time windows matter before conclusion language.
+date: 2026-06-02
+draft: false
+tags:
+  - esg
+  - public-data
+  - method
+---
+
+Public-data storytelling fails when single observations are presented as full truth.
+In India ESG/GHG/OHSE work, we often mix datasets with very different update cycles.
+
+Air-quality streams can be near real-time in some cities.  
+Grid factors, annual emissions, and many OHSE indicators are slower and versioned.
+
+That is why each graph in this observatory includes:
+
+- source
+- frequency
+- latest observation date
+- retrieved-at timestamp
+- confidence
+- status
+
+In Step 1, all series are mock data by design. This gives us a safe way to finalize chart
+contracts and metadata rules before live connectors are introduced.
+
+The next phase is not "more charts first." The next phase is better governance:
+
+1. Connector-level source checks
+2. Snapshot caching
+3. Transparent stale/fresh labels
+4. Clear caveats before interpretation
+
+The calculator comes later. First, we make sure the public evidence layer is readable,
+traceable, and honest about what it can and cannot claim.

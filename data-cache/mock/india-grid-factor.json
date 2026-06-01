@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "India power-sector/grid CO2 factor trend",
+    "metric": "Grid emission factor",
+    "source": "Mocked CEA-style published factor",
+    "sourceUrl": "https://cea.nic.in/",
+    "geography": "India",
+    "frequency": "versioned",
+    "licenseNote": "Mock data for Step 1 observatory UX only.",
+    "confidence": "medium",
+    "status": "versioned",
+    "latestObservation": "2024-12-31",
+    "retrievedAt": "2026-06-02T00:00:00Z"
+  },
+  "data": [
+    {
+      "date": "2015-12-31",
+      "value": 0.83,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2016-12-31",
+      "value": 0.81,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2017-12-31",
+      "value": 0.8,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2018-12-31",
+      "value": 0.78,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2019-12-31",
+      "value": 0.76,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2020-12-31",
+      "value": 0.74,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2021-12-31",
+      "value": 0.72,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2022-12-31",
+      "value": 0.71,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2023-12-31",
+      "value": 0.69,
+      "unit": "tCO2/MWh"
+    },
+    {
+      "date": "2024-12-31",
+      "value": 0.68,
+      "unit": "tCO2/MWh"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@india-esg/schemas",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/types.ts"
+  }
+}

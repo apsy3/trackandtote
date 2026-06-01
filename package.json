@@ -1,22 +1,15 @@
 {
-  "name": "trackandtote",
+  "name": "india-esg-observatory",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "check": "astro check"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^4.0.0",
-    "@astrojs/rss": "^4.0.0",
-    "astro": "^5.0.0",
-    "reading-time": "^1.5.0"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "typescript": "^5.9.3"
+    "dev": "npm run dev --workspace @india-esg/observatory -- --host 0.0.0.0 --port 4321",
+    "build": "npm run build --workspace @india-esg/observatory",
+    "preview": "npm run preview --workspace @india-esg/observatory",
+    "typecheck": "npm run typecheck --workspace @india-esg/observatory"
   }
 }

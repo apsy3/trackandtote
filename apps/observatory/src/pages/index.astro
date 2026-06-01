@@ -1,0 +1,95 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ChartSectionCard from "@/components/charts/ChartSectionCard";
+import DataFreshnessTable from "@/components/charts/DataFreshnessTable";
+
+const chartSections = [
+  {
+    title: "1) India total GHG emissions trend",
+    endpoint: "/api/ghg-emissions.json",
+    variant: "line",
+  },
+  {
+    title: "2) India power-sector/grid CO2 factor trend",
+    endpoint: "/api/grid-factor.json",
+    variant: "bar",
+  },
+  {
+    title: "3) Delhi PM2.5 air quality trend",
+    endpoint: "/api/air-quality-pm25.json",
+    variant: "multi",
+  },
+  {
+    title: "4) Delhi NO2 air quality trend",
+    endpoint: "/api/air-quality-no2.json",
+    variant: "multi",
+  },
+  {
+    title: "5) Delhi temperature / heat trend",
+    endpoint: "/api/weather-temperature.json",
+    variant: "line",
+  },
+  {
+    title: "6) Delhi rainfall trend",
+    endpoint: "/api/weather-rainfall.json",
+    variant: "bar",
+  },
+  {
+    title: "7) India water stress risk",
+    endpoint: "/api/water-risk.json",
+    variant: "line",
+  },
+  {
+    title: "8) India OHSE / occupational safety benchmark trend",
+    endpoint: "/api/ohse.json",
+    variant: "line",
+  },
+  {
+    title: "9) India ESG or SDG country indicator trend",
+    endpoint: "/api/worldbank.json?metric=indicator",
+    variant: "line",
+  },
+  {
+    title: "10) India monthly emissions context",
+    endpoint: "/api/monthly-emissions.json",
+    variant: "line",
+  },
+] as const;
+---
+
+<BaseLayout
+  title="India ESG, GHG and OHSE Public Data Observatory"
+  description="Step 1 public observatory foundation with transparent mock data and chart metadata."
+>
+  <main>
+    <section class="article-hero">
+      <p style="margin:0; text-transform:uppercase; letter-spacing:0.06em; font-size:0.75rem; font-weight:700; color:#5a6765;">
+        Step 1 MVP foundation
+      </p>
+      <h1>India ESG, GHG and OHSE Public Data Observatory</h1>
+      <p>
+        This page is a public data note: each graph shows source, frequency, latest
+        observation, retrieval timestamp, confidence, and status.
+      </p>
+      <p>
+        For now, all values are mock snapshots that match the shape of future public-data
+        workflows. Real connectors and calculator logic come in later phases.
+      </p>
+    </section>
+
+    <section class="cards">
+      {
+        chartSections.map((section) => (
+          <ChartSectionCard
+            client:load
+            title={section.title}
+            endpoint={section.endpoint}
+            variant={section.variant}
+          />
+        ))
+      }
+    </section>
+
+    <DataFreshnessTable client:load endpoint="/api/data-freshness.json" />
+  </main>
+</BaseLayout>
