@@ -9,26 +9,26 @@ const notes = (await getCollection("blog", ({ data }) => !data.draft))
 const methodItems = [
   {
     title: "Source-aware",
-    detail: "Public information is shown with source context where available.",
+    detail: "Trace the source before trusting the signal.",
   },
   {
     title: "Time-aware",
-    detail: "Charts keep observation and retrieval dates visible.",
+    detail: "Keep observation and retrieval dates visible.",
   },
   {
     title: "Mock-first",
-    detail: "Prototype data is used until source rules are reviewed.",
+    detail: "Prototype structure before connecting live data.",
   },
   {
     title: "Careful claims",
-    detail: "No dataset is described as live or complete without support.",
+    detail: "Do not describe data as complete or live without support.",
   },
 ] as const;
 ---
 
 <BaseLayout
   title="Track & Tote"
-  description="Careful notes and early data experiments around sustainability reporting, ESG, GHG and OHSE."
+  description="Careful writing and early data experiments around society, sustainability, reporting and decision-making."
 >
   <main>
     <section class="home-hero">
@@ -41,15 +41,18 @@ const methodItems = [
         <p class="kicker">Public notes and data experiments</p>
         <h1>Track &amp; Tote</h1>
         <p class="home-hero-subtitle">
-          Careful notes and early data experiments around sustainability reporting, ESG, GHG and
-          OHSE.
-        </p>
-        <p>
-          This site is a working space for small articles, method notes and public-data prototypes.
-          The current ESG/OHSE project is intentionally mock-first while sources, licences,
-          attribution and refresh rules are reviewed.
+          Careful writing and early data experiments around society, sustainability, reporting and
+          decision-making.
         </p>
       </div>
+    </section>
+
+    <section class="editorial-statement" aria-label="Editorial statement">
+      <p>
+        Track &amp; Tote is a working space for essays, method notes and small public-data
+        prototypes. Some projects are exploratory; some are practical. The common thread is
+        disciplined evidence and careful language.
+      </p>
     </section>
 
     <section class="section-block">
@@ -69,8 +72,12 @@ const methodItems = [
 
     <section class="section-block">
       <div class="section-head">
-        <p class="kicker">Latest notes</p>
+        <p class="kicker">Notes</p>
         <h2>Recent writing</h2>
+        <p class="section-copy">
+          Essays and working notes across society, public data, sustainability, technology,
+          reporting and decision-making.
+        </p>
       </div>
       <div class="notes-grid">
         {
