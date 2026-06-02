@@ -47,20 +47,9 @@ export default function DataFreshnessTable({ endpoint }: Props) {
   }
 
   return (
-    <section
-      style={{
-        marginTop: "1rem",
-        background: "#fbf9f5",
-        border: "1px solid #d9d3c8",
-        borderRadius: 12,
-        padding: "1rem",
-        overflowX: "auto",
-      }}
-    >
-      <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>Data Freshness Snapshot</h2>
-      <p className="mock-note" style={{ marginTop: 0 }}>
-        {rows.length} datasets listed.
-      </p>
+    <section className="freshness-table">
+      <h2>Data Freshness Snapshot</h2>
+      <p className="mock-note">{rows.length} datasets listed.</p>
       <table>
         <thead>
           <tr>
@@ -103,7 +92,7 @@ export default function DataFreshnessTable({ endpoint }: Props) {
           ))}
         </tbody>
       </table>
-      <p className="mock-note" style={{ marginBottom: 0 }}>
+      <p className="mock-note">
         This table reflects mock snapshots only in Step 1.
       </p>
     </section>

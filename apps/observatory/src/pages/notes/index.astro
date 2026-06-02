@@ -7,7 +7,10 @@ const notes = (await getCollection("blog", ({ data }) => !data.draft)).sort(
 );
 ---
 
-<BaseLayout title="Notes | Track & Tote" description="Essays and working notes across society, public data, sustainability, technology, reporting and decision-making.">
+<BaseLayout
+  title="Notes | Track & Tote"
+  description="Essays and working notes across society, public data, sustainability, technology, reporting and decision-making."
+>
   <main>
     <section class="article-hero">
       <p class="kicker">Notes</p>
