@@ -12,13 +12,16 @@ export async function getStaticPaths() {
 
 const { note } = Astro.props;
 const { Content } = await note.render();
+const wordCount = note.body.trim().split(/\s+/).filter(Boolean).length;
+const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
 ---
 
 <BaseLayout title={`${note.data.title} | Track & Tote`} description={note.data.description}>
   <article class="note-article">
     <p class="kicker">Note</p>
     <h1>{note.data.title}</h1>
-    <p class="note-meta">
+    <p class="note-summary">{note.data.description}</p>
+    <div class="note-header-meta">
       <time datetime={note.data.date.toISOString()}>
         {note.data.date.toLocaleDateString("en-IN", {
           year: "numeric",
@@ -26,7 +29,17 @@ const { Content } = await note.render();
           day: "2-digit",
         })}
       </time>
-    </p>
+      <span>{readingMinutes} min read</span>
+    </div>
+    {
+      note.data.tags.length > 0 ? (
+        <ul class="tag-list" aria-label="Tags">
+          {note.data.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      ) : null
+    }
     <div class="note-prose">
       <Content />
     </div>
