@@ -8,36 +8,48 @@ const notes = (await getCollection("blog", ({ data }) => !data.draft))
 
 const methodItems = [
   {
-    title: "Source-first",
-    detail: "Each claim starts from a traceable source, not a visual trend alone.",
+    title: "Source-aware",
+    detail: "Public information is shown with source context where available.",
   },
   {
-    title: "Time-stamped",
-    detail: "Every dataset carries latest observation and retrieved-at context.",
+    title: "Time-aware",
+    detail: "Charts keep observation and retrieval dates visible.",
   },
   {
-    title: "Mock until verified",
-    detail: "We prototype with mock data before connecting live public connectors.",
+    title: "Mock-first",
+    detail: "Prototype data is used until source rules are reviewed.",
   },
   {
-    title: "No false real-time claims",
-    detail: "Update frequency is explicit so annual data is never framed as live.",
+    title: "Careful claims",
+    detail: "No dataset is described as live or complete without support.",
   },
 ] as const;
 ---
 
 <BaseLayout
   title="Track & Tote"
-  description="Public notes, data experiments, and practical methods for sustainability, reporting, and decision-making."
+  description="Careful notes and early data experiments around sustainability reporting, ESG, GHG and OHSE."
 >
   <main>
-    <section class="article-hero article-hero--home">
-      <p class="kicker">Public writing and projects</p>
-      <h1>Track &amp; Tote</h1>
-      <p>
-        Public notes, data experiments, and practical methods for sustainability, reporting, and
-        decision-making.
-      </p>
+    <section class="home-hero">
+      <img
+        src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80"
+        alt="Printed reports, notebooks, and research material arranged for review"
+        loading="eager"
+      />
+      <div class="home-hero-content">
+        <p class="kicker">Public notes and data experiments</p>
+        <h1>Track &amp; Tote</h1>
+        <p class="home-hero-subtitle">
+          Careful notes and early data experiments around sustainability reporting, ESG, GHG and
+          OHSE.
+        </p>
+        <p>
+          This site is a working space for small articles, method notes and public-data prototypes.
+          The current ESG/OHSE project is intentionally mock-first while sources, licences,
+          attribution and refresh rules are reviewed.
+        </p>
+      </div>
     </section>
 
     <section class="section-block">
@@ -46,9 +58,10 @@ const methodItems = [
         <h2>India ESG/OHSE Public Data Project</h2>
       </div>
       <article class="feature-card">
+        <p class="status-label">Mock-data prototype</p>
         <p>
-          An open, evolving experiment to connect public ESG, GHG, OHSE and sustainability
-          datasets over time.
+          An early-stage project exploring how public datasets can support sustainability, safety
+          and reporting context over time.
         </p>
         <a class="button" href="/projects/india-esg-ohse">View project</a>
       </article>
