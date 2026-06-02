@@ -1,204 +1,105 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ChartSectionCard from "@/components/charts/ChartSectionCard";
-import DataFreshnessTable from "@/components/charts/DataFreshnessTable";
+import { getCollection } from "astro:content";
 
-const chartSections = {
-  emissionsAndGrid: [
-    {
-      title: "India total GHG emissions trend",
-      endpoint: "/api/ghg-emissions.json",
-      variant: "line",
-    },
-    {
-      title: "India power-sector grid CO2 factor trend",
-      endpoint: "/api/grid-factor.json",
-      variant: "bar",
-    },
-    {
-      title: "India monthly emissions context",
-      endpoint: "/api/monthly-emissions.json",
-      variant: "line",
-    },
-  ],
-  airAndClimate: [
-    {
-      title: "Delhi PM2.5 air quality trend",
-      endpoint: "/api/air-quality-pm25.json",
-      variant: "multi",
-    },
-    {
-      title: "Delhi NO2 air quality trend",
-      endpoint: "/api/air-quality-no2.json",
-      variant: "multi",
-    },
-    {
-      title: "Delhi temperature and heat trend",
-      endpoint: "/api/weather-temperature.json",
-      variant: "line",
-    },
-    {
-      title: "Delhi rainfall trend",
-      endpoint: "/api/weather-rainfall.json",
-      variant: "bar",
-    },
-  ],
-  riskAndSocial: [
-    {
-      title: "India water stress risk",
-      endpoint: "/api/water-risk.json",
-      variant: "line",
-    },
-    {
-      title: "India OHSE benchmark trend",
-      endpoint: "/api/ohse.json",
-      variant: "line",
-    },
-    {
-      title: "India ESG/SDG country indicator trend",
-      endpoint: "/api/worldbank.json?metric=indicator",
-      variant: "line",
-    },
-  ],
-} as const;
+const notes = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
-const howToReadPoints = [
-  "Begin with frequency. An annual line should not be interpreted as day-to-day volatility.",
-  "Check lag before storytelling. Emissions, air quality, climate, and social indicators often move on different clocks.",
-  "Treat confidence labels as discipline, not decoration. Low confidence means compare carefully and avoid strong claims.",
-  "Use this page as a research notebook. It is a mock-data foundation for transparent public-data workflows.",
+const methodItems = [
+  {
+    title: "Source-first",
+    detail: "Each claim starts from a traceable source, not a visual trend alone.",
+  },
+  {
+    title: "Time-stamped",
+    detail: "Every dataset carries latest observation and retrieved-at context.",
+  },
+  {
+    title: "Mock until verified",
+    detail: "We prototype with mock data before connecting live public connectors.",
+  },
+  {
+    title: "No false real-time claims",
+    detail: "Update frequency is explicit so annual data is never framed as live.",
+  },
 ] as const;
 ---
 
 <BaseLayout
-  title="India ESG, GHG and OHSE Public Data Observatory"
-  description="Step 1 public observatory foundation with transparent mock data and chart metadata."
+  title="Track & Tote"
+  description="Public notes, data experiments, and practical methods for sustainability, reporting, and decision-making."
 >
   <main>
-    <section class="article-hero article-hero--editorial">
-      <p class="kicker">Public research observatory</p>
-      <h1>India ESG, GHG and OHSE Public Data Observatory</h1>
+    <section class="article-hero article-hero--home">
+      <p class="kicker">Public writing and projects</p>
+      <h1>Track &amp; Tote</h1>
       <p>
-        This is a long-form public note, not a dashboard. Each graph is embedded as evidence
-        inside a narrative on how to read climate, emissions, air, and social-risk signals
-        together.
-      </p>
-      <p>
-        Step 1 uses mock snapshots to establish method discipline: source traceability,
-        timeframe context, and visible caveats before interpretation.
+        Public notes, data experiments, and practical methods for sustainability, reporting, and
+        decision-making.
       </p>
     </section>
 
-    <section class="chapter">
-      <div class="chapter-head">
-        <p class="kicker">Section 1</p>
-        <h2>Why public ESG, GHG, and OHSE data needs time context</h2>
+    <section class="section-block">
+      <div class="section-head">
+        <p class="kicker">Featured project</p>
+        <h2>India ESG/OHSE Public Data Project</h2>
       </div>
-      <p class="chapter-copy">
-        Public datasets rarely move at the same speed. Some signals update hourly, others are
-        monthly, annual, or versioned releases. A responsible observatory has to make these
-        different clocks visible so readers do not treat every line as real-time truth.
-      </p>
-      <p class="chapter-copy">
-        This page therefore keeps metadata beside every chart and uses narrative structure
-        between chart groups. The goal is readable public writing with scientific caution.
-      </p>
+      <article class="feature-card">
+        <p>
+          An open, evolving experiment to connect public ESG, GHG, OHSE and sustainability
+          datasets over time.
+        </p>
+        <a class="button" href="/projects/india-esg-ohse">View project</a>
+      </article>
     </section>
 
-    <section class="chapter">
-      <div class="chapter-head">
-        <p class="kicker">Section 2</p>
-        <h2>Emissions and grid context</h2>
+    <section class="section-block">
+      <div class="section-head">
+        <p class="kicker">Latest notes</p>
+        <h2>Recent writing</h2>
       </div>
-      <p class="chapter-copy">
-        We begin with broad-scale emissions and electricity context, then place monthly movement
-        in that frame. These charts are better for directional reading than instant conclusions.
-      </p>
-      <div class="cards cards--chapter">
+      <div class="notes-grid">
         {
-          chartSections.emissionsAndGrid.map((section) => (
-            <ChartSectionCard
-              client:load
-              title={section.title}
-              endpoint={section.endpoint}
-              variant={section.variant}
-            />
+          notes.map((note) => (
+            <article class="note-card">
+              <h3>
+                <a href={`/notes/${note.slug}/`}>{note.data.title}</a>
+              </h3>
+              <p>{note.data.description}</p>
+              <div class="note-meta">
+                <time datetime={note.data.date.toISOString()}>
+                  {note.data.date.toLocaleDateString("en-IN", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })}
+                </time>
+              </div>
+            </article>
           ))
         }
       </div>
+      <p class="subtle-link">
+        <a href="/notes">Browse all notes</a>
+      </p>
     </section>
 
-    <section class="chapter">
-      <div class="chapter-head">
-        <p class="kicker">Section 3</p>
-        <h2>Air and climate context</h2>
+    <section class="section-block">
+      <div class="section-head">
+        <p class="kicker">Method strip</p>
+        <h2>How we keep the work disciplined</h2>
       </div>
-      <p class="chapter-copy">
-        City-level air quality and weather can move faster than national emissions inventories.
-        Reading these together helps separate immediate stress signals from longer-run changes.
-      </p>
-      <div class="cards cards--chapter">
+      <div class="method-strip">
         {
-          chartSections.airAndClimate.map((section) => (
-            <ChartSectionCard
-              client:load
-              title={section.title}
-              endpoint={section.endpoint}
-              variant={section.variant}
-            />
+          methodItems.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+            </article>
           ))
         }
       </div>
-    </section>
-
-    <section class="chapter">
-      <div class="chapter-head">
-        <p class="kicker">Section 4</p>
-        <h2>Risk and social context</h2>
-      </div>
-      <p class="chapter-copy">
-        Environmental exposure is only part of the public story. Water risk, workplace safety,
-        and broad ESG/SDG indicators provide social context for interpreting climate-linked
-        pressures.
-      </p>
-      <div class="cards cards--chapter">
-        {
-          chartSections.riskAndSocial.map((section) => (
-            <ChartSectionCard
-              client:load
-              title={section.title}
-              endpoint={section.endpoint}
-              variant={section.variant}
-            />
-          ))
-        }
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="chapter-head">
-        <p class="kicker">Section 5</p>
-        <h2>How to read this data</h2>
-      </div>
-      <ol class="reading-list">
-        {howToReadPoints.map((point) => <li>{point}</li>)}
-      </ol>
-      <p class="mock-note">
-        Mock data is intentionally used throughout this page. Live connector integration and
-        source validation are separate phases.
-      </p>
-    </section>
-
-    <section class="chapter chapter--appendix">
-      <div class="chapter-head">
-        <p class="kicker">Appendix</p>
-        <h2>Data freshness table</h2>
-      </div>
-      <p class="chapter-copy">
-        This appendix lists retrieval timestamps and status flags across all current mock
-        datasets so readers can audit update rhythm at a glance.
-      </p>
-      <DataFreshnessTable client:load endpoint="/api/data-freshness.json" />
     </section>
   </main>
 </BaseLayout>

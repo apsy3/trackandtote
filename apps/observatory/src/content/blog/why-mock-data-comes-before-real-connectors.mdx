@@ -1,0 +1,31 @@
+---
+title: Why mock data comes before real connectors
+description: Mock datasets let us validate contracts, chart behavior, and caveat language before live integration.
+date: 2026-05-31
+draft: false
+tags:
+  - mock-data
+  - connectors
+  - method
+---
+
+Using mock data first is not a shortcut. It is the safest way to build a credible data product.
+
+In early stages, mock series help us validate:
+
+- shared schemas
+- chart rendering behavior
+- metadata display requirements
+- cache and freshness workflows
+
+This prevents a common mistake: connecting live APIs too early and then rebuilding the
+foundation under public traffic.
+
+For this project, connector rollout happens only after source checks are complete:
+
+1. licence and commercial-use review
+2. attribution format confirmation
+3. caching and snapshot rules
+4. refresh-frequency policy
+
+Until those checks pass, mock is the honest status label.

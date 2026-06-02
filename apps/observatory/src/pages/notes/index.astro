@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const notes = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<BaseLayout title="Notes | Track & Tote" description="Public notes on data method and sustainability reporting.">
+  <main>
+    <section class="article-hero">
+      <p class="kicker">Notes</p>
+      <h1>Public notes and method reflections</h1>
+      <p>
+        Short, readable writing on source governance, time context, and what transparent public
+        data work should look like.
+      </p>
+    </section>
+
+    <section class="notes-grid">
+      {
+        notes.map((note) => (
+          <article class="note-card">
+            <h2>
+              <a href={`/notes/${note.slug}/`}>{note.data.title}</a>
+            </h2>
+            <p>{note.data.description}</p>
+            <div class="note-meta">
+              <time datetime={note.data.date.toISOString()}>
+                {note.data.date.toLocaleDateString("en-IN", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })}
+              </time>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>

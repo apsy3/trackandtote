@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const principles = [
+  {
+    title: "Source-first",
+    detail:
+      "Every series carries source and source URL context so readers can trace where claims begin.",
+  },
+  {
+    title: "Time-aware",
+    detail:
+      "Frequency, latest observation, and retrieval timestamp are visible before interpretation.",
+  },
+  {
+    title: "Mock until verified",
+    detail:
+      "We do not label data as live until licence, attribution, cache, and refresh rules are validated.",
+  },
+  {
+    title: "No false precision",
+    detail:
+      "Charts are used as visual notes with confidence and status labels, not as proof by styling.",
+  },
+] as const;
+---
+
+<BaseLayout title="Method | Track & Tote" description="How Track & Tote handles public-data writing and project method.">
+  <main>
+    <section class="article-hero">
+      <p class="kicker">Method</p>
+      <h1>Readable writing, disciplined evidence</h1>
+      <p>
+        Track &amp; Tote keeps the tone public-facing while preserving method guardrails around
+        source governance, time context, and claim language.
+      </p>
+    </section>
+
+    <section class="method-strip">
+      {
+        principles.map((principle) => (
+          <article>
+            <h2>{principle.title}</h2>
+            <p>{principle.detail}</p>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>

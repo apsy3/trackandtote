@@ -1,32 +1,28 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
+  const notes = await getCollection("blog", ({ data }) => !data.draft);
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: { slug: note.slug },
   }));
 }
 
-const { post } = Astro.props;
-const { Content } = await post.render();
+const { slug } = Astro.props;
 ---
 
-<BaseLayout title={`${post.data.title} | India ESG Observatory`} description={post.data.description}>
-  <article class="article-hero" style="padding:1.4rem;">
-    <p style="margin:0; text-transform:uppercase; letter-spacing:0.06em; font-size:0.75rem; font-weight:700; color:#5a6765;">
-      Blog
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=/notes/${slug}/`} />
+    <title>Redirecting to Notes</title>
+    <link rel="canonical" href={`/notes/${slug}/`} />
+  </head>
+  <body>
+    <p>
+      Redirecting to <a href={`/notes/${slug}/`}>Note</a>…
     </p>
-    <h1 style="margin-bottom:0.25rem;">{post.data.title}</h1>
-    <p style="margin-top:0;">
-      {post.data.date.toLocaleDateString("en-IN", {
-        year: "numeric",
-        month: "short",
-        day: "2-digit",
-      })}
-    </p>
-    <Content />
-  </article>
-</BaseLayout>
+  </body>
+</html>

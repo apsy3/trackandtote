@@ -1,42 +1,12 @@
----
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-
-const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
----
-
-<BaseLayout title="Blog | India ESG Observatory" description="Notes and essays from the observatory.">
-  <main>
-    <section class="article-hero">
-      <p style="margin:0; text-transform:uppercase; letter-spacing:0.06em; font-size:0.75rem; font-weight:700; color:#5a6765;">
-        Blog
-      </p>
-      <h1>Public-data essays and method notes</h1>
-      <p>Short writing, backed by traceable sources and dataset caveats.</p>
-    </section>
-
-    <section class="blog-grid">
-      {
-        posts.map((post) => (
-          <article class="blog-card">
-            <h2>
-              <a href={`/blog/${post.slug}/`} style="text-decoration:none;">
-                {post.data.title}
-              </a>
-            </h2>
-            <p>{post.data.description}</p>
-            <p style="margin-top:0.5rem; font-size:0.85rem;">
-              {post.data.date.toLocaleDateString("en-IN", {
-                year: "numeric",
-                month: "short",
-                day: "2-digit",
-              })}
-            </p>
-          </article>
-        ))
-      }
-    </section>
-  </main>
-</BaseLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0;url=/notes/" />
+    <title>Redirecting to Notes</title>
+    <link rel="canonical" href="/notes/" />
+  </head>
+  <body>
+    <p>Redirecting to <a href="/notes/">Notes</a>…</p>
+  </body>
+</html>

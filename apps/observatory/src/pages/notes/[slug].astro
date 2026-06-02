@@ -1,0 +1,34 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("blog", ({ data }) => !data.draft);
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await note.render();
+---
+
+<BaseLayout title={`${note.data.title} | Track & Tote`} description={note.data.description}>
+  <article class="note-article">
+    <p class="kicker">Note</p>
+    <h1>{note.data.title}</h1>
+    <p class="note-meta">
+      <time datetime={note.data.date.toISOString()}>
+        {note.data.date.toLocaleDateString("en-IN", {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+        })}
+      </time>
+    </p>
+    <div class="note-prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
