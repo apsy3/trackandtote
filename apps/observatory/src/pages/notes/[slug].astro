@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ProseTable from "@/components/content/ProseTable.astro";
+import NotesArchiveList from "@/components/notes/NotesArchiveList.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -15,34 +16,59 @@ const { note } = Astro.props;
 const { Content } = await note.render();
 const wordCount = note.body.trim().split(/\s+/).filter(Boolean).length;
 const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
+const allNotes = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const moreNotes = allNotes.filter((entry) => entry.slug !== note.slug).slice(0, 3);
+const primaryTag = note.data.tags[0] ?? "note";
 ---
 
 <BaseLayout title={`${note.data.title} | Track & Tote`} description={note.data.description}>
   <article class="note-article">
-    <p class="kicker">Note</p>
-    <h1>{note.data.title}</h1>
-    <p class="note-summary">{note.data.description}</p>
-    <div class="note-header-meta">
-      <time datetime={note.data.date.toISOString()}>
-        {note.data.date.toLocaleDateString("en-IN", {
-          year: "numeric",
-          month: "short",
-          day: "2-digit",
-        })}
-      </time>
-      <span>{readingMinutes} min read</span>
-    </div>
-    {
-      note.data.tags.length > 0 ? (
-        <ul class="tag-list" aria-label="Tags">
-          {note.data.tags.map((tag) => (
-            <li>{tag}</li>
-          ))}
-        </ul>
-      ) : null
-    }
+    <a class="return-link" href="/notes">Back to notes</a>
+    <header class="note-hero">
+      <div class="note-hero__copy">
+        <p class="kicker">{primaryTag}</p>
+        <h1>{note.data.title}</h1>
+        <p class="note-summary">{note.data.description}</p>
+        <div class="note-header-meta">
+          <time datetime={note.data.date.toISOString()}>
+            {note.data.date.toLocaleDateString("en-IN", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+            })}
+          </time>
+          <span>{readingMinutes} min read</span>
+        </div>
+        {
+          note.data.tags.length > 0 ? (
+            <ul class="tag-list" aria-label="Tags">
+              {note.data.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          ) : null
+        }
+      </div>
+      <div class="note-hero__mark" aria-hidden="true">
+        <span>{primaryTag}</span>
+      </div>
+    </header>
     <div class="note-prose prose">
       <Content components={{ table: ProseTable }} />
     </div>
   </article>
+
+  {
+    moreNotes.length > 0 ? (
+      <section class="more-notes" aria-labelledby="more-notes-title">
+        <div class="more-notes__head">
+          <p class="kicker">Keep reading</p>
+          <h2 id="more-notes-title">More notes</h2>
+        </div>
+        <NotesArchiveList notes={moreNotes} compact />
+      </section>
+    ) : null
+  }
 </BaseLayout>
