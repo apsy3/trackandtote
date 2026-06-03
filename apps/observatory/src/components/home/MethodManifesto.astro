@@ -1,0 +1,31 @@
+---
+interface MethodItem {
+  title: string;
+  detail: string;
+}
+
+interface Props {
+  items: readonly MethodItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="home-section home-section--method" aria-labelledby="home-method-title">
+  <div class="method-manifesto-head">
+    <p class="kicker">METHOD</p>
+    <h2 id="home-method-title">Small claims, visible evidence.</h2>
+  </div>
+
+  <div class="method-manifesto">
+    {
+      items.map((item, index) => (
+        <article>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{item.title}</h3>
+          <p>{item.detail}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

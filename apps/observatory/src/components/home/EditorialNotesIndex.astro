@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  notes: CollectionEntry<"blog">[];
+}
+
+const { notes } = Astro.props;
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-IN", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+---
+
+<section class="home-section home-section--notes" aria-labelledby="recent-notes-title">
+  <div class="editorial-index-head">
+    <div>
+      <p class="kicker">NOTES</p>
+      <h2 id="recent-notes-title">Recent writing</h2>
+    </div>
+    <p>
+      Essays and working notes across society, public data, sustainability, technology, reporting
+      and decision-making.
+    </p>
+  </div>
+
+  <div class="editorial-notes-list">
+    {
+      notes.map((note, index) => (
+        <article class="editorial-note-row">
+          <a class="editorial-note-row__link" href={`/notes/${note.slug}/`}>
+            <span class="editorial-note-row__index">{String(index + 1).padStart(2, "0")}</span>
+            <span class="editorial-note-row__main">
+              <h3>{note.data.title}</h3>
+              <span class="editorial-note-row__summary">{note.data.description}</span>
+            </span>
+            <span class="editorial-note-row__meta">
+              <time datetime={note.data.date.toISOString()}>{formatDate(note.data.date)}</time>
+              <span>{note.data.tags.slice(0, 3).join(" / ")}</span>
+            </span>
+          </a>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="subtle-link editorial-notes-link">
+    <a href="/notes">Browse all notes</a>
+  </p>
+</section>
