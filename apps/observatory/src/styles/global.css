@@ -102,10 +102,10 @@ h2,
 h3 {
   margin: 0;
   color: var(--text);
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-weight: 750;
   letter-spacing: 0;
-  line-height: 1.05;
+  line-height: 1.08;
 }
 
 p {
@@ -136,7 +136,7 @@ img {
 .site-header__inner,
 .site-nav {
   display: flex;
-  min-height: 68px;
+  min-height: 60px;
   width: min(var(--max-width), 100%);
   margin: 0 auto;
   padding: 0 var(--gutter);
@@ -149,11 +149,11 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.68rem;
+  gap: 0.5rem;
   color: var(--text);
-  font-family: var(--font-serif);
-  font-size: 1.42rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 800;
   line-height: 1;
   text-decoration: none;
   transition:
@@ -164,7 +164,7 @@ img {
 .brand:hover,
 .brand:focus-visible {
   color: var(--text);
-  transform: translateY(-1px);
+  transform: none;
 }
 
 .brand-mark {
@@ -221,9 +221,9 @@ img {
   min-height: 34px;
   padding: 0.45rem 0.72rem;
   color: var(--text-secondary);
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -373,17 +373,18 @@ main {
 }
 
 .hero-split h1 {
-  max-width: 8.9ch;
-  font-size: 9.8rem;
-  line-height: 0.86;
+  max-width: 15ch;
+  font-size: clamp(3rem, 4.5vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
 }
 
 .hero-split__subtitle {
   max-width: 42rem;
   margin-top: clamp(1rem, 2vw, 1.35rem);
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.5vw, 1.36rem);
-  line-height: 1.5;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.58;
 }
 
 .hero-split__statement {
@@ -570,10 +571,11 @@ main {
 }
 
 .editorial-statement-v2 p {
-  max-width: 29ch;
-  font-family: var(--font-serif);
-  font-size: 4.4rem;
-  line-height: 0.96;
+  max-width: 42ch;
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3vw, 2.7rem);
+  font-weight: 650;
+  line-height: 1.14;
 }
 
 .editorial-statement-v2 span {
@@ -631,17 +633,18 @@ main {
 }
 
 .project-feature h2 {
-  max-width: 10.8ch;
-  font-size: 6.4rem;
-  line-height: 0.88;
+  max-width: 18ch;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
 }
 
 .project-feature__copy > p:not(.kicker) {
   max-width: 47rem;
   margin-top: clamp(1.1rem, 2vw, 1.55rem);
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.5vw, 1.34rem);
-  line-height: 1.55;
+  font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+  line-height: 1.62;
 }
 
 .project-feature__actions {
@@ -803,9 +806,10 @@ main {
 }
 
 .editorial-index-head h2 {
-  max-width: 10ch;
-  font-size: clamp(3.6rem, 8vw, 8rem);
-  line-height: 0.88;
+  max-width: 15ch;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
 }
 
 .editorial-index-head p:not(.kicker) {
@@ -874,9 +878,9 @@ main {
 }
 
 .editorial-note-row h3 {
-  max-width: 14ch;
-  font-size: clamp(2rem, 4.2vw, 4.8rem);
-  line-height: 0.94;
+  max-width: 20ch;
+  font-size: clamp(1.45rem, 2.6vw, 2.35rem);
+  line-height: 1.1;
 }
 
 .editorial-note-row__summary {
@@ -915,8 +919,9 @@ main {
 
 .method-manifesto-head h2 {
   max-width: 13ch;
-  font-size: clamp(3.2rem, 7vw, 7rem);
-  line-height: 0.88;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
 }
 
 .method-manifesto {
@@ -985,16 +990,16 @@ main {
 
 .home-hero h1 {
   max-width: 10.6ch;
-  font-size: clamp(5.4rem, 12vw, 12.5rem);
-  line-height: 0.86;
+  font-size: clamp(3rem, 4.5vw, 3.5rem);
+  line-height: 1.04;
 }
 
 .home-hero-subtitle {
   max-width: 43rem;
   margin-top: clamp(1.1rem, 2vw, 1.6rem);
   color: var(--muted);
-  font-size: clamp(1.18rem, 2vw, 1.62rem);
-  line-height: 1.42;
+  font-size: clamp(1rem, 1.25vw, 1.14rem);
+  line-height: 1.58;
 }
 
 .home-hero-media {
@@ -1041,9 +1046,10 @@ main {
 
 .editorial-statement p {
   max-width: 26ch;
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 4.9rem);
-  line-height: 0.98;
+  font-family: var(--font-sans);
+  font-size: clamp(1.55rem, 3vw, 2.5rem);
+  font-weight: 650;
+  line-height: 1.16;
 }
 
 .article-hero {
@@ -1052,15 +1058,16 @@ main {
 }
 
 .article-hero h1 {
-  max-width: 14ch;
-  font-size: 4rem;
+  max-width: 18ch;
+  font-size: clamp(2.35rem, 4vw, 3.4rem);
+  line-height: 1.08;
 }
 
 .article-hero p {
   max-width: 68ch;
   margin-top: 0.9rem;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1rem;
 }
 
 .article-hero--project {
@@ -1093,8 +1100,8 @@ main {
 
 .section-head h2 {
   max-width: 24ch;
-  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
-  line-height: 0.96;
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  line-height: 1.12;
 }
 
 .section-copy {
@@ -1120,9 +1127,9 @@ main {
 }
 
 .feature-block .section-head h2 {
-  max-width: 10.5ch;
-  font-size: clamp(3.2rem, 7vw, 7.2rem);
-  line-height: 0.9;
+  max-width: 18ch;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08;
 }
 
 .feature-block__body {
@@ -1134,8 +1141,8 @@ main {
 
 .feature-block__body p:not(.status-label) {
   color: var(--muted);
-  font-size: clamp(1.08rem, 2vw, 1.36rem);
-  line-height: 1.5;
+  font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+  line-height: 1.62;
 }
 
 .feature-card,
@@ -1201,9 +1208,9 @@ main {
 
 .note-card h2,
 .note-card h3 {
-  max-width: 12ch;
-  font-size: clamp(2rem, 4vw, 4.2rem);
-  line-height: 0.96;
+  max-width: 20ch;
+  font-size: clamp(1.45rem, 2.8vw, 2.35rem);
+  line-height: 1.12;
 }
 
 .note-card h2 a,
@@ -1249,9 +1256,10 @@ main {
 }
 
 .archive-hero h1 {
-  max-width: 10.5ch;
-  font-size: clamp(4rem, 9vw, 9.2rem);
-  line-height: 0.86;
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 4.5vw, 3.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
 }
 
 .archive-hero p:not(.kicker) {
@@ -1363,9 +1371,9 @@ main {
 }
 
 .archive-row__body h2 {
-  max-width: 15ch;
-  font-size: clamp(2.2rem, 4.7vw, 5rem);
-  line-height: 0.92;
+  max-width: 22ch;
+  font-size: clamp(1.55rem, 3vw, 2.5rem);
+  line-height: 1.1;
 }
 
 .archive-row__meta {
@@ -1420,7 +1428,7 @@ main {
 }
 
 .archive-list--compact .archive-row__body h2 {
-  font-size: clamp(1.55rem, 3vw, 2.6rem);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
 }
 
 .subtle-link {
@@ -1481,7 +1489,7 @@ main {
 
 .projects-grid h2 {
   margin-bottom: 0.3rem;
-  font-size: 2rem;
+  font-size: 1.55rem;
 }
 
 .chapter {
@@ -1500,7 +1508,8 @@ main {
 
 .chapter-head h2 {
   max-width: 23ch;
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+  line-height: 1.12;
 }
 
 .chapter-copy {
@@ -1662,17 +1671,18 @@ main {
 }
 
 .note-hero h1 {
-  max-width: 12ch;
-  font-size: clamp(3.7rem, 8.2vw, 8.4rem);
-  line-height: 0.88;
+  max-width: 18ch;
+  font-size: clamp(2.35rem, 4.2vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
 }
 
 .note-summary {
   max-width: 740px;
   margin-top: clamp(1rem, 2vw, 1.35rem);
   color: var(--muted);
-  font-size: clamp(1.08rem, 1.7vw, 1.34rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.62;
 }
 
 .note-header-meta {
@@ -1753,7 +1763,7 @@ main {
 .note-prose {
   margin-top: clamp(1.8rem, 4vw, 2.6rem);
   color: rgba(31, 31, 31, 0.94);
-  font-size: 1.03rem;
+  font-size: 1.02rem;
   line-height: 1.76;
 }
 
@@ -1767,19 +1777,19 @@ main {
 }
 
 .note-prose > p:first-child {
-  font-size: clamp(1.08rem, 1.8vw, 1.24rem);
-  line-height: 1.68;
+  font-size: clamp(1.04rem, 1.35vw, 1.16rem);
+  line-height: 1.72;
 }
 
 .note-prose h2 {
   margin: clamp(2.4rem, 5vw, 3.4rem) 0 0.78rem;
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.05;
+  font-size: clamp(1.55rem, 2.4vw, 2.15rem);
+  line-height: 1.18;
 }
 
 .note-prose h3 {
   margin: 2rem 0 0.55rem;
-  font-size: 1.2rem;
+  font-size: 1.08rem;
   line-height: 1.2;
 }
 
@@ -1821,8 +1831,8 @@ main {
 }
 
 .more-notes h2 {
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-  line-height: 0.94;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.12;
 }
 
 .project-hero {
@@ -1836,17 +1846,18 @@ main {
 }
 
 .project-hero__copy h1 {
-  max-width: 11ch;
-  font-size: clamp(4rem, 8.5vw, 8.9rem);
-  line-height: 0.86;
+  max-width: 16ch;
+  font-size: clamp(2.35rem, 4.2vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
 }
 
 .project-hero__copy p:not(.kicker) {
   max-width: 48rem;
   margin-top: 1.1rem;
   color: var(--muted);
-  font-size: clamp(1.08rem, 1.6vw, 1.34rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.62;
 }
 
 .project-hero__status {
@@ -1972,9 +1983,10 @@ th {
 .site-footer__brand p {
   max-width: 20rem;
   color: var(--text);
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
-  line-height: 1.15;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  font-weight: 650;
+  line-height: 1.28;
 }
 
 .site-footer__meta {
@@ -2010,7 +2022,7 @@ th {
 
 .brand--footer {
   width: fit-content;
-  font-size: 1.1rem;
+  font-size: 0.98rem;
 }
 
 .brand--footer .brand-mark {
@@ -2021,25 +2033,25 @@ th {
 
 @media (max-width: 1100px) {
   .hero-split h1 {
-    font-size: 7.4rem;
+    font-size: clamp(2.5rem, 5vw, 3rem);
   }
 
   .project-feature h2,
   .editorial-index-head h2,
   .method-manifesto-head h2 {
-    font-size: 5.4rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
   }
 
   .editorial-statement-v2 p {
-    font-size: 3.7rem;
+    font-size: clamp(1.55rem, 3.2vw, 2.35rem);
   }
 
   .home-hero h1 {
-    font-size: clamp(4.8rem, 11vw, 8rem);
+    font-size: clamp(2.5rem, 5vw, 3rem);
   }
 
   .section-head h2 {
-    font-size: 2.8rem;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
   }
 }
 
@@ -2195,7 +2207,7 @@ th {
   }
 
   .brand {
-    font-size: 1.18rem;
+    font-size: 1rem;
   }
 
   .nav-links {
@@ -2205,7 +2217,7 @@ th {
   }
 
   .nav-links a {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
   }
 
   .nav-link {
@@ -2228,11 +2240,11 @@ th {
 
   .hero-split h1 {
     max-width: 100%;
-    font-size: 4.1rem;
+    font-size: clamp(2rem, 9vw, 2.35rem);
   }
 
   .hero-split__subtitle {
-    font-size: 1.08rem;
+    font-size: 1rem;
   }
 
   .hero-split__statement {
@@ -2271,7 +2283,7 @@ th {
 
   .editorial-statement-v2 p {
     max-width: 100%;
-    font-size: 2.6rem;
+    font-size: 1.65rem;
   }
 
   .home-section {
@@ -2284,7 +2296,7 @@ th {
   .archive-hero h1,
   .note-hero h1,
   .project-hero__copy h1 {
-    font-size: 3.35rem;
+    font-size: clamp(2rem, 9vw, 2.35rem);
   }
 
   .project-feature__visual {
@@ -2311,7 +2323,7 @@ th {
 
   .editorial-note-row h3 {
     max-width: 100%;
-    font-size: 2.4rem;
+    font-size: clamp(1.45rem, 7vw, 1.9rem);
   }
 
   .editorial-note-row__meta {
@@ -2350,7 +2362,7 @@ th {
   .archive-row__body h2,
   .archive-list--compact .archive-row__body h2 {
     max-width: 100%;
-    font-size: clamp(1.9rem, 10vw, 3.1rem);
+    font-size: clamp(1.45rem, 7vw, 1.95rem);
   }
 
   .archive-row__arrow {
@@ -2381,11 +2393,11 @@ th {
   }
 
   .home-hero h1 {
-    font-size: clamp(3.45rem, 16vw, 5.2rem);
+    font-size: clamp(2rem, 9vw, 2.35rem);
   }
 
   .home-hero-subtitle {
-    font-size: 1.12rem;
+    font-size: 1rem;
   }
 
   .home-hero-media {
@@ -2398,7 +2410,7 @@ th {
 
   .article-hero h1 {
     max-width: 100%;
-    font-size: 2.55rem;
+    font-size: 2.2rem;
   }
 
   .article-hero p {
@@ -2412,7 +2424,7 @@ th {
 
   .section-head h2,
   .chapter-head h2 {
-    font-size: 2.15rem;
+    font-size: 1.75rem;
   }
 
   .notes-grid,
@@ -2450,7 +2462,7 @@ th {
 
   .note-card h2,
   .note-card h3 {
-    font-size: clamp(1.8rem, 9vw, 2.7rem);
+    font-size: clamp(1.45rem, 7vw, 1.95rem);
   }
 
   th,
