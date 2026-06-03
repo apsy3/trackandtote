@@ -158,7 +158,7 @@ License status remains **must verify before connector**.
 |---|---|---|---|---|---|
 | [OpenAQ](sources/openaq.md) | PM2.5/NO2 city air quality context | Hourly/Daily | Near-real-time | must verify before connector | high |
 | CPCB National AQI | India official air-quality context | Hourly/Daily | Near-real-time | must verify before connector | high |
-| CEA CO2 Baseline Database | Grid emission factor baseline | Annual/Versioned | Annual/versioned | must verify before connector | high |
+| [CEA CO2 Baseline Database](sources/cea-co2-baseline.md) | Grid emission factor baseline | Annual/Versioned | Annual/versioned | must verify before connector | high |
 | [World Bank Indicators / ESG](sources/world-bank.md) | Country-level ESG/SDG indicators | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | UN SDG API | SDG indicator context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | ILOSTAT | OHSE/labor benchmark context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
