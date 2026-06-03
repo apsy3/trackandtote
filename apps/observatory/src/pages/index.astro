@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import EditorialStatement from "@/components/home/EditorialStatement.astro";
 import EditorialNotesIndex from "@/components/home/EditorialNotesIndex.astro";
 import FeaturedProject from "@/components/home/FeaturedProject.astro";
 import HeroSplit from "@/components/home/HeroSplit.astro";
@@ -12,20 +13,20 @@ const notes = (await getCollection("blog", ({ data }) => !data.draft))
 
 const methodItems = [
   {
-    title: "Source-aware",
-    detail: "Trace the source before trusting the signal.",
+    title: "Trace the source.",
+    detail: "Start with provenance before interpretation.",
   },
   {
-    title: "Time-aware",
-    detail: "Keep observation and retrieval dates visible.",
+    title: "Keep time visible.",
+    detail: "Show observation and retrieval dates.",
   },
   {
-    title: "Mock-first",
-    detail: "Prototype structure before connecting live data.",
+    title: "Prototype before claiming.",
+    detail: "Test the shape before live connectors.",
   },
   {
-    title: "Careful claims",
-    detail: "Do not describe data as complete or live without support.",
+    title: "Use careful language.",
+    detail: "Let the evidence set the strength of the claim.",
   },
 ] as const;
 ---
@@ -36,6 +37,7 @@ const methodItems = [
 >
   <main class="home-page">
     <HeroSplit />
+    <EditorialStatement />
     <FeaturedProject />
     <EditorialNotesIndex notes={notes} />
     <MethodManifesto items={methodItems} />

@@ -25,36 +25,27 @@ const path = Astro.url.pathname;
     />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-nav">
+    <header class="site-header">
+      <div class="site-header__inner">
         <a class="brand" href="/">Track &amp; Tote</a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <span class="nav-explore" aria-hidden="true">Explore</span>
           <a class:list={["nav-link", path === "/" && "is-active"]} href="/">Home</a>
           <a class:list={["nav-link", path.startsWith("/notes") && "is-active"]} href="/notes">
             Notes
           </a>
-          <div class="nav-item nav-item--projects">
-            <a
-              class:list={["nav-link", path.startsWith("/projects") && "is-active"]}
-              href="/projects"
-              aria-describedby="projects-preview"
-            >
-              Projects
-            </a>
-            <div class="nav-popover" id="projects-preview">
-              <p class="nav-popover__label">Current work</p>
-              <a href="/projects/india-esg-ohse">
-                <strong>India ESG/OHSE Public Data Project</strong>
-                <span>Mock-data prototype, source governance first.</span>
-              </a>
-            </div>
-          </div>
+          <a
+            class:list={["nav-link", path.startsWith("/projects") && "is-active"]}
+            href="/projects"
+          >
+            Projects
+          </a>
           <a class:list={["nav-link", path.startsWith("/method") && "is-active"]} href="/method">
             Method
           </a>
         </nav>
-      </header>
+      </div>
+    </header>
+    <div class="page-shell">
       <slot />
       <footer class="site-footer">
         <p>Track &amp; Tote</p>
