@@ -55,6 +55,8 @@ Do not build or enable an OpenAQ connector until:
 5. Redistribution and commercial-use status are confirmed for selected records.
 6. Mock fallback behavior remains available and clearly labelled.
 
+Detailed pre-connector checklist: [OpenAQ Licence And API Verification Checklist](openaq-verification.md).
+
 ## Primary References
 
 - [OpenAQ API documentation](https://docs.openaq.org/api)
