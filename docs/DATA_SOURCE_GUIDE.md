@@ -156,7 +156,7 @@ License status remains **must verify before connector**.
 
 | Source | Expected Use | Expected Frequency | Real-Time Status | Licence Status | First Connector Priority |
 |---|---|---|---|---|---|
-| OpenAQ | PM2.5/NO2 city air quality context | Hourly/Daily | Near-real-time | must verify before connector | high |
+| [OpenAQ](sources/openaq.md) | PM2.5/NO2 city air quality context | Hourly/Daily | Near-real-time | must verify before connector | high |
 | CPCB National AQI | India official air-quality context | Hourly/Daily | Near-real-time | must verify before connector | high |
 | CEA CO2 Baseline Database | Grid emission factor baseline | Annual/Versioned | Annual/versioned | must verify before connector | high |
 | World Bank Indicators / ESG | Country-level ESG/SDG indicators | Annual/Periodic | Annual/periodic | must verify before connector | medium |
