@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProseTable from "@/components/content/ProseTable.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -40,8 +41,8 @@ const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
         </ul>
       ) : null
     }
-    <div class="note-prose">
-      <Content />
+    <div class="note-prose prose">
+      <Content components={{ table: ProseTable }} />
     </div>
   </article>
 </BaseLayout>
