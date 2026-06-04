@@ -163,7 +163,7 @@ License status remains **must verify before connector**.
 | UN SDG API | SDG indicator context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | [ILOSTAT](sources/ilostat.md) | OHSE/labor benchmark context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | [EDGAR](sources/edgar.md) | National GHG inventory trend context | Annual/Release-based | Annual/versioned | must verify before connector | high |
-| WRI Aqueduct | Water stress/risk context | Periodic/Versioned | Periodic/versioned | must verify before connector | medium |
+| [WRI Aqueduct](sources/wri-aqueduct.md) | Water stress/risk context | Periodic/Versioned | Periodic/versioned | must verify before connector | medium |
 | [NASA POWER](sources/nasa-power.md) | Weather/temperature/rainfall context | Daily/Historical | Daily | must verify before connector | medium |
 | [Climate TRACE](sources/climate-trace.md) | Monthly/release emissions context | Monthly/Release-based | Monthly/release | must verify before connector | later |
 | data.gov.in | India public datasets by topic | Dataset-dependent | Dataset-dependent | must verify before connector | high |
