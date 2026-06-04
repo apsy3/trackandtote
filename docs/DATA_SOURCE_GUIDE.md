@@ -165,6 +165,6 @@ License status remains **must verify before connector**.
 | [EDGAR](sources/edgar.md) | National GHG inventory trend context | Annual/Release-based | Annual/versioned | must verify before connector | high |
 | WRI Aqueduct | Water stress/risk context | Periodic/Versioned | Periodic/versioned | must verify before connector | medium |
 | [NASA POWER](sources/nasa-power.md) | Weather/temperature/rainfall context | Daily/Historical | Daily | must verify before connector | medium |
-| Climate TRACE | Monthly/release emissions context | Monthly/Release-based | Monthly/release | must verify before connector | later |
+| [Climate TRACE](sources/climate-trace.md) | Monthly/release emissions context | Monthly/Release-based | Monthly/release | must verify before connector | later |
 | data.gov.in | India public datasets by topic | Dataset-dependent | Dataset-dependent | must verify before connector | high |
 | MoSPI EnviStats | India environment statistical publication context | Annual publication | Annual/versioned | must verify before connector | later |
