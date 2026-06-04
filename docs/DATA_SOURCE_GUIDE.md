@@ -166,5 +166,5 @@ License status remains **must verify before connector**.
 | [WRI Aqueduct](sources/wri-aqueduct.md) | Water stress/risk context | Periodic/Versioned | Periodic/versioned | must verify before connector | medium |
 | [NASA POWER](sources/nasa-power.md) | Weather/temperature/rainfall context | Daily/Historical | Daily | must verify before connector | medium |
 | [Climate TRACE](sources/climate-trace.md) | Monthly/release emissions context | Monthly/Release-based | Monthly/release | must verify before connector | later |
-| data.gov.in | India public datasets by topic | Dataset-dependent | Dataset-dependent | must verify before connector | high |
+| [data.gov.in](sources/data-gov-in.md) | India public datasets by topic | Dataset-dependent | Dataset-dependent | must verify before connector | high |
 | MoSPI EnviStats | India environment statistical publication context | Annual publication | Annual/versioned | must verify before connector | later |
