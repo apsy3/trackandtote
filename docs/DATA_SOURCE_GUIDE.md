@@ -167,4 +167,4 @@ License status remains **must verify before connector**.
 | [NASA POWER](sources/nasa-power.md) | Weather/temperature/rainfall context | Daily/Historical | Daily | must verify before connector | medium |
 | [Climate TRACE](sources/climate-trace.md) | Monthly/release emissions context | Monthly/Release-based | Monthly/release | must verify before connector | later |
 | [data.gov.in](sources/data-gov-in.md) | India public datasets by topic | Dataset-dependent | Dataset-dependent | must verify before connector | high |
-| MoSPI EnviStats | India environment statistical publication context | Annual publication | Annual/versioned | must verify before connector | later |
+| [MoSPI EnviStats](sources/mospi-envistats.md) | India environment statistical publication context | Annual publication | Annual/versioned | must verify before connector | later |
