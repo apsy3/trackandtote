@@ -161,7 +161,7 @@ License status remains **must verify before connector**.
 | [CEA CO2 Baseline Database](sources/cea-co2-baseline.md) | Grid emission factor baseline | Annual/Versioned | Annual/versioned | must verify before connector | high |
 | [World Bank Indicators / ESG](sources/world-bank.md) | Country-level ESG/SDG indicators | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | UN SDG API | SDG indicator context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
-| ILOSTAT | OHSE/labor benchmark context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
+| [ILOSTAT](sources/ilostat.md) | OHSE/labor benchmark context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | [EDGAR](sources/edgar.md) | National GHG inventory trend context | Annual/Release-based | Annual/versioned | must verify before connector | high |
 | WRI Aqueduct | Water stress/risk context | Periodic/Versioned | Periodic/versioned | must verify before connector | medium |
 | [NASA POWER](sources/nasa-power.md) | Weather/temperature/rainfall context | Daily/Historical | Daily | must verify before connector | medium |
