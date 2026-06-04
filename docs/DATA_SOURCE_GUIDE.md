@@ -160,7 +160,7 @@ License status remains **must verify before connector**.
 | CPCB National AQI | India official air-quality context | Hourly/Daily | Near-real-time | must verify before connector | high |
 | [CEA CO2 Baseline Database](sources/cea-co2-baseline.md) | Grid emission factor baseline | Annual/Versioned | Annual/versioned | must verify before connector | high |
 | [World Bank Indicators / ESG](sources/world-bank.md) | Country-level ESG/SDG indicators | Annual/Periodic | Annual/periodic | must verify before connector | medium |
-| UN SDG API | SDG indicator context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
+| [UN SDG API](sources/un-sdg-api.md) | SDG indicator context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | [ILOSTAT](sources/ilostat.md) | OHSE/labor benchmark context | Annual/Periodic | Annual/periodic | must verify before connector | medium |
 | [EDGAR](sources/edgar.md) | National GHG inventory trend context | Annual/Release-based | Annual/versioned | must verify before connector | high |
 | [WRI Aqueduct](sources/wri-aqueduct.md) | Water stress/risk context | Periodic/Versioned | Periodic/versioned | must verify before connector | medium |
