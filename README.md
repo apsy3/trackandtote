@@ -106,5 +106,6 @@ Before adding real public API connectors, review:
 - [`docs/DATA_SOURCE_GUIDE.md`](docs/DATA_SOURCE_GUIDE.md)
 - [`docs/SOURCE_GOVERNANCE_SUMMARY.md`](docs/SOURCE_GOVERNANCE_SUMMARY.md)
 - [`docs/SNAPSHOT_DATA_WORKFLOW.md`](docs/SNAPSHOT_DATA_WORKFLOW.md)
+- [`docs/DATA_ESSAY_WORKFLOW.md`](docs/DATA_ESSAY_WORKFLOW.md)
 - [`docs/experiments/nasa-power-snapshot-experiment.md`](docs/experiments/nasa-power-snapshot-experiment.md)
 - [`docs/SOURCE_REGISTRY_TEMPLATE.md`](docs/SOURCE_REGISTRY_TEMPLATE.md)
