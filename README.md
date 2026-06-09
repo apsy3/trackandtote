@@ -108,4 +108,5 @@ Before adding real public API connectors, review:
 - [`docs/SNAPSHOT_DATA_WORKFLOW.md`](docs/SNAPSHOT_DATA_WORKFLOW.md)
 - [`docs/DATA_ESSAY_WORKFLOW.md`](docs/DATA_ESSAY_WORKFLOW.md)
 - [`docs/experiments/nasa-power-snapshot-experiment.md`](docs/experiments/nasa-power-snapshot-experiment.md)
+- [`docs/experiments/nasa-power-pre-snapshot-checklist.md`](docs/experiments/nasa-power-pre-snapshot-checklist.md)
 - [`docs/SOURCE_REGISTRY_TEMPLATE.md`](docs/SOURCE_REGISTRY_TEMPLATE.md)
