@@ -10,6 +10,8 @@
     "dev": "npm run dev --workspace @india-esg/observatory -- --host 0.0.0.0 --port 4321",
     "build": "npm run build --workspace @india-esg/observatory",
     "preview": "npm run preview --workspace @india-esg/observatory",
+    "sync:root-static": "node scripts/sync-root-static.mjs",
+    "sync:root-static:dry-run": "node scripts/sync-root-static.mjs --dry-run",
     "typecheck": "npm run typecheck --workspace @india-esg/observatory"
   }
 }

@@ -61,6 +61,37 @@ npm run build
 npm run preview
 ```
 
+## Root Static Deployment Sync
+
+The Astro app builds from `apps/observatory` into:
+
+```text
+apps/observatory/dist/
+```
+
+The current Cloudflare Pages setup deploys static files from the repository root, so the generated public output is also checked in at root paths such as `index.html`, `_astro/`, `api/`, `notes/`, `projects/`, `method/`, and `blog/`.
+
+To prevent stale root pages from remaining public after the site structure changes, use the sync helper after a clean build:
+
+```bash
+npm run build
+npm run sync:root-static:dry-run
+npm run sync:root-static
+```
+
+The sync helper is intentionally conservative. It removes only known generated root output paths before copying the current `apps/observatory/dist/` files. It does not remove source or project folders such as `apps`, `packages`, `docs`, `data-cache`, `scripts`, `src`, `.git`, or `node_modules`.
+
+The helper also checks draft MDX slugs before copying. If a file with `draft: true` appears in the generated build output, the sync stops instead of copying that route to the root deployment surface.
+
+Before committing a deployment sync, verify:
+
+```bash
+npm run typecheck
+npm run build
+npm run sync:root-static:dry-run
+git status
+```
+
 ## Why Mock Data First
 
 This phase proves:
